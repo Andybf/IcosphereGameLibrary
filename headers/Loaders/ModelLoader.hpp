@@ -23,5 +23,6 @@ private:
         
 public:
     static Mesh* load(cchar* modelFileName, uint shaderId);
+    static void checkModelData(ModelData* modelData, cchar* modelName);
 };
 

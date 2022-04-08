@@ -16,9 +16,7 @@ class WavefrontObj {
 private:
     static void readFaceValue(char* buffer, std::vector<uint>* indices, FILE* file);
     static void moveFilePointerToBefore(FILE* file, cchar* substring);
-    static void readVertexes(FILE* file,
-                             cchar* vertexName,
-                             std::vector<float>* vertexList);
+    static void readVertexes(FILE* file, cchar* vertexName, std::vector<float>* vertexList);
     static void readFaces(FILE* file,std::vector<uint>* vertIndices);
     static void resolveVectorIndices(std::vector<uint>& normalIndices);
     

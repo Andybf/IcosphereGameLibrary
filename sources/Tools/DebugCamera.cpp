@@ -38,7 +38,6 @@ void DebugCamera::handleMousePress(short buttonPressed, short actionPerformed) {
 
 void DebugCamera::handleMouseMovement(float x, float y) {
     if (this->actualMouseState.isRightPressed) {
-        
         this->yaw -= (actualMouseState.x - x);
         this->pitch += (actualMouseState.y - y);
         if (this->pitch > 90.0f) {

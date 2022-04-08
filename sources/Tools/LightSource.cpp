@@ -12,4 +12,3 @@ LightSource::LightSource() {
     this->isSourceObjectVisible = false;
     this->color = glm::vec3(1);
 }
-

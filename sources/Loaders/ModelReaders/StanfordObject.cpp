@@ -11,8 +11,7 @@ ModelData* StanfordObj::extractFrom(FILE* file) {
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData),1);
     StanfordObj::checkFileType(file);
     StanfordObj::checkFormat(file);
-    uint vertices = StanfordObj::getNumberOf(MI_PLY_ELEMENT_VERTEX,file);
-    //uint columns = 8;
+    uint64_t vertices = StanfordObj::getNumberOf(MI_PLY_ELEMENT_VERTEX, file);
     
     cchar* coordinateNames[9] = { "x","y","z", "nx","ny","nz", "s","t","r"};
     char* buffer = (char*) calloc(sizeof(char), MI_PLY_HEADER_LINE_SIZE);
@@ -30,7 +29,7 @@ ModelData* StanfordObj::extractFrom(FILE* file) {
     uint8_t numVertices = vecDimensions[0];
     uint8_t numNormals =  vecDimensions[1];
     uint8_t numTexCoords =  vecDimensions[2];
-    uint faces = StanfordObj::getNumberOf(MI_PLY_ELEMENT_FACE,file);
+    uint64_t faces = StanfordObj::getNumberOf(MI_PLY_ELEMENT_FACE, file);
     StanfordObj::moveFilePointerToAfter(MI_PLY_END_HEADER, file);
     
     float* floatBuffer = (float*)calloc(sizeof(float),3);
@@ -45,16 +44,19 @@ ModelData* StanfordObj::extractFrom(FILE* file) {
         modelData->texCoords.insert(modelData->texCoords.end(), floatBuffer, floatBuffer+numTexCoords);
     }
     free(floatBuffer);
-    
+    StanfordObj::readFaces(file, faces, &modelData->indices);
+    return modelData;
+}
+
+void StanfordObj::readFaces(FILE* file, uint64_t faces, std::vector<uint>* indices) {
     short facesPerRow = fgetc(file);
     uint* uintBuffer = (uint*)calloc(sizeof(uint), facesPerRow);
     for (int x=0; x<faces; x++) {
         fread(uintBuffer, facesPerRow, sizeof(uint), file);
-        modelData->indices.insert(modelData->indices.end(), uintBuffer, uintBuffer+facesPerRow);
+        indices->insert(indices->end(), uintBuffer, uintBuffer+facesPerRow);
         fseek(file, +1, SEEK_CUR);
     }
     free(uintBuffer);
-    return modelData;
 }
 
 void StanfordObj::checkFileType(FILE* file) {

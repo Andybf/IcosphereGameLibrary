@@ -36,13 +36,15 @@
 
 class StanfordObj {
     
+public:
+    static ModelData* extractFrom(FILE* file);
+    
 private:
-    static void moveFilePointerToAfter(cchar* substring, FILE* file);
+    static void readFaces(FILE* file, uint64_t faces, std::vector<uint>* indices);
     
     static void checkFileType(FILE* file);
     static void checkFormat(FILE* file);
     static uint getNumberOf(cchar* elementName, FILE* file);
     
-public:
-    static ModelData* extractFrom(FILE* file);
+    static void moveFilePointerToAfter(cchar* substring, FILE* file);
 };

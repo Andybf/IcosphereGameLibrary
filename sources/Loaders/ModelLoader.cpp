@@ -13,7 +13,7 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     FileLoader::generatePathForFile(objectSourcePath ,"objects", modelFileName);
     FILE* file = fopen(objectSourcePath, "rb");
     if (file == NULL) {
-        printf("[MI_ERROR] No such file has been found: %s\n",objectSourcePath);
+        printf("[MI_MDL_ERROR] No such file has been found: %s\n",objectSourcePath);
         exit(1);
     }
     free(objectSourcePath);
@@ -21,6 +21,7 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData),1);
     modelData = StanfordObj::extractFrom(file);
     fclose(file);
+    ModelLoader::checkModelData(modelData,modelFileName);
     
     ulong modelsSize = modelData->vertices.size()*sizeof(GLfloat);
     ulong normalsSize = modelsSize + modelData->normals.size()*sizeof(GLfloat);
@@ -44,4 +45,15 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     EBO::unbind();
     
     return mesh;
+}
+
+void ModelLoader::checkModelData(ModelData* modelData, cchar* modelName) {
+    if (modelData->vertices.size() <= 0) {
+        printf("[MI_MDL_ERROR] The model %s does not contain any vertices.\nWe can't continue, exiting...\n",modelName);
+        exit(1);
+    }
+    if (modelData->indices.size() <= 0) {
+        printf("[MI_MDL_ERROR] The model %s does not contain any indices.\nWe can't continue, exiting...\n",modelName);
+        exit(1);
+    }
 }
