@@ -7,14 +7,8 @@
 
 #include "../include/Apolo/Core/Window.hpp"
 
-struct WindowData {
-    char* title;
-    uint16_t width;
-    uint16_t height;
-    float aspectRatio;
-    SDL_Window* sdlWindow;
-    SDL_Event sdlEvent;
-} *window;
+Window::WindowData* window;
+void windowLoopCallback();
 
 void Window::initialize(ushort width, ushort height, char* title) {
     
@@ -39,15 +33,42 @@ void Window::initialize(ushort width, ushort height, char* title) {
     );
 }
 
+void Window::setLoopCallback(void (*mainLoop)()) {
+    window->clientLoopCallback = mainLoop;
+}
+
+void Window::startLoop() {
+    
+    #ifdef __EMSCRIPTEN__
+        emscripten_set_main_loop(windowLoopCallback, 0, 1);
+    #else
+        while(1) {
+            windowLoopCallback();
+        }
+    #endif
+    
+}
+
+void windowLoopCallback() {
+    if (SDL_PollEvent(&window->sdlEvent)) {
+        if (window->sdlEvent.type == SDL_KEYUP) {
+            printf("keyup\n");
+        }
+        if (SDL_QUIT == window->sdlEvent.type) {
+            Window::exit();
+        }
+    }
+    
+    window->renderCallback();
+    window->clientLoopCallback();
+}
+
+
 void Window::exit() {
     SDL_DestroyWindow(window->sdlWindow);
     SDL_Quit();
 }
 
-SDL_Window* Window::getSdlWindow() {
-    return window->sdlWindow;
-}
-
-SDL_Event* Window::getSdlWindowEvent() {
-    return &window->sdlEvent;
+struct Window::WindowData* Window::getWindowData() {
+    return window;
 }

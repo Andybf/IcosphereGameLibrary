@@ -17,31 +17,21 @@ struct ContextInformation {
 SDL_GLContext glContext;
 ushort frameCount;
 float framesPerSecond;
-void (*callbackLoop)();
 
 void saveContextInformation();
 void renderLoop();
 
 
-void Render::initialize(SDL_Window* sdlWindow, void (*callbackFunctionLoop)()) {
-    glContext = SDL_GL_CreateContext(sdlWindow);
-    callbackLoop = callbackFunctionLoop;
+void Render::initialize(Window::WindowData* window) {
+    glContext = SDL_GL_CreateContext(window->sdlWindow);
+    window->renderCallback = renderLoop;
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     saveContextInformation();
-    
-#ifdef __EMSCRIPTEN__
-    emscripten_set_main_loop(renderLoop, 0, 1);
-#else
-    while(1) {
-        renderLoop();
-    }
-#endif
 }
 
-void renderLoop() {
+void Render::renderLoop() {
     AP_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
-    callbackLoop();
 }
 
 void Render::drawElementsInstanced(struct Entity* model, uint count) {

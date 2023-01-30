@@ -9,10 +9,12 @@
 #define render_h
 
 #include "../Core.hpp"
+#include "Window.hpp"
 #include "../World/Entity.hpp"
 
 namespace Render {
-    void initialize(SDL_Window* sdlWindow, void (*callbackLoop)());
+    void initialize(Window::WindowData* window);
+    void renderLoop();
 
     void drawElementsInstanced(struct Entity* model, uint count);
     void drawElements(struct Entity* model);

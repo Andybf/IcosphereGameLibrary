@@ -11,13 +11,27 @@
 #include "../Core.hpp"
 
 namespace Window {
+
+    struct WindowData {
+        char* title;
+        uint16_t width;
+        uint16_t height;
+        float aspectRatio;
+        SDL_Window* sdlWindow;
+        SDL_Event sdlEvent;
+        void (*clientLoopCallback)();
+        void (*renderCallback)();
+    };
+
     void initialize(ushort width, ushort height, char* title);
+
+    void setLoopCallback(void (*mainLoop)());
+
+    void startLoop();
 
     void exit();
 
-    SDL_Window* getSdlWindow();
-
-    SDL_Event* getSdlWindowEvent();
+    struct WindowData* getWindowData();
 }
 
 #endif /* window_h */
