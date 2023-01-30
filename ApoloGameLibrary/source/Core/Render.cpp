@@ -17,25 +17,31 @@ struct ContextInformation {
 SDL_GLContext glContext;
 ushort frameCount;
 float framesPerSecond;
+void (*callbackLoop)();
 
 void saveContextInformation();
+void renderLoop();
 
 
-void Render::initialize(SDL_Window* sdlWindow, void (*callbackLoop)()) {
+void Render::initialize(SDL_Window* sdlWindow, void (*callbackFunctionLoop)()) {
     glContext = SDL_GL_CreateContext(sdlWindow);
+    callbackLoop = callbackFunctionLoop;
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     saveContextInformation();
-    printf("%s\n", Render::getContextInformation());
     
 #ifdef __EMSCRIPTEN__
-    emscripten_set_main_loop(callbackLoop, 0, 1);
+    emscripten_set_main_loop(renderLoop, 0, 1);
 #else
     while(1) {
-        AP_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
-        callbackLoop();
+        renderLoop();
     }
 #endif
+}
+
+void renderLoop() {
+    AP_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+    callbackLoop();
 }
 
 void Render::drawElementsInstanced(struct Entity* model, uint count) {
@@ -66,6 +72,7 @@ void saveContextInformation() {
     contextInfo.glRenderer   = (char*)glGetString(GL_RENDERER);
     contextInfo.glVersion    = (char*)glGetString(GL_VERSION);
     contextInfo.glExtensions = (char*)glGetString(GL_EXTENSIONS);
+    printf("%s\n", Render::getContextInformation());
 }
 
 char* Render::getContextInformation() {

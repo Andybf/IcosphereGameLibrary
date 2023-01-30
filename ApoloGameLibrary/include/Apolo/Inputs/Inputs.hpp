@@ -11,8 +11,11 @@
 #define AP_MOUSE_BUTTON_RIGHT 0
 #define AP_MOUSE_RELEASE 0
 
-struct Inputs {
+struct Keyboard {
     void* (*respondKeyPress)(int buttonPressed, int actionPerformed);
+};
+
+struct Mouse {
     void* (*respondClickPress)(int buttonPressed, int actionPerformed);
     void* (*respondMovement)(double xpos, double ypos);
     void* (*respondScroll)(double xpos, double ypos);

@@ -7,6 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71743FAB298817D4006A7C6C /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4529881759006A7C6C /* Render.cpp */; };
+		71743FAC298817D4006A7C6C /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4629881759006A7C6C /* Window.cpp */; };
+		71743FAD298817D4006A7C6C /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4729881759006A7C6C /* VAO.cpp */; };
+		71743FAE298817D4006A7C6C /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4829881759006A7C6C /* EBO.cpp */; };
+		71743FAF298817D4006A7C6C /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4929881759006A7C6C /* Shader.cpp */; };
+		71743FB0298817D4006A7C6C /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4A29881759006A7C6C /* VBO.cpp */; };
+		71743FB1298817D4006A7C6C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4C29881759006A7C6C /* Camera.cpp */; };
+		71743FB2298817D4006A7C6C /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4D29881759006A7C6C /* Entity.cpp */; };
+		71743FB3298817D4006A7C6C /* Projection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4E29881759006A7C6C /* Projection.cpp */; };
+		71743FB4298817D4006A7C6C /* DebugCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5029881759006A7C6C /* DebugCamera.cpp */; };
+		71743FB5298817D4006A7C6C /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5229881759006A7C6C /* Text.cpp */; };
+		71743FB6298817D4006A7C6C /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5329881759006A7C6C /* Light.cpp */; };
+		71743FB7298817D4006A7C6C /* WavefrontObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5629881759006A7C6C /* WavefrontObject.cpp */; };
+		71743FB8298817D4006A7C6C /* StanfordObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5729881759006A7C6C /* StanfordObject.cpp */; };
+		71743FB9298817D4006A7C6C /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5829881759006A7C6C /* TextureLoader.cpp */; };
+		71743FBA298817D4006A7C6C /* ModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5929881759006A7C6C /* ModelLoader.cpp */; };
+		71743FBB298817D4006A7C6C /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5A29881759006A7C6C /* ShaderLoader.cpp */; };
+		71743FBC298817D4006A7C6C /* FileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5B29881759006A7C6C /* FileLoader.cpp */; };
+		71743FBD298817E3006A7C6C /* VBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2729881759006A7C6C /* VBO.hpp */; };
+		71743FBE298817E3006A7C6C /* Window.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2829881759006A7C6C /* Window.hpp */; };
+		71743FBF298817E3006A7C6C /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2929881759006A7C6C /* VAO.hpp */; };
+		71743FC0298817E3006A7C6C /* EBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2A29881759006A7C6C /* EBO.hpp */; };
+		71743FC1298817E3006A7C6C /* Shader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2B29881759006A7C6C /* Shader.hpp */; };
+		71743FC2298817E3006A7C6C /* Render.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2C29881759006A7C6C /* Render.hpp */; };
+		71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2D29881759006A7C6C /* Mesh.hpp */; };
+		71743FC4298817E3006A7C6C /* DebugCamera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3029881759006A7C6C /* DebugCamera.hpp */; };
+		71743FC5298817E3006A7C6C /* Projection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3129881759006A7C6C /* Projection.hpp */; };
+		71743FC6298817E3006A7C6C /* Light.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3329881759006A7C6C /* Light.hpp */; };
+		71743FC7298817E3006A7C6C /* Text.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3429881759006A7C6C /* Text.hpp */; };
+		71743FC8298817E3006A7C6C /* Entity.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3529881759006A7C6C /* Entity.hpp */; };
+		71743FC9298817E3006A7C6C /* Camera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3629881759006A7C6C /* Camera.hpp */; };
+		71743FCA298817E3006A7C6C /* ModelData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3929881759006A7C6C /* ModelData.hpp */; };
+		71743FCB298817E3006A7C6C /* StanfordObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3A29881759006A7C6C /* StanfordObject.hpp */; };
+		71743FCC298817E3006A7C6C /* WavefrontObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3B29881759006A7C6C /* WavefrontObject.hpp */; };
+		71743FCD298817E3006A7C6C /* ShaderLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3C29881759006A7C6C /* ShaderLoader.hpp */; };
+		71743FCE298817E3006A7C6C /* FileLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3D29881759006A7C6C /* FileLoader.hpp */; };
+		71743FCF298817E3006A7C6C /* TextureLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3E29881759006A7C6C /* TextureLoader.hpp */; };
+		71743FD0298817E3006A7C6C /* ModelLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3F29881759006A7C6C /* ModelLoader.hpp */; };
+		71743FD1298817E3006A7C6C /* Core.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D4029881759006A7C6C /* Core.hpp */; };
+		71743FD2298817E3006A7C6C /* Inputs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D4229881759006A7C6C /* Inputs.hpp */; };
 		71B2AC3F29860CD5001A3AB9 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B2AC3E29860CD5001A3AB9 /* libSDL2.a */; };
 /* End PBXBuildFile section */
 
@@ -670,12 +710,12 @@
 		71743D2629881759006A7C6C /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				71743D2729881759006A7C6C /* VBO.hpp */,
 				71743D2829881759006A7C6C /* Window.hpp */,
-				71743D2929881759006A7C6C /* VAO.hpp */,
-				71743D2A29881759006A7C6C /* EBO.hpp */,
-				71743D2B29881759006A7C6C /* Shader.hpp */,
 				71743D2C29881759006A7C6C /* Render.hpp */,
+				71743D2B29881759006A7C6C /* Shader.hpp */,
+				71743D2929881759006A7C6C /* VAO.hpp */,
+				71743D2729881759006A7C6C /* VBO.hpp */,
+				71743D2A29881759006A7C6C /* EBO.hpp */,
 				71743D2D29881759006A7C6C /* Mesh.hpp */,
 			);
 			path = Core;
@@ -714,8 +754,8 @@
 			isa = PBXGroup;
 			children = (
 				71743D3829881759006A7C6C /* ModelReaders */,
-				71743D3C29881759006A7C6C /* ShaderLoader.hpp */,
 				71743D3D29881759006A7C6C /* FileLoader.hpp */,
+				71743D3C29881759006A7C6C /* ShaderLoader.hpp */,
 				71743D3E29881759006A7C6C /* TextureLoader.hpp */,
 				71743D3F29881759006A7C6C /* ModelLoader.hpp */,
 			);
@@ -754,12 +794,12 @@
 		71743D4429881759006A7C6C /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				71743D4529881759006A7C6C /* Render.cpp */,
 				71743D4629881759006A7C6C /* Window.cpp */,
-				71743D4729881759006A7C6C /* VAO.cpp */,
-				71743D4829881759006A7C6C /* EBO.cpp */,
+				71743D4529881759006A7C6C /* Render.cpp */,
 				71743D4929881759006A7C6C /* Shader.cpp */,
+				71743D4729881759006A7C6C /* VAO.cpp */,
 				71743D4A29881759006A7C6C /* VBO.cpp */,
+				71743D4829881759006A7C6C /* EBO.cpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -797,10 +837,10 @@
 			isa = PBXGroup;
 			children = (
 				71743D5529881759006A7C6C /* ModelReaders */,
+				71743D5B29881759006A7C6C /* FileLoader.cpp */,
 				71743D5829881759006A7C6C /* TextureLoader.cpp */,
 				71743D5929881759006A7C6C /* ModelLoader.cpp */,
 				71743D5A29881759006A7C6C /* ShaderLoader.cpp */,
-				71743D5B29881759006A7C6C /* FileLoader.cpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1574,6 +1614,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71743FBD298817E3006A7C6C /* VBO.hpp in Headers */,
+				71743FBE298817E3006A7C6C /* Window.hpp in Headers */,
+				71743FBF298817E3006A7C6C /* VAO.hpp in Headers */,
+				71743FC0298817E3006A7C6C /* EBO.hpp in Headers */,
+				71743FC1298817E3006A7C6C /* Shader.hpp in Headers */,
+				71743FC2298817E3006A7C6C /* Render.hpp in Headers */,
+				71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */,
+				71743FC4298817E3006A7C6C /* DebugCamera.hpp in Headers */,
+				71743FC5298817E3006A7C6C /* Projection.hpp in Headers */,
+				71743FC6298817E3006A7C6C /* Light.hpp in Headers */,
+				71743FC7298817E3006A7C6C /* Text.hpp in Headers */,
+				71743FC8298817E3006A7C6C /* Entity.hpp in Headers */,
+				71743FC9298817E3006A7C6C /* Camera.hpp in Headers */,
+				71743FCA298817E3006A7C6C /* ModelData.hpp in Headers */,
+				71743FCB298817E3006A7C6C /* StanfordObject.hpp in Headers */,
+				71743FCC298817E3006A7C6C /* WavefrontObject.hpp in Headers */,
+				71743FCD298817E3006A7C6C /* ShaderLoader.hpp in Headers */,
+				71743FCE298817E3006A7C6C /* FileLoader.hpp in Headers */,
+				71743FCF298817E3006A7C6C /* TextureLoader.hpp in Headers */,
+				71743FD0298817E3006A7C6C /* ModelLoader.hpp in Headers */,
+				71743FD1298817E3006A7C6C /* Core.hpp in Headers */,
+				71743FD2298817E3006A7C6C /* Inputs.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,6 +1696,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71743FAB298817D4006A7C6C /* Render.cpp in Sources */,
+				71743FAC298817D4006A7C6C /* Window.cpp in Sources */,
+				71743FAD298817D4006A7C6C /* VAO.cpp in Sources */,
+				71743FAE298817D4006A7C6C /* EBO.cpp in Sources */,
+				71743FAF298817D4006A7C6C /* Shader.cpp in Sources */,
+				71743FB0298817D4006A7C6C /* VBO.cpp in Sources */,
+				71743FB1298817D4006A7C6C /* Camera.cpp in Sources */,
+				71743FB2298817D4006A7C6C /* Entity.cpp in Sources */,
+				71743FB3298817D4006A7C6C /* Projection.cpp in Sources */,
+				71743FB4298817D4006A7C6C /* DebugCamera.cpp in Sources */,
+				71743FB5298817D4006A7C6C /* Text.cpp in Sources */,
+				71743FB6298817D4006A7C6C /* Light.cpp in Sources */,
+				71743FB7298817D4006A7C6C /* WavefrontObject.cpp in Sources */,
+				71743FB8298817D4006A7C6C /* StanfordObject.cpp in Sources */,
+				71743FB9298817D4006A7C6C /* TextureLoader.cpp in Sources */,
+				71743FBA298817D4006A7C6C /* ModelLoader.cpp in Sources */,
+				71743FBB298817D4006A7C6C /* ShaderLoader.cpp in Sources */,
+				71743FBC298817D4006A7C6C /* FileLoader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,14 +18,14 @@ void resolveVectorIndices(std::vector<uint>& normalIndices);
 
 void WavefrontObj::process(FILE* file, ModelData* modelData) {
     fseek(file, 0, SEEK_SET);
-    WavefrontObj::readVertexes(file, "v ", &modelData->vertices);
-    WavefrontObj::readVertexes(file, "vn ", &modelData->normals);
-    WavefrontObj::readVertexes(file, "vt ", &modelData->texCoords);
-    WavefrontObj::readFaces(file, &modelData->indices);
+    readVertexes(file, "v ", &modelData->vertices);
+    readVertexes(file, "vn ", &modelData->normals);
+    readVertexes(file, "vt ", &modelData->texCoords);
+    readFaces(file, &modelData->indices);
 }
 
 void readVertexes(FILE* file, cchar* name, std::vector<float>* vertexes) {
-    WavefrontObj::moveFilePointerToBefore(file, name);
+    moveFilePointerToBefore(file, name);
     char* buffer = (char*)calloc(sizeof(char),10);
     int vertexNameSize = (int)strlen(name);
     fread(buffer, vertexNameSize, 1, file);
@@ -51,12 +51,12 @@ void readVertexes(FILE* file, cchar* name, std::vector<float>* vertexes) {
 }
 
 void readFaces(FILE* file, std::vector<uint>* vertIndices) {
-    WavefrontObj::moveFilePointerToBefore(file, (cchar*)"f ");
+    moveFilePointerToBefore(file, (cchar*)"f ");
     char* buffer = (char*) calloc(sizeof(char), 5);
     while (fgetc(file) == 'f' && fgetc(file) == ' ') {
         char readChar = NULL;
         while(readChar != '\n' && readChar != EOF) {
-            WavefrontObj::readFaceValue(buffer, vertIndices, file);
+            readFaceValue(buffer, vertIndices, file);
             fseek(file, -1, SEEK_CUR);
             readChar = fgetc(file);
         }
