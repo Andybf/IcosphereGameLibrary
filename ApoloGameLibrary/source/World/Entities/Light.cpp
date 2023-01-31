@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "Light.hpp"
+#include <Apolo/World/Entities/Light.hpp>
 
 Light::Light() {
     this->isSourceObjectVisible = false;

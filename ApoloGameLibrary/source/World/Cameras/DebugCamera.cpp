@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "DebugCamera.hpp"
+#include <Apolo/World/Cameras/DebugCamera.hpp>
 
 DebugCamera::DebugCamera(Camera* camera) {
     this->camera = camera;

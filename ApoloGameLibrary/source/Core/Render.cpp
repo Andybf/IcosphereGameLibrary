@@ -25,6 +25,7 @@ void Render::initialize(Window::WindowData* window) {
     window->renderCallback = renderLoop;
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
+    glClearColor(0.25f, 0.51f, 0.92f, 1);
     saveContextInformation();
 }
 

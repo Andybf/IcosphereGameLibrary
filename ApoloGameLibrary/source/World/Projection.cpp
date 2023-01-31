@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "../include/Apolo/World/Projection.hpp"
+#include <Apolo/World/Projection.hpp>
 
 Projection::Projection() {
     this->perspectiveMatrix = glm::mat4(1.0f);

@@ -32,6 +32,8 @@
 #define AP_PLY_ELEMENT_FACE "face"
 #define AP_PLY_ELEMENT_BUFFER_SIZE 10
 
+#define AP_PLY_MAX_VECTOR_DIMENSIONS 9
+
 #define AP_PLY_HEADER_LINE_SIZE 128
 
 namespace StanfordObj {

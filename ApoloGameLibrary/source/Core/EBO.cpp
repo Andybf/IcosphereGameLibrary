@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "EBO.hpp"
+#include <Apolo/Core/EBO.hpp>
 
 void EBO::bind(GLuint id) {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);

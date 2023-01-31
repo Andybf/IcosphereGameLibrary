@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "../include/Apolo/Core/VAO.hpp"
+#include <Apolo/Core/VAO.hpp>
 
 void VAO::bind(GLuint id) {
     glBindVertexArray(id);

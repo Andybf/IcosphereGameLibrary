@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "VBO.hpp"
+#include <Apolo/Core/VBO.hpp>
 
 void VBO::bind(GLuint id) {
     glBindBuffer(GL_ARRAY_BUFFER, id);

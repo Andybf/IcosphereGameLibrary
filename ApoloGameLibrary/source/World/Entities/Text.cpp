@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "Text.hpp"
+#include <Apolo/World/Entities/Text.hpp>
 
 Text::Text(uint fontMapTextureId, uint textShaderId) {
     this->fontmapWidth = 256.0f;

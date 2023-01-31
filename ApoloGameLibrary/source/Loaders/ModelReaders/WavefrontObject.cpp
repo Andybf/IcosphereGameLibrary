@@ -8,7 +8,7 @@
 //  OBJ (or .OBJ) is a geometry definition file format first developed by
 //  Wavefront Technologies for its Advanced Visualizer animation package.
 
-#include "WavefrontObject.hpp"
+#include <Apolo/Loaders/ModelReaders/WavefrontObject.hpp>
 
 void readFaceValue(char* buffer, std::vector<uint>* indices, FILE* file);
 void moveFilePointerToBefore(FILE* file, cchar* substring);

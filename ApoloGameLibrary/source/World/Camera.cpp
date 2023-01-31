@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "Camera.hpp"
+#include <Apolo/World/Camera.hpp>
 
 Camera::Camera() {
     this->matrix = glm::mat4(1.0f);

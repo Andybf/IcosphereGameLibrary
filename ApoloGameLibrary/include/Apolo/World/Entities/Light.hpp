@@ -8,7 +8,7 @@
 #ifndef Light_hpp
 #define Light_hpp
 
-#include "Entity.hpp"
+#include "../Entity.hpp"
 
 class Light : public Entity {
     

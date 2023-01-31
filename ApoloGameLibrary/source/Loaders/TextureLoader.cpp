@@ -23,7 +23,7 @@ void checkTextureFileIsFound(Image* image, cchar* textureFilePath);
 
 
 GLuint TextureLoader::load2d(cchar* textureFileName) {
-    GLuint entityTextureId;
+    GLuint entityTextureId = 0;
     
     char* textureFilePath = (char*)calloc(sizeof(char),256);
     FileLoader::generatePathForFile(textureFilePath, "textures",textureFileName);
@@ -46,7 +46,7 @@ GLuint TextureLoader::load2d(cchar* textureFileName) {
 }
 
 GLuint TextureLoader::loadCubemap(std::vector<cchar*> textureFaces) {
-    GLuint entityTextureId =0;
+    GLuint entityTextureId = 0;
     generateTextureId(&entityTextureId, GL_TEXTURE_CUBE_MAP);
     char* textureFilePath = (char*)calloc(sizeof(char),256);
     Image* image = (Image*) malloc(sizeof(Image));

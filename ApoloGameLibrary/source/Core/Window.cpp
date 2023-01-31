@@ -76,9 +76,11 @@ void windowLoopCallback() {
         
         window->renderCallback();
         window->clientLoopCallback();
+        SDL_GL_SwapWindow(window->sdlWindow);
+        
         programTime.current = programTime.elapsed;
     }
-    SDL_Delay(16.6);
+    SDL_Delay(16);
 }
 
 
