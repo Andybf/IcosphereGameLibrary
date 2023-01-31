@@ -32,6 +32,7 @@ void Projection::setPerspecProjection(float fieldOfView, float aspectRatio, floa
     this->fieldOfView = glm::radians(fieldOfView);
     this->nearPlane = nearPlane;
     this->farPlane = farPlane;
+    this->aspectRatio = aspectRatio;
     this->perspectiveMatrix = glm::perspective(this->fieldOfView, aspectRatio, nearPlane, farPlane);
 }
 

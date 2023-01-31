@@ -7,6 +7,12 @@
 
 #include <Apolo/Core/Window.hpp>
 
+struct ProgramTime {
+    int current = 0;
+    int elapsed = 0;
+    int delta = 0;
+} programTime;
+
 Window::WindowData* window;
 void windowLoopCallback();
 
@@ -22,9 +28,10 @@ void Window::initialize(ushort width, ushort height, char* title) {
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 #endif
     
-    window = (struct WindowData*) malloc(sizeof(struct WindowData*));
+    window = (struct WindowData*) malloc(sizeof(struct WindowData));
     window->width = width;
     window->height = height;
+    window->aspectRatio = (float) width/height;
     window->title = (char*)calloc(sizeof(char),128);
     strcpy(window->title, title);
     window->sdlWindow = SDL_CreateWindow(
@@ -33,7 +40,7 @@ void Window::initialize(ushort width, ushort height, char* title) {
         SDL_WINDOWPOS_UNDEFINED,
         window->width,
         window->height,
-        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
+        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI
     );
 }
 
@@ -59,18 +66,26 @@ void windowLoopCallback() {
             printf("keyup\n");
         }
         if (SDL_QUIT == window->sdlEvent.type) {
-            Window::exit();
+            Window::exitWindow();
         }
     }
     
-    window->renderCallback();
-    window->clientLoopCallback();
+    programTime.elapsed = SDL_GetTicks();
+    programTime.delta = programTime.elapsed - programTime.current;
+    if (programTime.delta > 1000/10.0f) {
+        
+        window->renderCallback();
+        window->clientLoopCallback();
+        programTime.current = programTime.elapsed;
+    }
+    SDL_Delay(16.6);
 }
 
 
-void Window::exit() {
+void Window::exitWindow() {
     SDL_DestroyWindow(window->sdlWindow);
     SDL_Quit();
+    exit(0);
 }
 
 struct Window::WindowData* Window::getWindowData() {

@@ -8,7 +8,7 @@
 #ifndef Camera_hpp
 #define Camera_hpp
 
-#include "Core.hpp"
+#include "../Core.hpp"
 
 class Camera {
     

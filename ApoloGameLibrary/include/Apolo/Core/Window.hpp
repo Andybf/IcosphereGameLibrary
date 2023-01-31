@@ -29,7 +29,7 @@ namespace Window {
 
     void startLoop();
 
-    void exit();
+    void exitWindow();
 
     struct WindowData* getWindowData();
 }

@@ -23,7 +23,7 @@ namespace Render {
     int getFrameCount();
     float getFramesPerSecond();
 
-    char* getContextInformation();
+    void printContextInformation();
 }
 
 #endif /* render_h */

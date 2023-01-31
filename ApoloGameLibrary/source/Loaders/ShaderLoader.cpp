@@ -83,7 +83,7 @@ void convertSourceToES(char* source) {
     if ( strstr(source, "#version 330") ) {
         source = (char*) realloc(source, strlen(source)+0x4);
         ushort replaceIndex = strstr(source, "330\n") - source;
-        char* buffer = (char*) calloc(sizeof(char*), strlen(source));
+        char* buffer = (char*) calloc(sizeof(char), strlen(source));
         strcpy(buffer, source+replaceIndex+3);
         strcpy(source+replaceIndex, "300 es");
         strcat(source, buffer);
@@ -96,7 +96,7 @@ void convertSourceToES(char* source) {
 void convertSourceToGL(char* source) {
     if ( strstr(source, "#version 300 es") ) {
         ushort replaceIndex = strstr(source, "300 es") - source;
-        char* buffer = (char*) calloc(sizeof(char*), strlen(source));
+        char* buffer = (char*) calloc(sizeof(char), strlen(source));
         strcpy(buffer, source+replaceIndex+6);
         strcpy(source+replaceIndex, "330");
         strcat(source, buffer);

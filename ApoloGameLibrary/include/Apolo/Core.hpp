@@ -11,6 +11,7 @@
 // C includes
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 
 // C++ includes
