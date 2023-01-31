@@ -47,10 +47,10 @@
 		71743FD0298817E3006A7C6C /* ModelLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3F29881759006A7C6C /* ModelLoader.hpp */; };
 		71743FD1298817E3006A7C6C /* Core.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D4029881759006A7C6C /* Core.hpp */; };
 		71743FD2298817E3006A7C6C /* Inputs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D4229881759006A7C6C /* Inputs.hpp */; };
-		71B2AC3F29860CD5001A3AB9 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B2AC3E29860CD5001A3AB9 /* libSDL2.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7119E64E2988ABC500D71CB5 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 		71743D2729881759006A7C6C /* VBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
 		71743D2829881759006A7C6C /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		71743D2929881759006A7C6C /* VAO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
@@ -523,7 +523,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B2AC3F29860CD5001A3AB9 /* libSDL2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1211,6 +1210,7 @@
 		71B2AC3D29860CD5001A3AB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7119E64E2988ABC500D71CB5 /* libSDL2-2.0.0.dylib */,
 				71B2AC3E29860CD5001A3AB9 /* libSDL2.a */,
 			);
 			name = Frameworks;
@@ -1470,6 +1470,7 @@
 					"$(inherited)",
 					/opt/homebrew/Cellar/sdl2/2.26.2/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1490,6 +1491,7 @@
 					"$(inherited)",
 					/opt/homebrew/Cellar/sdl2/2.26.2/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
