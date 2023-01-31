@@ -10,6 +10,9 @@
 GLuint compile(int shaderType, char* sourceContents);
 GLuint link(int vextexId, int fragmentId);
 void check(int status, int shaderId);
+void checkSourceLanguage(char* source);
+void convertSourceToES(char* source);
+void convertSourceToGL(char* source);
 
 
 GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
@@ -22,11 +25,15 @@ GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
     char* vertexShaderSource = FileLoader::read(vertexShaderSourcePath);
     char* fragmentShaderSource = FileLoader::read(fragmentShaderSourcePath);
     
+    free(vertexShaderSourcePath);
+    free(fragmentShaderSourcePath);
+    
+    checkSourceLanguage(vertexShaderSource);
+    checkSourceLanguage(fragmentShaderSource);
+    
     int vertexId = compile(GL_VERTEX_SHADER, vertexShaderSource);
     int fragmentId = compile(GL_FRAGMENT_SHADER, fragmentShaderSource);
     
-    free(vertexShaderSourcePath);
-    free(fragmentShaderSourcePath);
     free(vertexShaderSource);
     free(fragmentShaderSource);
     
@@ -61,5 +68,40 @@ void check(int status, int shaderId) {
         printf("[AP_SHD_ERROR] shaderId %d unchecked:\n%s\n",shaderId,infoLog);
         free(infoLog);
         exit(1);
+    }
+}
+
+void checkSourceLanguage(char* source) {
+    if ( strstr((char*)glGetString(GL_VERSION), "OpenGL ES") ) {
+        convertSourceToES(source);
+    } else {
+        convertSourceToGL(source);
+    }
+}
+
+void convertSourceToES(char* source) {
+    if ( strstr(source, "#version 330") ) {
+        source = (char*) realloc(source, strlen(source)+0x4);
+        ushort replaceIndex = strstr(source, "330\n") - source;
+        char* buffer = (char*) calloc(sizeof(char*), strlen(source));
+        strcpy(buffer, source+replaceIndex+3);
+        strcpy(source+replaceIndex, "300 es");
+        strcat(source, buffer);
+        free(buffer);
+        
+        printf("[AP_SHD_INFO] shader automaticly converted to GLSL ES 3.0\n");
+    }
+}
+
+void convertSourceToGL(char* source) {
+    if ( strstr(source, "#version 300 es") ) {
+        ushort replaceIndex = strstr(source, "300 es") - source;
+        char* buffer = (char*) calloc(sizeof(char*), strlen(source));
+        strcpy(buffer, source+replaceIndex+6);
+        strcpy(source+replaceIndex, "330");
+        strcat(source, buffer);
+        free(buffer);
+        
+        printf("[AP_SHD_INFO] shader automaticly converted to GLSL 3.3+\n");
     }
 }
