@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 27/01/23.
 //
 
-#include "../include/Apolo/Core/Render.hpp"
+#include <Apolo/Core/Render.hpp>
 
 struct ContextInformation {
     char* glVendor;
@@ -31,7 +31,21 @@ void Render::initialize(Window::WindowData* window) {
 }
 
 void Render::renderLoop() {
+    SDL_GL_SetSwapInterval(1);
+    glClearColor ( 1.0, 0.0, 0.0, 1.0 );
     AP_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+    SDL_GL_SwapWindow(Window::getWindowData()->sdlWindow);
+    SDL_Delay(250);
+    
+    glClearColor ( 0.0, 1.0, 0.0, 1.0 );
+    AP_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+    SDL_GL_SwapWindow(Window::getWindowData()->sdlWindow);
+    SDL_Delay(250);
+    
+    glClearColor ( 0.0, 0.0, 1.0, 1.0 );
+    AP_TEST(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
+    SDL_GL_SwapWindow(Window::getWindowData()->sdlWindow);
+    SDL_Delay(250);
 }
 
 void Render::drawElementsInstanced(struct Entity* model, uint count) {

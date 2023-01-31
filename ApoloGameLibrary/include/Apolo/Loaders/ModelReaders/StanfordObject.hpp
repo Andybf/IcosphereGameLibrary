@@ -12,7 +12,7 @@
 #pragma once
 
 #include "ModelData.hpp"
-#include "Core.hpp"
+#include "../../Core.hpp"
 
 #define AP_PLY_MAGIC "ply"
 #define AP_PLY_MAGIC_BUFFER_SIZE 4

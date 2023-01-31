@@ -8,7 +8,7 @@
 #ifndef EBO_hpp
 #define EBO_hpp
 
-#include "Core.hpp"
+#include "../Core.hpp"
 
 namespace EBO {
     void bind(GLuint id);

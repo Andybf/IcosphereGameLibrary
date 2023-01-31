@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "Shader.hpp"
+#include <Apolo/Core/Shader.hpp>
 
 static uint activeShaderId = 0;
 static void setUniformMatrix(cchar* name, glm::mat4 matrix);

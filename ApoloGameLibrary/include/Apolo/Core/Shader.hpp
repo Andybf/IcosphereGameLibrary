@@ -8,7 +8,7 @@
 #ifndef Shader_hpp
 #define Shader_hpp
 
-#include "Core.hpp"
+#include "../Core.hpp"
 #include "../World/Entity.hpp"
 
 namespace Shader {

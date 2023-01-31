@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "Core.hpp"
+#include "../../Core.hpp"
 #include "../../Loaders/ModelReaders/ModelData.hpp"
 
 namespace WavefrontObj {

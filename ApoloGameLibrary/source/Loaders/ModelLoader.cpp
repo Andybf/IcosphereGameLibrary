@@ -5,14 +5,14 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "ModelLoader.hpp"
+#include <Apolo/Loaders/ModelLoader.hpp>
 
 Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     char* objectSourcePath = (char*)calloc(sizeof(char),256);
     FileLoader::generatePathForFile(objectSourcePath ,"objects", modelFileName);
     FILE* file = fopen(objectSourcePath, "rb");
     if (file == NULL) {
-        printf("[MI_MDL_ERROR] No such file has been found: %s\n",objectSourcePath);
+        printf("[AP_MDL_ERROR] No such file has been found: %s\n",objectSourcePath);
         exit(1);
     }
     free(objectSourcePath);
@@ -48,11 +48,11 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
 
 void ModelLoader::checkModelData(ModelData* modelData, cchar* modelName) {
     if (modelData->vertices.size() <= 0) {
-        printf("[MI_MDL_ERROR] The model %s does not contain any vertices.\nWe can't continue, exiting...\n",modelName);
+        printf("[AP_MDL_ERROR] The model %s does not contain any vertices.\nWe can't continue, exiting...\n",modelName);
         exit(1);
     }
     if (modelData->indices.size() <= 0) {
-        printf("[MI_MDL_ERROR] The model %s does not contain any indices.\nWe can't continue, exiting...\n",modelName);
+        printf("[AP_MDL_ERROR] The model %s does not contain any indices.\nWe can't continue, exiting...\n",modelName);
         exit(1);
     }
 }

@@ -74,7 +74,7 @@ void checkFileType(FILE* file) {
     char* buffer = (char*) calloc(sizeof(char), AP_PLY_MAGIC_BUFFER_SIZE);
     fseek(file, 0x0, SEEK_SET);
     if (strcmp(fgets(buffer, AP_PLY_MAGIC_BUFFER_SIZE, file), AP_PLY_MAGIC) != 0) {
-        printf("[MI_PLY_ERROR] file format is not .ply\n");
+        printf("[AP_PLY_ERROR] file format is not .ply\n");
         free(buffer);
         fclose(file);
         exit(1);
@@ -86,7 +86,7 @@ void checkFormat(FILE* file) {
     char* format = (char*) calloc(sizeof(char), AP_PLY_FORMAT_BUFFER_SIZE);
     fseek(file, 11, SEEK_SET);
     if (strcmp(fgets(format, AP_PLY_FORMAT_BUFFER_SIZE, file), AP_PLY_FORMAT_B_LITTLE_ENDIAN) != 0) {
-        printf("[MI_PLY_ERROR] file data is not on the binary little endian format.\n");
+        printf("[AP_PLY_ERROR] file data is not on the binary little endian format.\n");
         free(format);
         fclose(file);
         exit(1);

@@ -8,7 +8,7 @@
 #ifndef VBO_hpp
 #define VBO_hpp
 
-#include "Core.hpp"
+#include "../Core.hpp"
 
 namespace VBO {
     void bind(GLuint id);

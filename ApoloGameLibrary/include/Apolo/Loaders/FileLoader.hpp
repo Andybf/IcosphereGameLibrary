@@ -18,11 +18,9 @@
 #include <iostream>
 
 namespace FileLoader {
-
-    char* programPath;
         
     void generatePathForFile(char* sourcePath, cchar* folder, cchar* fileName);
-    void removeExecutableNameFrom(cchar* programPath);
+    void setProgramSystemPath(std::string programPath);
     char* read(char* sourcePath);
     
 };

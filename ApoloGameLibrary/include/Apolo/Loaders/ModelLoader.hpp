@@ -9,10 +9,10 @@
 
 #include "FileLoader.hpp"
 #include "../World/Entity.hpp"
-#include "VBO.hpp"
-#include "VAO.hpp"
-#include "EBO.hpp"
-#include "Mesh.hpp"
+#include "../Core/VBO.hpp"
+#include "../Core/VAO.hpp"
+#include "../Core/EBO.hpp"
+#include "../Core/Mesh.hpp"
 #include "./ModelReaders/StanfordObject.hpp"
 #include "../Loaders/ModelReaders/ModelData.hpp"
 

@@ -8,7 +8,7 @@
 #ifndef VAO_hpp
 #define VAO_hpp
 
-#include "Core.hpp"
+#include "../Core.hpp"
 
 namespace VAO {
     void bind(GLuint id);

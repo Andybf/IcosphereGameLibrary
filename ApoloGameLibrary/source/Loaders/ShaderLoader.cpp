@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "ShaderLoader.hpp"
+#include <Apolo/Loaders/ShaderLoader.hpp>
 
 GLuint compile(int shaderType, char* sourceContents);
 GLuint link(int vextexId, int fragmentId);
@@ -35,28 +35,30 @@ GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
 
 GLuint compile(int shaderType, char* sourceContents) {
     GLuint shaderId = glCreateShader(shaderType);
-    glShaderSource(shaderId, 1, (cchar**)&sourceContents, 0);
-    glCompileShader(shaderId);
+    AP_TEST(glShaderSource(shaderId, 1, (cchar**)&sourceContents, 0));
+    AP_TEST(glCompileShader(shaderId));
     check(GL_COMPILE_STATUS, shaderId);
     return shaderId;
 }
 
-GLuint link(int vextexId, int fragmentId) {
+GLuint link(int vertexId, int fragmentId) {
     GLuint shaderProgramId = glCreateProgram();
-    AP_TEST(glAttachShader(shaderProgramId, vextexId));
+    AP_TEST(glAttachShader(shaderProgramId, vertexId));
     AP_TEST(glAttachShader(shaderProgramId, fragmentId));
     AP_TEST(glLinkProgram(shaderProgramId));
-    check(GL_LINK_STATUS,shaderProgramId);
+#ifndef __EMSCRIPTEN__
+    check(GL_LINK_STATUS, shaderProgramId);
+#endif
     return shaderProgramId;
 }
 
 void check(int status, int shaderId) {
     int isShaderSuccessfullyCompiled = -1;
-    glGetShaderiv(shaderId, status, &isShaderSuccessfullyCompiled);
+    AP_TEST(glGetShaderiv(shaderId, status, &isShaderSuccessfullyCompiled));
     if (!isShaderSuccessfullyCompiled) {
         char* infoLog = (char*) malloc(sizeof(char)*512);
-        glGetShaderInfoLog(shaderId, 512, NULL, infoLog);
-        printf("[ERROR] shaderId %d unchecked:\n%s\n",shaderId,infoLog);
+        AP_TEST(glGetShaderInfoLog(shaderId, 512, NULL, infoLog));
+        printf("[AP_SHD_ERROR] shaderId %d unchecked:\n%s\n",shaderId,infoLog);
         free(infoLog);
         exit(1);
     }

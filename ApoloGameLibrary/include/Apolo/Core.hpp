@@ -16,7 +16,6 @@
 // C++ includes
 #include <vector>
 
-//#include "../dependencies/cglm/cglm.h"
 #include "../dependencies/glm/glm.hpp"
 #include "../dependencies/glm/gtx/matrix_decompose.hpp"
 #include "../dependencies/glm/gtc/random.hpp"
@@ -25,6 +24,7 @@
 #ifdef __APPLE__
     #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     #include <OpenGL/gl3.h>
+//    #include "../dependencies/glew/glew.h"
     #include <unistd.h>
 #endif
 
@@ -33,17 +33,17 @@
     #include <GLES3/gl3.h>
 #endif
 
-#ifdef AP_DEBUG
+//#ifdef AP_DEBUG
     #define AP_TEST(glFunctionCall)\
         while(glGetError() != GL_NO_ERROR);\
         glFunctionCall;\
         while (GLenum errorCode = glGetError()) {\
             printf("[GL_ERROR] code: %d|0x%x | line: %d\n",errorCode,errorCode,__LINE__);\
         }
-#else
-    #define AP_TEST(glFunctionCall)\
-        glFunctionCall
-#endif
+//#else
+//    #define AP_TEST(glFunctionCall)\
+//        glFunctionCall
+//#endif
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 #define AP_STRIDE 0

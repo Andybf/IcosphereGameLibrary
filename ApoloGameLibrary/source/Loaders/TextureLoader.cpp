@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include "TextureLoader.hpp"
+#include <Apolo/Loaders/TextureLoader.hpp>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "../../dependencies/stb_image/stb_image.hpp"
@@ -60,7 +60,9 @@ GLuint TextureLoader::loadCubemap(std::vector<cchar*> textureFaces) {
     }
     free(image);
     free(textureFilePath);
+#ifndef __EMSCRIPTEN__
     glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+#endif
     setTextureParameters(GL_TEXTURE_CUBE_MAP);
     return entityTextureId;
 }
@@ -80,7 +82,7 @@ void setTextureParameters(int texType) {
 
 void checkTextureFileIsFound(Image* image, cchar* textureFilePath) {
     if (image->data == NULL) {
-        printf("[MI_TXL_ERROR] The requested texture file was not found. Path:\n %s\n",textureFilePath);
+        printf("[AP_TXL_ERROR] The requested texture file was not found. Path:\n %s\n",textureFilePath);
         exit(1);
     }
 }

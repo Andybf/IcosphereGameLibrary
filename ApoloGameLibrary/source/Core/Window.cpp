@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 27/01/23.
 //
 
-#include "../include/Apolo/Core/Window.hpp"
+#include <Apolo/Core/Window.hpp>
 
 Window::WindowData* window;
 void windowLoopCallback();
@@ -15,6 +15,8 @@ void Window::initialize(ushort width, ushort height, char* title) {
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
     
     SDL_Init( SDL_INIT_VIDEO );
     
@@ -23,8 +25,7 @@ void Window::initialize(ushort width, ushort height, char* title) {
     window->height = height;
     window->title = (char*)calloc(sizeof(char),128);
     strcpy(window->title, title);
-    window->sdlWindow = SDL_CreateWindow(
-                                         window->title,
+    window->sdlWindow = SDL_CreateWindow(window->title,
                                          SDL_WINDOWPOS_UNDEFINED,
                                          SDL_WINDOWPOS_UNDEFINED,
                                          window->width,
