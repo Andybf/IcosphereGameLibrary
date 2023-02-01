@@ -96,8 +96,9 @@ void convertSourceToES(char* source) {
         strcpy(source+replaceIndex, "300 es");
         strcat(source, buffer);
         free(buffer);
-        
+#ifdef AP_DEBUG
         printf("[AP_SHD_INFO] shader automaticly converted to GLSL ES 3.0\n");
+#endif
     }
 }
 

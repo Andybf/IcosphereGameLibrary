@@ -517,6 +517,14 @@
 		71743FA92988175A006A7C6C /* type_aligned.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = type_aligned.hpp; sourceTree = "<group>"; };
 		7192046E298999910037D1F8 /* Inputs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Inputs.cpp; sourceTree = "<group>"; };
 		71920472298A12D70037D1F8 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		71920478298AE05A0037D1F8 /* NoTextureVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = NoTextureVertex.vs; sourceTree = "<group>"; };
+		71920479298AE05A0037D1F8 /* CubemapVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = CubemapVertex.vs; sourceTree = "<group>"; };
+		7192047A298AE05A0037D1F8 /* NoTextureFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = NoTextureFragment.fs; sourceTree = "<group>"; };
+		7192047B298AE05A0037D1F8 /* CubemapFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = CubemapFragment.fs; sourceTree = "<group>"; };
+		7192047C298AE05A0037D1F8 /* TextVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TextVertex.vs; sourceTree = "<group>"; };
+		7192047D298AE05A0037D1F8 /* TextFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TextFragment.fs; sourceTree = "<group>"; };
+		7192047E298AE05A0037D1F8 /* DefaultFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DefaultFragment.fs; sourceTree = "<group>"; };
+		7192047F298AE05A0037D1F8 /* DefaultVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DefaultVertex.vs; sourceTree = "<group>"; };
 		71B2AC3E29860CD5001A3AB9 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2.a; sourceTree = "<group>"; };
 		71F7430129860A08004CA604 /* libApoloGameLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libApoloGameLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -535,6 +543,7 @@
 		71743D2329881759006A7C6C /* ApoloGameLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				71920477298AE05A0037D1F8 /* shaders */,
 				71743D2429881759006A7C6C /* include */,
 				71743D4329881759006A7C6C /* source */,
 				71743D5D29881759006A7C6C /* dependencies */,
@@ -1210,6 +1219,21 @@
 				71743FA92988175A006A7C6C /* type_aligned.hpp */,
 			);
 			path = gtx;
+			sourceTree = "<group>";
+		};
+		71920477298AE05A0037D1F8 /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				7192047B298AE05A0037D1F8 /* CubemapFragment.fs */,
+				71920479298AE05A0037D1F8 /* CubemapVertex.vs */,
+				71920478298AE05A0037D1F8 /* NoTextureVertex.vs */,
+				7192047A298AE05A0037D1F8 /* NoTextureFragment.fs */,
+				7192047C298AE05A0037D1F8 /* TextVertex.vs */,
+				7192047D298AE05A0037D1F8 /* TextFragment.fs */,
+				7192047E298AE05A0037D1F8 /* DefaultFragment.fs */,
+				7192047F298AE05A0037D1F8 /* DefaultVertex.vs */,
+			);
+			path = shaders;
 			sourceTree = "<group>";
 		};
 		71B2AC3D29860CD5001A3AB9 /* Frameworks */ = {
