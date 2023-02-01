@@ -8,7 +8,7 @@
 #ifndef Text_hpp
 #define Text_hpp
 
-#include "Core.hpp"
+#include "../../Core.hpp"
 #include "../Entity.hpp"
 
 class Text : public Entity {

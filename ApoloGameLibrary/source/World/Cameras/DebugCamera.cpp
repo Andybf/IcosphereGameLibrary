@@ -11,32 +11,32 @@ DebugCamera::DebugCamera(Camera* camera) {
     this->camera = camera;
     this->lastMouseState.x = 0;
     this->lastMouseState.y = 0;
-    this->lastMouseState.isRightPressed = false;
+    this->lastMouseState.isActivationButtonPressed = false;
     this->lastMouseState.isLeftPressed = false;
     this->actualMouseState.x = 0;
     this->actualMouseState.y = 0;
-    this->actualMouseState.isRightPressed = false;
+    this->actualMouseState.isActivationButtonPressed = false;
     this->actualMouseState.isLeftPressed = false;
     this->yaw =0;
     this->pitch =0;
 }
 
-void DebugCamera::handleMousePress(short buttonPressed, short actionPerformed) {
-    if (buttonPressed == AP_MOUSE_BUTTON_RIGHT && actionPerformed == AP_MOUSE_BUTTON_RIGHT) {
-        this->actualMouseState.isRightPressed = true;
-        if (this->lastMouseState.x == -1.0f) {
-            this->lastMouseState.x = this->actualMouseState.x;
-            this->lastMouseState.y = this->actualMouseState.y;
-        }
-    } else if (buttonPressed == AP_MOUSE_BUTTON_RIGHT && actionPerformed == AP_MOUSE_RELEASE) {
-        this->actualMouseState.isRightPressed = false;
-        this->lastMouseState.x = -1.0f;
-        this->lastMouseState.y = -1.0f;
+void DebugCamera::handleMouseClickDown() {
+    this->actualMouseState.isActivationButtonPressed = true;
+    if (this->lastMouseState.x == -1.0f) {
+        this->lastMouseState.x = this->actualMouseState.x;
+        this->lastMouseState.y = this->actualMouseState.y;
     }
 }
 
+void DebugCamera::handleMouseClickUp() {
+    this->actualMouseState.isActivationButtonPressed = false;
+    this->lastMouseState.x = -1.0f;
+    this->lastMouseState.y = -1.0f;
+}
+
 void DebugCamera::handleMouseMovement(float x, float y) {
-    if (this->actualMouseState.isRightPressed) {
+    if (this->actualMouseState.isActivationButtonPressed) {
         this->yaw -= (actualMouseState.x - x);
         this->pitch += (actualMouseState.y - y);
         if (this->pitch > 90.0f) {

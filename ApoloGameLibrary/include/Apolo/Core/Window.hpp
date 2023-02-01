@@ -18,7 +18,6 @@ namespace Window {
         uint16_t height;
         float aspectRatio;
         SDL_Window* sdlWindow;
-        SDL_Event sdlEvent;
         void (*clientLoopCallback)();
         void (*renderCallback)();
     };
@@ -30,6 +29,8 @@ namespace Window {
     void startLoop();
 
     void exitWindow();
+
+    float getFrameRate();
 
     struct WindowData* getWindowData();
 }

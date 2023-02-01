@@ -8,17 +8,31 @@
 #ifndef Inputs_hpp
 #define Inputs_hpp
 
-#define AP_MOUSE_BUTTON_RIGHT 0
-#define AP_MOUSE_RELEASE 0
+#include "../Core.hpp"
+
+namespace Input {
+    void setKeyUpCallbackFunction(void* (*callback)(int));
+    void setKeyDownCallbackFunction(void* (*callback)(int));
+
+    void setMouseMovementCallbackFunction(void (*callback)(double, double));
+    void setMouseDownCallbackFunction(void (*callback)(int button, int x, int y));
+    void setMouseUpCallbackFunction(void (*callback)(int button, int x, int y));
+    void setMouseScrollCallbackFunction(void (*callback)(double, double));
+
+    void receiveInputFromSdl();
+    uint8_t shouldExitProgram();
+}
 
 struct Keyboard {
-    void* (*respondKeyPress)(int buttonPressed, int actionPerformed);
+    void* (*respondKeyUp)(int keyPressed);
+    void* (*respondKeyDown)(int keyPressed);
 };
 
 struct Mouse {
-    void* (*respondClickPress)(int buttonPressed, int actionPerformed);
-    void* (*respondMovement)(double xpos, double ypos);
-    void* (*respondScroll)(double xpos, double ypos);
+    void (*respondClickUp)(int button, int x, int y);
+    void (*respondClickDown)(int button, int x, int y);
+    void (*respondMovement)(double xpos, double ypos);
+    void (*respondScroll)(double xpos, double ypos);
 };
 
 #endif /* Inputs_h */

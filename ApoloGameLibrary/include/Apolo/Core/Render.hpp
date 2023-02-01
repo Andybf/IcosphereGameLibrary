@@ -20,9 +20,6 @@ namespace Render {
     void drawElements(struct Entity* model);
     void drawArrays(struct Entity* model);
 
-    int getFrameCount();
-    float getFramesPerSecond();
-
     void printContextInformation();
 }
 

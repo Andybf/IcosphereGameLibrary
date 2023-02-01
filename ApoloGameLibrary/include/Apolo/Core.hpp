@@ -45,6 +45,8 @@
         glFunctionCall
 #endif
 
+#define AP_IS_FUNCTION_DEFINED(function) *function
+
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 #define AP_STRIDE 0
 #define AP_VAO_TO_GENERATE 1
@@ -68,6 +70,9 @@
 
 #define AP_INDEX_ZERO 0
 #define AP_COUNT 1
+
+#define AP_INPUT_QUIT_SIGNAL 1
+#define AP_INPUT_NO_EVENT_SIGNAL 0
 
 typedef unsigned short ushort;
 typedef unsigned char uchar;

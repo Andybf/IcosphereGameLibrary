@@ -8,8 +8,7 @@
 #ifndef DebugCamera_hpp
 #define DebugCamera_hpp
 
-#include "Camera.hpp"
-#include "Inputs.hpp"
+#include "../Camera.hpp"
 
 class DebugCamera {
     
@@ -19,7 +18,7 @@ private:
     struct Mouse {
         float x;
         float y;
-        bool isRightPressed;
+        bool isActivationButtonPressed;
         bool isLeftPressed;
     } actualMouseState, lastMouseState;
     
@@ -29,7 +28,8 @@ private:
 public:
     DebugCamera(Camera* camera);
     
-    void handleMousePress(short buttonPressed, short actionPerformed);
+    void handleMouseClickUp();
+    void handleMouseClickDown();
     void handleMouseMovement(float x, float y);
     void handleMouseScroll(float x, float y);
 };
