@@ -9,7 +9,8 @@
 
 GLuint compile(int shaderType, char* sourceContents);
 GLuint link(int vextexId, int fragmentId);
-void check(int status, int shaderId);
+GLint checkShaderStatus(GLenum status, GLuint shaderId);
+GLint checkProgramStatus(GLenum status, GLuint programId);
 void checkSourceLanguage(char* source);
 void convertSourceToES(char* source);
 void convertSourceToGL(char* source);
@@ -44,7 +45,7 @@ GLuint compile(int shaderType, char* sourceContents) {
     GLuint shaderId = glCreateShader(shaderType);
     AP_TEST(glShaderSource(shaderId, 1, (cchar**)&sourceContents, 0));
     AP_TEST(glCompileShader(shaderId));
-    check(GL_COMPILE_STATUS, shaderId);
+    checkShaderStatus(GL_COMPILE_STATUS, shaderId);
     return shaderId;
 }
 
@@ -53,19 +54,26 @@ GLuint link(int vertexId, int fragmentId) {
     AP_TEST(glAttachShader(shaderProgramId, vertexId));
     AP_TEST(glAttachShader(shaderProgramId, fragmentId));
     AP_TEST(glLinkProgram(shaderProgramId));
-#ifndef __EMSCRIPTEN__
-    check(GL_LINK_STATUS, shaderProgramId);
-#endif
+    checkProgramStatus(GL_LINK_STATUS, shaderProgramId);
     return shaderProgramId;
 }
 
-void check(int status, int shaderId) {
-    int isShaderSuccessfullyCompiled = -1;
-    AP_TEST(glGetShaderiv(shaderId, status, &isShaderSuccessfullyCompiled));
-    if (!isShaderSuccessfullyCompiled) {
+GLint checkShaderStatus(GLenum status, GLuint shaderId) {
+    GLint returnedParameter = -1;
+    AP_TEST(glGetShaderiv(shaderId, status, &returnedParameter));
+    return returnedParameter;
+}
+GLint checkProgramStatus(GLenum status, GLuint programId) {
+    GLint returnedParameter = -1;
+    AP_TEST(glGetProgramiv(programId, status, &returnedParameter));
+    return returnedParameter;
+}
+
+void checkParam(GLuint returnedParameter, GLint programShader) {
+    if (!returnedParameter) {
         char* infoLog = (char*) malloc(sizeof(char)*512);
-        AP_TEST(glGetShaderInfoLog(shaderId, 512, NULL, infoLog));
-        printf("[AP_SHD_ERROR] shaderId %d unchecked:\n%s\n",shaderId,infoLog);
+        AP_TEST(glGetShaderInfoLog(programShader, 512, NULL, infoLog));
+        printf("[AP_SHD_ERROR] Program/ShaderId %d unchecked:\n%s\n",programShader,infoLog);
         free(infoLog);
         exit(1);
     }
@@ -101,7 +109,8 @@ void convertSourceToGL(char* source) {
         strcpy(source+replaceIndex, "330");
         strcat(source, buffer);
         free(buffer);
-        
+#ifdef AP_DEBUG
         printf("[AP_SHD_INFO] shader automaticly converted to GLSL 3.3+\n");
+#endif
     }
 }

@@ -63,7 +63,7 @@ void Input::receiveInputFromSdl() {
                 break;
             case SDL_MOUSEWHEEL:
                 if(AP_IS_FUNCTION_DEFINED(mouse.respondScroll)) {
-                    mouse.respondScroll(sdlEvent.motion.x, sdlEvent.motion.y);
+                    mouse.respondScroll(sdlEvent.wheel.preciseX, sdlEvent.wheel.preciseY);
                 }
                 break;
             case SDL_QUIT:

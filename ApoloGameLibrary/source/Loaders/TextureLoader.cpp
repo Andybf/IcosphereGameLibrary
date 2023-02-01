@@ -61,7 +61,7 @@ GLuint TextureLoader::loadCubemap(std::vector<cchar*> textureFaces) {
     free(image);
     free(textureFilePath);
 #ifndef __EMSCRIPTEN__
-    glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+    AP_TEST(glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS));
 #endif
     setTextureParameters(GL_TEXTURE_CUBE_MAP);
     return entityTextureId;

@@ -38,7 +38,7 @@
         while(glGetError() != GL_NO_ERROR);\
         glFunctionCall;\
         while (GLenum errorCode = glGetError()) {\
-            printf("[GL_ERROR] code: %d|0x%x | line: %d\n",errorCode,errorCode,__LINE__);\
+            printf("[GL_ERROR] code: %d 0x%x | line: %d | file: %s\n",errorCode, errorCode, __LINE__, __FILE__);\
         }
 #else
     #define AP_TEST(glFunctionCall)\
@@ -73,6 +73,8 @@
 
 #define AP_INPUT_QUIT_SIGNAL 1
 #define AP_INPUT_NO_EVENT_SIGNAL 0
+
+#define AP_WINDOW_MAX_FPS 60.0f
 
 typedef unsigned short ushort;
 typedef unsigned char uchar;
