@@ -4,6 +4,8 @@
  * Copyright © 2022 Anderson Bucchianico. All rights reserved.
  */
 
+precision highp float;
+
 in vec3 fragColor;
 in vec3 outTexCoord;
 

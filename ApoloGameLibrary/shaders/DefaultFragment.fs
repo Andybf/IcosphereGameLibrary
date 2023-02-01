@@ -1,8 +1,10 @@
 #version 330
 
-/* Fragment Shader GLSL 3.30
- * Copyright © 2021 Anderson Bucchianico. All rights reserved.
+/* Vertex Shader GLSL 3.30
+ * Copyright © 2022 Anderson Bucchianico. All rights reserved.
  */
+
+precision highp float;
 
 in vec3 fragColor;
 in vec3 outTexCoord;

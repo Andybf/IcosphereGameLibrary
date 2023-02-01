@@ -9,11 +9,13 @@ in vec3 positionVec;
 in vec3 texCoord;
 
 // A uniform varialbe dosen't change for every vertex
+// For certain WebGL implementations, the max number of uniform elements is 256
+// For compatibility with these systems, the arrays bellow are shrinked.
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 projectionMatrix;
-uniform int char[256];
-uniform vec2 pos[256];
+uniform int char[120];
+uniform vec2 pos[120];
 
 out vec3 fragColor;
 out vec3 outTexCoord;
@@ -24,5 +26,5 @@ void main(void) {
     gl_Position = projectionMatrix * modelMatrix * vec4(newPosition, 0.0, 1.0);
     
     outTexCoord = texCoord;
-    character = char[gl_InstanceID];
+    character = float(char[gl_InstanceID]);
 }

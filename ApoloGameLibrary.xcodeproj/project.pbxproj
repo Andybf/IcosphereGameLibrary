@@ -1226,12 +1226,12 @@
 			children = (
 				7192047B298AE05A0037D1F8 /* CubemapFragment.fs */,
 				71920479298AE05A0037D1F8 /* CubemapVertex.vs */,
-				71920478298AE05A0037D1F8 /* NoTextureVertex.vs */,
-				7192047A298AE05A0037D1F8 /* NoTextureFragment.fs */,
-				7192047C298AE05A0037D1F8 /* TextVertex.vs */,
-				7192047D298AE05A0037D1F8 /* TextFragment.fs */,
 				7192047E298AE05A0037D1F8 /* DefaultFragment.fs */,
 				7192047F298AE05A0037D1F8 /* DefaultVertex.vs */,
+				7192047A298AE05A0037D1F8 /* NoTextureFragment.fs */,
+				71920478298AE05A0037D1F8 /* NoTextureVertex.vs */,
+				7192047D298AE05A0037D1F8 /* TextFragment.fs */,
+				7192047C298AE05A0037D1F8 /* TextVertex.vs */,
 			);
 			path = shaders;
 			sourceTree = "<group>";

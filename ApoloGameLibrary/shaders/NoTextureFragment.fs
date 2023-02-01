@@ -1,5 +1,7 @@
 #version 330
 
+precision highp float;
+
 in vec3 outNormal;
 in vec3 outPosVec;
 
