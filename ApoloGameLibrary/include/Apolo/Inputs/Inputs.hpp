@@ -11,8 +11,8 @@
 #include "../Core.hpp"
 
 namespace Input {
-    void setKeyUpCallbackFunction(void* (*callback)(int));
-    void setKeyDownCallbackFunction(void* (*callback)(int));
+    void setKeyUpCallbackFunction(void (*callback)(int));
+    void setKeyDownCallbackFunction(void (*callback)(int));
 
     void setMouseMovementCallbackFunction(void (*callback)(double, double));
     void setMouseDownCallbackFunction(void (*callback)(int button, int x, int y));
@@ -24,8 +24,8 @@ namespace Input {
 }
 
 struct Keyboard {
-    void* (*respondKeyUp)(int keyPressed);
-    void* (*respondKeyDown)(int keyPressed);
+    void (*respondKeyUp)(int keyPressed);
+    void (*respondKeyDown)(int keyPressed);
 };
 
 struct Mouse {

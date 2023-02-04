@@ -11,6 +11,7 @@ GLuint compile(int shaderType, char* sourceContents);
 GLuint link(int vextexId, int fragmentId);
 GLint checkShaderStatus(GLenum status, GLuint shaderId);
 GLint checkProgramStatus(GLenum status, GLuint programId);
+void checkParam(GLuint returnedParameter, GLint programShader);
 void checkSourceLanguage(char* source);
 void convertSourceToES(char* source);
 void convertSourceToGL(char* source);
@@ -61,11 +62,13 @@ GLuint link(int vertexId, int fragmentId) {
 GLint checkShaderStatus(GLenum status, GLuint shaderId) {
     GLint returnedParameter = -1;
     AP_TEST(glGetShaderiv(shaderId, status, &returnedParameter));
+    checkParam(returnedParameter, shaderId);
     return returnedParameter;
 }
 GLint checkProgramStatus(GLenum status, GLuint programId) {
     GLint returnedParameter = -1;
     AP_TEST(glGetProgramiv(programId, status, &returnedParameter));
+    checkParam(returnedParameter, programId);
     return returnedParameter;
 }
 

@@ -20,6 +20,20 @@ struct ProgramTime {
 Window::WindowData* window;
 void windowLoopCallback();
 
+void Window::exitWindow() {
+    SDL_DestroyWindow(window->sdlWindow);
+    SDL_Quit();
+    exit(0);
+}
+
+float Window::getFrameRate() {
+    return programTime.fps;
+}
+
+struct Window::WindowData* Window::getWindowData() {
+    return window;
+}
+
 void Window::initialize(ushort width, ushort height, char* title) {
     
     SDL_Init( SDL_INIT_VIDEO );
@@ -85,18 +99,4 @@ void windowLoopCallback() {
     SDL_GL_SwapWindow(window->sdlWindow);
     
     programTime.current = programTime.elapsed;
-}
-
-void Window::exitWindow() {
-    SDL_DestroyWindow(window->sdlWindow);
-    SDL_Quit();
-    exit(0);
-}
-
-float Window::getFrameRate() {
-    return programTime.fps;
-}
-
-struct Window::WindowData* Window::getWindowData() {
-    return window;
 }

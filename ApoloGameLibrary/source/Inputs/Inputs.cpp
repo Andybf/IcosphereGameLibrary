@@ -11,10 +11,10 @@ SDL_Event sdlEvent;
 uint8_t isQuitSignalEmitted;
 struct Keyboard keyboard;
 
-void setKeyUpCallbackFunction(void* (*callback)(int)) {
+void Input::setKeyUpCallbackFunction(void (*callback)(int)) {
     keyboard.respondKeyUp = callback;
 }
-void setKeyDownCallbackFunction(void* (*callback)(int)) {
+void Input::setKeyDownCallbackFunction(void (*callback)(int)) {
     keyboard.respondKeyDown = callback;
 }
 

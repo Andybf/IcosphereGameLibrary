@@ -22,17 +22,17 @@ namespace Window {
         void (*renderCallback)();
     };
 
-    void initialize(ushort width, ushort height, char* title);
-
-    void setLoopCallback(void (*mainLoop)());
-
-    void startLoop();
-
     void exitWindow();
+
+    void initialize(ushort width, ushort height, char* title);
 
     float getFrameRate();
 
     struct WindowData* getWindowData();
+
+    void setLoopCallback(void (*mainLoop)());
+
+    void startLoop();
 }
 
 #endif /* window_h */

@@ -3,16 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71341CE0298CA89E00D44B37 /* VBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71341CDD298CA89E00D44B37 /* VBO.hpp */; };
+		71341CE1298CA89E00D44B37 /* EBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71341CDE298CA89E00D44B37 /* EBO.hpp */; };
+		71341CE2298CA89E00D44B37 /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71341CDF298CA89E00D44B37 /* VAO.hpp */; };
+		71341CE6298CA8C900D44B37 /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE3298CA8C900D44B37 /* EBO.cpp */; };
+		71341CE7298CA8C900D44B37 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE4298CA8C900D44B37 /* VAO.cpp */; };
+		71341CE8298CA8C900D44B37 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE5298CA8C900D44B37 /* VBO.cpp */; };
 		71743FAB298817D4006A7C6C /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4529881759006A7C6C /* Render.cpp */; };
 		71743FAC298817D4006A7C6C /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4629881759006A7C6C /* Window.cpp */; };
-		71743FAD298817D4006A7C6C /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4729881759006A7C6C /* VAO.cpp */; };
-		71743FAE298817D4006A7C6C /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4829881759006A7C6C /* EBO.cpp */; };
 		71743FAF298817D4006A7C6C /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4929881759006A7C6C /* Shader.cpp */; };
-		71743FB0298817D4006A7C6C /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4A29881759006A7C6C /* VBO.cpp */; };
 		71743FB1298817D4006A7C6C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4C29881759006A7C6C /* Camera.cpp */; };
 		71743FB2298817D4006A7C6C /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4D29881759006A7C6C /* Entity.cpp */; };
 		71743FB3298817D4006A7C6C /* Projection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4E29881759006A7C6C /* Projection.cpp */; };
@@ -25,10 +28,7 @@
 		71743FBA298817D4006A7C6C /* ModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5929881759006A7C6C /* ModelLoader.cpp */; };
 		71743FBB298817D4006A7C6C /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5A29881759006A7C6C /* ShaderLoader.cpp */; };
 		71743FBC298817D4006A7C6C /* FileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5B29881759006A7C6C /* FileLoader.cpp */; };
-		71743FBD298817E3006A7C6C /* VBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2729881759006A7C6C /* VBO.hpp */; };
 		71743FBE298817E3006A7C6C /* Window.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2829881759006A7C6C /* Window.hpp */; };
-		71743FBF298817E3006A7C6C /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2929881759006A7C6C /* VAO.hpp */; };
-		71743FC0298817E3006A7C6C /* EBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2A29881759006A7C6C /* EBO.hpp */; };
 		71743FC1298817E3006A7C6C /* Shader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2B29881759006A7C6C /* Shader.hpp */; };
 		71743FC2298817E3006A7C6C /* Render.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2C29881759006A7C6C /* Render.hpp */; };
 		71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2D29881759006A7C6C /* Mesh.hpp */; };
@@ -52,10 +52,13 @@
 
 /* Begin PBXFileReference section */
 		7119E64E2988ABC500D71CB5 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		71743D2729881759006A7C6C /* VBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
+		71341CDD298CA89E00D44B37 /* VBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
+		71341CDE298CA89E00D44B37 /* EBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EBO.hpp; sourceTree = "<group>"; };
+		71341CDF298CA89E00D44B37 /* VAO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
+		71341CE3298CA8C900D44B37 /* EBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EBO.cpp; sourceTree = "<group>"; };
+		71341CE4298CA8C900D44B37 /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
+		71341CE5298CA8C900D44B37 /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
 		71743D2829881759006A7C6C /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
-		71743D2929881759006A7C6C /* VAO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
-		71743D2A29881759006A7C6C /* EBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EBO.hpp; sourceTree = "<group>"; };
 		71743D2B29881759006A7C6C /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		71743D2C29881759006A7C6C /* Render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Render.hpp; sourceTree = "<group>"; };
 		71743D2D29881759006A7C6C /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
@@ -76,10 +79,7 @@
 		71743D4229881759006A7C6C /* Inputs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Inputs.hpp; sourceTree = "<group>"; };
 		71743D4529881759006A7C6C /* Render.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
 		71743D4629881759006A7C6C /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
-		71743D4729881759006A7C6C /* VAO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
-		71743D4829881759006A7C6C /* EBO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EBO.cpp; sourceTree = "<group>"; };
 		71743D4929881759006A7C6C /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
-		71743D4A29881759006A7C6C /* VBO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
 		71743D4C29881759006A7C6C /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		71743D4D29881759006A7C6C /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		71743D4E29881759006A7C6C /* Projection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projection.cpp; sourceTree = "<group>"; };
@@ -517,14 +517,7 @@
 		71743FA92988175A006A7C6C /* type_aligned.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = type_aligned.hpp; sourceTree = "<group>"; };
 		7192046E298999910037D1F8 /* Inputs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Inputs.cpp; sourceTree = "<group>"; };
 		71920472298A12D70037D1F8 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
-		71920478298AE05A0037D1F8 /* NoTextureVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = NoTextureVertex.vs; sourceTree = "<group>"; };
-		71920479298AE05A0037D1F8 /* CubemapVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = CubemapVertex.vs; sourceTree = "<group>"; };
-		7192047A298AE05A0037D1F8 /* NoTextureFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = NoTextureFragment.fs; sourceTree = "<group>"; };
-		7192047B298AE05A0037D1F8 /* CubemapFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = CubemapFragment.fs; sourceTree = "<group>"; };
-		7192047C298AE05A0037D1F8 /* TextVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TextVertex.vs; sourceTree = "<group>"; };
-		7192047D298AE05A0037D1F8 /* TextFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = TextFragment.fs; sourceTree = "<group>"; };
-		7192047E298AE05A0037D1F8 /* DefaultFragment.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DefaultFragment.fs; sourceTree = "<group>"; };
-		7192047F298AE05A0037D1F8 /* DefaultVertex.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = DefaultVertex.vs; sourceTree = "<group>"; };
+		719204BB298B1F280037D1F8 /* documentation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = documentation.md; sourceTree = "<group>"; };
 		71B2AC3E29860CD5001A3AB9 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2.a; sourceTree = "<group>"; };
 		71F7430129860A08004CA604 /* libApoloGameLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libApoloGameLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -543,11 +536,11 @@
 		71743D2329881759006A7C6C /* ApoloGameLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				71920477298AE05A0037D1F8 /* shaders */,
 				71743D2429881759006A7C6C /* include */,
 				71743D4329881759006A7C6C /* source */,
 				71743D5D29881759006A7C6C /* dependencies */,
 				71920472298A12D70037D1F8 /* makefile */,
+				719204BB298B1F280037D1F8 /* documentation.md */,
 			);
 			path = ApoloGameLibrary;
 			sourceTree = "<group>";
@@ -578,10 +571,10 @@
 				71743D2829881759006A7C6C /* Window.hpp */,
 				71743D2C29881759006A7C6C /* Render.hpp */,
 				71743D2B29881759006A7C6C /* Shader.hpp */,
-				71743D2929881759006A7C6C /* VAO.hpp */,
-				71743D2729881759006A7C6C /* VBO.hpp */,
-				71743D2A29881759006A7C6C /* EBO.hpp */,
 				71743D2D29881759006A7C6C /* Mesh.hpp */,
+				71341CDF298CA89E00D44B37 /* VAO.hpp */,
+				71341CDD298CA89E00D44B37 /* VBO.hpp */,
+				71341CDE298CA89E00D44B37 /* EBO.hpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -620,9 +613,9 @@
 			children = (
 				71743D3829881759006A7C6C /* ModelReaders */,
 				71743D3D29881759006A7C6C /* FileLoader.hpp */,
+				71743D3F29881759006A7C6C /* ModelLoader.hpp */,
 				71743D3C29881759006A7C6C /* ShaderLoader.hpp */,
 				71743D3E29881759006A7C6C /* TextureLoader.hpp */,
-				71743D3F29881759006A7C6C /* ModelLoader.hpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -662,9 +655,9 @@
 				71743D4629881759006A7C6C /* Window.cpp */,
 				71743D4529881759006A7C6C /* Render.cpp */,
 				71743D4929881759006A7C6C /* Shader.cpp */,
-				71743D4729881759006A7C6C /* VAO.cpp */,
-				71743D4A29881759006A7C6C /* VBO.cpp */,
-				71743D4829881759006A7C6C /* EBO.cpp */,
+				71341CE4298CA8C900D44B37 /* VAO.cpp */,
+				71341CE5298CA8C900D44B37 /* VBO.cpp */,
+				71341CE3298CA8C900D44B37 /* EBO.cpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -703,9 +696,9 @@
 			children = (
 				71743D5529881759006A7C6C /* ModelReaders */,
 				71743D5B29881759006A7C6C /* FileLoader.cpp */,
-				71743D5829881759006A7C6C /* TextureLoader.cpp */,
 				71743D5929881759006A7C6C /* ModelLoader.cpp */,
 				71743D5A29881759006A7C6C /* ShaderLoader.cpp */,
+				71743D5829881759006A7C6C /* TextureLoader.cpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -1221,21 +1214,6 @@
 			path = gtx;
 			sourceTree = "<group>";
 		};
-		71920477298AE05A0037D1F8 /* shaders */ = {
-			isa = PBXGroup;
-			children = (
-				7192047B298AE05A0037D1F8 /* CubemapFragment.fs */,
-				71920479298AE05A0037D1F8 /* CubemapVertex.vs */,
-				7192047E298AE05A0037D1F8 /* DefaultFragment.fs */,
-				7192047F298AE05A0037D1F8 /* DefaultVertex.vs */,
-				7192047A298AE05A0037D1F8 /* NoTextureFragment.fs */,
-				71920478298AE05A0037D1F8 /* NoTextureVertex.vs */,
-				7192047D298AE05A0037D1F8 /* TextFragment.fs */,
-				7192047C298AE05A0037D1F8 /* TextVertex.vs */,
-			);
-			path = shaders;
-			sourceTree = "<group>";
-		};
 		71B2AC3D29860CD5001A3AB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,10 +1247,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71743FBD298817E3006A7C6C /* VBO.hpp in Headers */,
+				71341CE0298CA89E00D44B37 /* VBO.hpp in Headers */,
 				71743FBE298817E3006A7C6C /* Window.hpp in Headers */,
-				71743FBF298817E3006A7C6C /* VAO.hpp in Headers */,
-				71743FC0298817E3006A7C6C /* EBO.hpp in Headers */,
 				71743FC1298817E3006A7C6C /* Shader.hpp in Headers */,
 				71743FC2298817E3006A7C6C /* Render.hpp in Headers */,
 				71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */,
@@ -1283,10 +1259,12 @@
 				71743FC8298817E3006A7C6C /* Entity.hpp in Headers */,
 				71743FC9298817E3006A7C6C /* Camera.hpp in Headers */,
 				71743FCA298817E3006A7C6C /* ModelData.hpp in Headers */,
+				71341CE1298CA89E00D44B37 /* EBO.hpp in Headers */,
 				71743FCB298817E3006A7C6C /* StanfordObject.hpp in Headers */,
 				71743FCC298817E3006A7C6C /* WavefrontObject.hpp in Headers */,
 				71743FCD298817E3006A7C6C /* ShaderLoader.hpp in Headers */,
 				71743FCE298817E3006A7C6C /* FileLoader.hpp in Headers */,
+				71341CE2298CA89E00D44B37 /* VAO.hpp in Headers */,
 				71743FCF298817E3006A7C6C /* TextureLoader.hpp in Headers */,
 				71743FD0298817E3006A7C6C /* ModelLoader.hpp in Headers */,
 				71743FD1298817E3006A7C6C /* Core.hpp in Headers */,
@@ -1329,7 +1307,7 @@
 				};
 			};
 			buildConfigurationList = 71F742FC29860A08004CA604 /* Build configuration list for PBXProject "ApoloGameLibrary" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1351,21 +1329,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71341CE7298CA8C900D44B37 /* VAO.cpp in Sources */,
 				7192046F298999910037D1F8 /* Inputs.cpp in Sources */,
 				71743FAB298817D4006A7C6C /* Render.cpp in Sources */,
 				71743FAC298817D4006A7C6C /* Window.cpp in Sources */,
-				71743FAD298817D4006A7C6C /* VAO.cpp in Sources */,
-				71743FAE298817D4006A7C6C /* EBO.cpp in Sources */,
 				71743FAF298817D4006A7C6C /* Shader.cpp in Sources */,
-				71743FB0298817D4006A7C6C /* VBO.cpp in Sources */,
 				71743FB1298817D4006A7C6C /* Camera.cpp in Sources */,
 				71743FB2298817D4006A7C6C /* Entity.cpp in Sources */,
 				71743FB3298817D4006A7C6C /* Projection.cpp in Sources */,
 				71743FB4298817D4006A7C6C /* DebugCamera.cpp in Sources */,
 				71743FB5298817D4006A7C6C /* Text.cpp in Sources */,
 				71743FB6298817D4006A7C6C /* Light.cpp in Sources */,
+				71341CE8298CA8C900D44B37 /* VBO.cpp in Sources */,
 				71743FB7298817D4006A7C6C /* WavefrontObject.cpp in Sources */,
 				71743FB8298817D4006A7C6C /* StanfordObject.cpp in Sources */,
+				71341CE6298CA8C900D44B37 /* EBO.cpp in Sources */,
 				71743FB9298817D4006A7C6C /* TextureLoader.cpp in Sources */,
 				71743FBA298817D4006A7C6C /* ModelLoader.cpp in Sources */,
 				71743FBB298817D4006A7C6C /* ShaderLoader.cpp in Sources */,
@@ -1426,7 +1404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1478,7 +1456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;

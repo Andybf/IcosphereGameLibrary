@@ -39,7 +39,7 @@ public:
     glm::vec3 getPosition();
     
     void setOrientation(float angle,glm::vec3 orientation);
-    glm::quat getOrientation();
+    glm::vec3 getOrientation();
 };
 
 

@@ -36,7 +36,15 @@ GLuint TextureLoader::load2d(cchar* textureFileName) {
     generateTextureId(&entityTextureId, GL_TEXTURE_2D);
     setTextureParameters(GL_TEXTURE_2D);
     
-    AP_TEST(glTexImage2D(GL_TEXTURE_2D, MI_MIPMAP_0, GL_RGBA, image->width, image->height, MI_BORDER_WIDTH, GL_RGBA, GL_UNSIGNED_BYTE, image->data));
+    AP_TEST(glTexImage2D(GL_TEXTURE_2D,
+                         MI_MIPMAP_0,
+                         GL_RGBA,
+                         image->width,
+                         image->height,
+                         MI_BORDER_WIDTH,
+                         GL_RGBA,
+                         GL_UNSIGNED_BYTE,
+                         image->data));
     AP_TEST(glGenerateMipmap(GL_TEXTURE_2D));
     
     stbi_image_free(image->data);
@@ -52,9 +60,23 @@ GLuint TextureLoader::loadCubemap(std::vector<cchar*> textureFaces) {
     Image* image = (Image*) malloc(sizeof(Image));
     stbi_set_flip_vertically_on_load(false);
     for (byte x=0; x<textureFaces.size(); x++) {
-        FileLoader::generatePathForFile(textureFilePath, "textures", textureFaces[x]);
-        image->data = stbi_load(textureFilePath, &image->width, &image->height, &image->colorChannels, 0);
-        AP_TEST(glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X+x, MI_MIPMAP_0, GL_RGB, image->width, image->height, MI_BORDER_WIDTH, GL_RGB, GL_UNSIGNED_BYTE, image->data));
+        FileLoader::generatePathForFile(textureFilePath,
+                                        "textures",
+                                        textureFaces[x]);
+        image->data = stbi_load(textureFilePath,
+                                &image->width,
+                                &image->height,
+                                &image->colorChannels,
+                                0);
+        AP_TEST(glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X+x,
+                             MI_MIPMAP_0,
+                             GL_RGB,
+                             image->width,
+                             image->height,
+                             MI_BORDER_WIDTH,
+                             GL_RGB,
+                             GL_UNSIGNED_BYTE,
+                             image->data));
         checkTextureFileIsFound(image, textureFilePath);
         stbi_image_free(image->data);
     }

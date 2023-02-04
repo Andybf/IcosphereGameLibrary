@@ -19,7 +19,6 @@ void checkFormat(FILE* file);
 uint getNumberOf(cchar* elementName, FILE* file);
 void moveFilePointerToAfter(cchar* substring, FILE* file);
 struct VectorDimensionsQty getVectorDimensionsInFile(FILE* file);
-void performModelDataIntegrityCheck(ModelData* modelData);
 
 struct VectorDimensionsQty {
     uint8_t vertices = 0;
@@ -49,7 +48,6 @@ ModelData* StanfordObj::extractFrom(FILE* file) {
         fread(floatBuffer, vecDimensionsQty.texCoords, sizeof(float), file);
         modelData->texCoords.insert(modelData->texCoords.end(), floatBuffer, floatBuffer+vecDimensionsQty.texCoords);
     }
-    performModelDataIntegrityCheck(modelData);
     free(floatBuffer);
     readFaces(file, faces, &modelData->indices);
     return modelData;
@@ -138,10 +136,4 @@ struct VectorDimensionsQty getVectorDimensionsInFile(FILE* file) {
     vecDimensions.texCoords = vectorDimensionsList[2];
     free(buffer);
     return vecDimensions;
-}
-
-void performModelDataIntegrityCheck(ModelData* modelData) {
-    if (modelData->vertices.size() < 0) {
-        printf("[AP_PLY_WARN] model loader couldn`t read any vertices from file.\n");
-    }
 }

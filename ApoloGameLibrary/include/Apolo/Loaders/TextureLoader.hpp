@@ -16,7 +16,7 @@
 
 namespace TextureLoader {
 
-    GLuint load2d(cchar* textureFilePath);
+    GLuint load2d(cchar* textureFileName);
     GLuint loadCubemap(std::vector<cchar*> textureFaces);
     
 };

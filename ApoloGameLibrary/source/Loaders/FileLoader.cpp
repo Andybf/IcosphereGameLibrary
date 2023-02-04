@@ -40,5 +40,9 @@ char* FileLoader::read(char* sourcePath) {
     
     char* fileSource = (char*) calloc(sizeof(char), fileInfo.st_size);
     fread(fileSource, fileInfo.st_size-1, 1, file);
+    
+    if (strlen(fileSource) < 1) {
+        printf("[AP_FLD_WARN] File is empty:: %s\n",sourcePath);
+    }
     return fileSource;
 }

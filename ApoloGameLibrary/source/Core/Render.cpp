@@ -33,13 +33,24 @@ void Render::renderLoop() {
 }
 
 void Render::drawElementsInstanced(struct Entity* model, uint count) {
-    AP_TEST(glDrawElementsInstanced(model->modelDrawType, model->mesh->indicesSize, GL_UNSIGNED_INT, 0, count));
+    AP_TEST(glDrawElementsInstanced(model->modelDrawType,
+                                    model->mesh->indicesSize,
+                                    GL_UNSIGNED_INT,
+                                    0,
+                                    count));
 }
+
 void Render::drawElements(struct Entity* model) {
-    AP_TEST(glDrawElements(model->modelDrawType, model->mesh->indicesSize, GL_UNSIGNED_INT, 0));
+    AP_TEST(glDrawElements(model->modelDrawType,
+                           model->mesh->indicesSize,
+                           GL_UNSIGNED_INT,
+                           0));
 }
+
 void Render::drawArrays(struct Entity* model) {
-    AP_TEST(glDrawArrays(model->modelDrawType, AP_INDEX_ZERO, (float)model->mesh->verticesSize/3));
+    AP_TEST(glDrawArrays(model->modelDrawType,
+                         AP_INDEX_ZERO,
+                         (float)model->mesh->verticesSize/3));
 }
 
 void saveContextInformation() {

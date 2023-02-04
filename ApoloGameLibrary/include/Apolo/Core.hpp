@@ -18,6 +18,7 @@
 #include <vector>
 
 #include "../dependencies/glm/glm.hpp"
+#include "../dependencies/glm/gtx/euler_angles.hpp"
 #include "../dependencies/glm/gtx/matrix_decompose.hpp"
 #include "../dependencies/glm/gtc/random.hpp"
 #include "../dependencies/glm/gtx/rotate_vector.hpp"

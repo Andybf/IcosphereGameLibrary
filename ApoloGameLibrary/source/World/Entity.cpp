@@ -45,6 +45,8 @@ glm::vec3 Entity::getPosition() {
 void Entity::setOrientation(float angle, glm::vec3 orientation) {
     this->matrix = glm::rotate(this->matrix, glm::radians(angle), orientation);
 }
-glm::quat Entity::getOrientation() {
-    return glm::quat_cast(this->matrix);
+glm::vec3 Entity::getOrientation() {
+    glm::vec3 vec3 = glm::vec3(0,0,0);
+    glm::extractEulerAngleXYZ(this->getMatrix(), vec3.x, vec3.y, vec3.z);
+    return vec3;
 }
