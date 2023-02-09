@@ -14,23 +14,22 @@
 class Text : public Entity {
     
 private:
-    short elementsCountX;
-    short elementsCountY;
     float characterScale;
     
-    float fontmapWidth;
+    ushort fontmapWidth;
     int* string32bit;
     std::vector<glm::vec2> stringPositionList;
-    int stringSize;
+    uint stringSize;
     
-    void countStringSize(uchar* string);
     void calcCharPositionOnScreen(uchar* string);
     
 public:
+    char * content;
+    
     Text(uint fontMapTextureId, uint textShaderId);
-    void setText(uchar* string);
+    void processContents(uchar* string);
     int* get32bitString();
-    int getStringSize();
+    uint getStringSize();
     std::vector<glm::vec2> getStringPositionList();
 };
 

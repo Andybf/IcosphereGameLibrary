@@ -83,6 +83,10 @@
             font-style: italic;
             height: initial;
         }
+        video {
+            width: 100%;
+            height: 50vh;
+        }
     </style>
 </head>
 <body>
@@ -345,10 +349,13 @@
                         <a href="#Skyboxes" target="_self">Skyboxes</a>
                     </li>
                     <li>
-                        <a href="#" target="_self">Light Sources</a>
+                        <a href="#User Inputs and Debug Camera" target="_self">User Inputs and Debug Camera</a>
                     </li>
                     <li>
-                        <a href="#" target="_self">Text on Screen</a>
+                        <a href="#Text on Screen" target="_self">Text on Screen</a>
+                    </li>
+                    <li>
+                        <a href="#Light Sources" target="_self">Light Sources</a>
                     </li>
                 </ul>
             </li>
@@ -1647,7 +1654,7 @@
                 On execution, we are gifted with a new window tinted with a purple-ish color. If you need help to compile this example, check the "Compile and Link to a Game Project" section.
             </p>
             <figure>
-                <img src="./images/basicWindow.png"/>
+                <img src="./doc-figures/images/basicWindow.png"/>
                 <figcaption>A system window rendering a purple-ish background.</figcaption>
             </figure>
         </section>
@@ -1764,7 +1771,7 @@
                 Finally, we tell the <code>Render</code> to draw the element.
             </p>
             <figure>
-                <img src="./images/basicQuad.png"/>
+                <img src="./doc-figures/images/basicQuad.png"/>
                 <figcaption>A system window rendering a blue-ish cube in a dark background.</figcaption>
             </figure>
             <p>
@@ -1810,7 +1817,7 @@
                 <code>}</code>
             </div>
             <figure>
-                <img src="./images/basicCube.png"/>
+                <img src="./doc-figures/images/basicCube.png"/>
                 <figcaption>A system window rendering a blue-ish cube rotating in X and Y axis in a dark background.</figcaption>
             </figure>
 
@@ -1920,7 +1927,7 @@
                 We will use a cubemap texture contained in one image file, on the moment of rendering, the texture will wrap our cube, just like making a paper cube and mounting it. Keep in mind that for other models different than a cube, this texture may not fit correctly, You can count with help of models editors like <a href="blender.org" target="_blank">Blender</a> to make a texture file that can wrap your model correctly.
             </p>
             <figure>
-                <img src="./images/mosaic.png"/>
+                <img src="./example-materials/mosaic.png"/>
                 <figcaption>A cubemap texture representing abstract figures for each face.</figcaption>
             </figure>
             <p>
@@ -1990,7 +1997,7 @@
                 If every thing was done correctly, the cube will be shown to us.
             </p>
             <figure>
-                <img src="./images/textured_cube.png"/>
+                <img src="./doc-figures/images/textured_cube.png"/>
                 <figcaption>A rendered cube with some nice textures painted on.</figcaption>
             </figure>
         </section>
@@ -2005,11 +2012,53 @@
             </p>
             <br>
             <figure>
-                <img src="./images/skybox/front.bmp"/>
+                <img src="./example-materials/skybox/front.bmp"/>
                 <figcaption>One of the skybox faces.</figcaption>
             </figure>
             <p>
-                Let's see the code, it has been built on top of the last example, the green lines indicates added lines and yellow modified lines.
+                To be able to render a skybox, we will need a customized shader, written specificly for that type of need.
+            </p>
+            <h4>skybox.vs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 positionVec;</code>
+                <code> </code>
+                <code>uniform mat4 modelMatrix;</code>
+                <code>uniform mat4 viewMatrix;</code>
+                <code>uniform mat4 projectionMatrix;</code>
+                <code> </code>
+                <code>out vec3 fragColor;</code>
+                <code>out vec2 outTexCoord;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>    vec4 pos = projectionMatrix * mat4(mat3(viewMatrix)) * modelMatrix * vec4(positionVec, 0.0f);</code>
+                <code>    gl_Position = vec4(pos.x, pos.y, pos.w, pos.w);</code>
+                <code>    fragColor = vec3(1,1,1);</code>
+                <code>    outTexCoord = vec3(positionVec.x, positionVec.y, positionVec.z);</code>
+                <code>}</code>
+            </div>
+
+            <h4>skybox.fs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 outFragColor;</code>
+                <code>in vec2 outTexCoord;</code>
+                <code> </code>
+                <code>uniform samplerCube skybox;</code>
+                <code> </code>
+                <code>out vec4 frag_Color;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>     frag_Color = texture(skybox, outTexCoord);</code>
+                <code>}</code>
+            </div>
+            <p>
+                Don't forgot to add the defualt Shaders to our project, we will need two different shaders, one for the skybox, and one for the cube.
+            </p>
+            <p>
+                Let's see the main code, it has been built on top of the last example, the green lines indicates added lines and yellow modified lines.
             </p>
             <h4>cubeRender.c</h4>
             <div>
@@ -2091,15 +2140,142 @@
                 And once everything goes right, the window will comeback for us, in a new world with a nice blue sky.
             </p>
             <figure>
-                <img src="./images/skybox.png"/>
+                <img src="./doc-figures/images/skybox.png"/>
                 <figcaption>A rendered cube with textures and a rotating blue sky behind it.</figcaption>
             </figure>
         </section>
         <section>
-            <h3>Light Sources</h3>
+            <h3>User Inputs and Debug Camera</h3>
+            <p>
+                It's great to build a rich and detailed world, but sometimes, you could wish that with some button pushes and some mouse movements you can be able to see more angles of the world. This is possible with the Input System, combined with a Debug Camera.
+            </p>
+            <p>
+                The Input System allows you, as a Apolo Game Library user and a developer, to get inputs details from the final user to the application. The calls must be set up using callback functions. We will see how to do that later in the code bellow.
+            </p>
+            <p>
+                The Debug Camera it's a built-in Camera inherited class that gives the ability to user to free explore the world. It's called Debug Camera because of his behavoir, present in past released games, mainly used by developers to get a better view of what is going on with the game.
+            </p>
+            <p>
+                Let's see how the code looks like, the source it's getting bigger as more resources we put into it. The green lines indicates code that was added in relation of the source of the previous example.
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/TextureLoader.hpp></code>
+                <code class="added">#include &lt;Apolo/Inputs/Inputs.hpp></code>
+                <code class="added">#include &lt;Apolo/World/Cameras/DebugCamera.hpp></code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Entity* skybox;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code class="added">DebugCamera* debugCamera;</code>
+                <code> </code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code class="added">    void mouseClickUp(int button, int x, int y);</code>
+                <code class="added">    void mouseClickDown(int button, int x, int y);</code>
+                <code class="added">    void mouseMovement(double xpos, double ypos);</code>
+                <code class="added">    void mouseScroll(double xpos, double ypos);</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    camera->setAngleOrientation(-0.25f, glm::vec3(0,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(skybox->relatedShaderId);</code>
+                <code>    Shader::setUniformModelViewProjection(skybox, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(skybox);</code>
+                <code> </code>
+                <code class="added">    Input::setMouseUpCallbackFunction(mouseClickUp);</code>
+                <code class="added">    Input::setMouseDownCallbackFunction(mouseClickDown);</code>
+                <code class="added">    Input::setMouseMovementCallbackFunction(mouseMovement);</code>
+                <code class="added">    Input::setMouseScrollCallbackFunction(mouseScroll);</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code>    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
+                <code>    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
+                <code>        "right.bmp",</code>
+                <code>        "left.bmp",</code>
+                <code>        "top.bmp",</code>
+                <code>        "bottom.bmp",</code>
+                <code>        "front.bmp",</code>
+                <code>        "back.bmp",</code>
+                <code>    });</code>
+                <code> </code>
+                <code>    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code>    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
+                <code> </code>
+                <code>    skybox = new Entity();</code>
+                <code>    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
+                <code>    skybox->relatedTextureId = textureSkyboxId;</code>
+                <code>    skybox->relatedShaderId = shaderSkyboxId;</code>
+                <code>    skybox->mesh = ModelLoader::load("cube.ply", skybox->relatedShaderId);</code>
+                <code> </code>
+                <code>    cube = new Entity();</code>
+                <code>    cube->relatedTextureId = textureCubeId;</code>
+                <code>    cube->relatedShaderId = shaderCubeId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,0));</code>
+                <code>    cube->setScale(glm::vec3(0.75));</code>
+                <code>    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
+                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code>    camera->setPosition(glm::vec3(0, 0, -2));</code>
+                <code>    camera->setLookPoint(glm::vec3(0,0,2));;</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code> </code>
+                <code class="added">    debugCamera = new DebugCamera(camera);</code>
+                <code> </code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+                <code class="added">void mouseClickUp(int button, int x, int y) {</code>
+                <code class="added">    debugCamera->handleMouseClickUp();</code>
+                <code class="added">}</code>
+                <code class="added"> </code>
+                <code class="added">void mouseClickDown(int button, int x, int y) {</code>
+                <code class="added">    debugCamera->handleMouseClickDown();</code>
+                <code class="added">}</code>
+                <code class="added"> </code>
+                <code class="added">void mouseMovement(double xpos, double ypos) {</code>
+                <code class="added">    debugCamera->handleMouseMovement(xpos, ypos);</code>
+                <code class="added">}</code>
+                <code class="added"> </code>
+                <code class="added">void mouseScroll(double xpos, double ypos) {</code>
+                <code class="added">    debugCamera->handleMouseScroll(xpos, ypos);</code>
+                <code class="added">}</code>
+            </div>
+            <p>
+                Once everything goes well, you should be able to see around with the debug camera, just with your mouse.
+            </p>
+            <video src="./doc-figures/video/inputCamera.webm" controls></video>
         </section>
         <section>
             <h3>Text on Screen</h3>
+        </section>
+        <section>
+            <h3>Light Sources</h3>
         </section>
     </article>
 
