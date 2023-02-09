@@ -14,6 +14,7 @@
 #include "../Core/EBO.hpp"
 #include "../Core/Mesh.hpp"
 #include "./ModelReaders/StanfordObject.hpp"
+#include "./ModelReaders/WavefrontObject.hpp"
 #include "../Loaders/ModelReaders/ModelData.hpp"
 
 namespace ModelLoader {

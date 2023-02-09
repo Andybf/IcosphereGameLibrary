@@ -22,42 +22,47 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     free(objectSourcePath);
     
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData),1);
-    modelData = StanfordObj::extractFrom(file);
+    if (strstr(modelFileName, ".ply")) {
+        modelData = StanfordObj::extractFrom(file);
+    } else {
+        WavefrontObj::process(file, modelData);
+    }
+    
     fclose(file);
     checkModelData(modelData, modelFileName);
     
-    ulong modelsSize = modelData->vertices.size()*sizeof(GLfloat);
-    ulong normalsSize = modelsSize + modelData->normals.size()*sizeof(GLfloat);
+    ulong modelsSize = modelData->vertices.data.size()*sizeof(GLfloat);
+    ulong normalsSize = modelsSize + modelData->normals.data.size()*sizeof(GLfloat);
     
     Mesh* mesh = (Mesh*)calloc(sizeof(Mesh), 1);
-    mesh->vboId = VBO::generateNewVBO(modelData->vertices,
-                                      modelData->normals,
-                                      modelData->texCoords);
+    mesh->vboId = VBO::generateNewVBO(modelData->vertices.data,
+                                      modelData->normals.data,
+                                      modelData->texCoords.data);
     mesh->vaoId = VAO::generateNewVAO();
     VAO::bind(mesh->vaoId);
-
+    
     VAO::linkAttribute(mesh->vaoId,
                        glGetAttribLocation(relatedShaderId,"positionVec"),
-                       AP_VECTORS_XYZ,
+                       modelData->vertices.dimensions,
                        0);
     if (glGetAttribLocation(relatedShaderId, "normals") != -1) {
         VAO::linkAttribute(mesh->vaoId,
                            glGetAttribLocation(relatedShaderId, "normals"),
-                           AP_NORMALS_IJK,
+                           modelData->normals.dimensions,
                            modelsSize);
     }
     if (glGetAttribLocation(relatedShaderId, "texCoord") != -1) {
         VAO::linkAttribute(mesh->vaoId,
                            glGetAttribLocation(relatedShaderId, "texCoord"),
-                           AP_TEXCOORD_STR,
+                           modelData->texCoords.dimensions,
                            normalsSize);
     }
     
-    if (modelData->indices.size() > 0) {
-        mesh->eboId = EBO::generateNewEBO(&modelData->indices);
-        mesh->indicesSize = (uint)modelData->indices.size();
+    if (modelData->indices.data.size() > 0) {
+        mesh->eboId = EBO::generateNewEBO(&modelData->indices.data);
+        mesh->indicesSize = (uint)modelData->indices.data.size();
     } else {
-        mesh->verticesSize = (uint)modelData->vertices.size();
+        mesh->verticesSize = (uint)modelData->vertices.data.size();
     }
     free(modelData);
     VAO::unbind();
@@ -68,12 +73,12 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
 }
 
 void checkModelData(ModelData* modelData, cchar* modelName) {
-    if (modelData->vertices.size() <= 0) {
+    if (modelData->vertices.data.size() <= 0) {
         printf("[AP_MDL_ERROR] The model %s does not contain any vertices.\n",
                modelName);
         exit(1);
     }
-    if (modelData->indices.size() <= 0) {
+    if (modelData->indices.data.size() <= 0) {
         printf("[AP_MDL_ERROR] The model %s does not contain any indices.\n",
                modelName);
         exit(1);

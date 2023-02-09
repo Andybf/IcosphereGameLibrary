@@ -18,10 +18,10 @@ void resolveVectorIndices(std::vector<uint>& normalIndices);
 
 void WavefrontObj::process(FILE* file, ModelData* modelData) {
     fseek(file, 0, SEEK_SET);
-    readVertexes(file, "v ", &modelData->vertices);
-    readVertexes(file, "vn ", &modelData->normals);
-    readVertexes(file, "vt ", &modelData->texCoords);
-    readFaces(file, &modelData->indices);
+    readVertexes(file, "v ", &modelData->vertices.data);
+    readVertexes(file, "vn ", &modelData->normals.data);
+    readVertexes(file, "vt ", &modelData->texCoords.data);
+    readFaces(file, &modelData->indices.data);
 }
 
 void readVertexes(FILE* file, cchar* name, std::vector<float>* vertexes) {

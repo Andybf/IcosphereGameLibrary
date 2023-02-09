@@ -9,9 +9,23 @@
 
 #include <vector>
 
-struct ModelData{
-    std::vector<float> vertices;
-    std::vector<float> normals;
-    std::vector<float> texCoords;
-    std::vector<unsigned int> indices;
+struct ModelData {
+    struct Vertices {
+        std::vector<float> data;
+        unsigned int dimensions;
+    } vertices;
+    
+    struct Normals {
+        std::vector<float> data;
+        unsigned int dimensions;
+    } normals;
+    
+    struct TexCoords {
+        std::vector<float> data;
+        unsigned int dimensions;
+    } texCoords;
+    
+    struct Indices {
+        std::vector<unsigned int> data;
+    } indices;
 };

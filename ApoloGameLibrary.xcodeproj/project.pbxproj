@@ -517,7 +517,6 @@
 		71743FA92988175A006A7C6C /* type_aligned.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = type_aligned.hpp; sourceTree = "<group>"; };
 		7192046E298999910037D1F8 /* Inputs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Inputs.cpp; sourceTree = "<group>"; };
 		71920472298A12D70037D1F8 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
-		719204BB298B1F280037D1F8 /* documentation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = documentation.md; sourceTree = "<group>"; };
 		71B2AC3E29860CD5001A3AB9 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2.a; sourceTree = "<group>"; };
 		71F7430129860A08004CA604 /* libApoloGameLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libApoloGameLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -540,7 +539,6 @@
 				71743D4329881759006A7C6C /* source */,
 				71743D5D29881759006A7C6C /* dependencies */,
 				71920472298A12D70037D1F8 /* makefile */,
-				719204BB298B1F280037D1F8 /* documentation.md */,
 			);
 			path = ApoloGameLibrary;
 			sourceTree = "<group>";

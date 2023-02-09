@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        html {
+            display: flex;
+            justify-content: center;
+            background-color: #F0F1F2;
+        }
+        body {
+            max-width: 900px;
+            background-color: white;
+            padding: 0rem 1.5rem;
+            margin: 0;
+            margin-bottom: 2rem;
+            display: grid;
+            row-gap: 2rem;
+        }
+        footer {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid grey;
+        }
+        div {
+            display: grid;
+        }
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+        h4 {
+            margin-bottom: 0.5rem;
+        }
+        p {
+            text-align: justify;
+            line-height: 18pt;
+        }
+        code {
+            background-color: #e6e6e6;
+            font-family: monospace;
+            padding: 3px 5px 0px 5px;
+            white-space: pre-wrap
+        }
+        code.added {
+            background-color: #b5ebb5;
+        }
+        code.modified {
+            background-color: #eae299;;
+        }
+        code.deleted {
+            background-color: #daa9a9;
+        }
+        /* Specific for nav contents */
+        nav>ol, nav>ol>li>ul, nav>ol>li>ul>ul {
+            display: grid;
+            row-gap: 0.5rem;
+        }
+        nav > ol > li > a {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        figure {
+            display: grid;
+            justify-content: center;
+            max-height: 512px;
+            align-content: end;
+            justify-items: center;
+        }
+        img {
+            max-height: inherit;
+        }
+        figcaption {
+            display: flex;
+            justify-content: center;
+            font-style: italic;
+            height: initial;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Apolo Game Library Documentation</h1>
+        <p>
+            Created by: Anderson Bucchianico
+            <br>
+            Creation date: feb/2023
+        </p>
+    </header>
+    <nav>
+        <h2 id="Contents">Contents</h2>
+        <hr/>
+        <ol>
+            <li>
+                <a href="#Introduction" target="_self">Introduction</a>
+                <ul>
+                    <li>
+                        <a href="#Capabilites" target="_self">Capabilites</a>
+                    </li>
+                    <li>
+                        <a href="#Device Targets" target="_self">Device Targets</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Structure Overview" target="_self">Structure Overview</a>
+                <ul>
+                    <li>
+                        <a href="#Core Subsystem" target="_self">Core Subsystem</a>
+                    </li>
+                    <li>
+                        <a href="#World Subsystem" target="_self">World Subsystem</a>
+                    </li>
+                    <li>
+                        <a href="#Resource Loader Subsystem" target="_self">Resource Loader Subsystem</a>
+                    </li>
+                    <li>
+                        <a href="#Input Subsystem" target="_self">Input Subsystem</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#API Functions Reference" target="_self">API Functions Reference</a>
+                <ul>
+                    <li>
+                        Core Subsystem
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="#Render::drawArrays" target="_self">Render::drawArrays</a>
+                        </li>
+                        <li>
+                            <a href="#Render::drawElements" target="_self">Render::drawElements</a>
+                        </li>
+                        <li>
+                            <a href="#Render::drawElementsInstanced" target="_self">Render::drawElementsInstanced</a>
+                        </li>
+                        <li>
+                            <a href="#Render::initialize<" target="_self">Render::initialize</a>
+                        </li>
+                        <li>
+                            <a href="#Render::printContextInformation target="_self">Render::printContextInformation</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setActiveProgram" target="_self">Shader::setActiveProgram</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::getActiveShaderId<" target="_self">Shader::getActiveShaderId</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformModelViewProjection" target="_self">Shader::setUniformModelViewProjection</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformModelProjection" target="_self">Shader::setUniformModelProjection</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformTexture" target="_self">Shader::setUniformTexture</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformIntArray" target="_self">Shader::setUniformIntArray</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformFloat" target="_self">Shader::setUniformFloat</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformVec2Array" target="_self">Shader::setUniformVec2Array</a>
+                        </li>
+                        <li>
+                            <a href="#Shader::setUniformVec3" target="_self">Shader::setUniformVec3</a>
+                        </li>
+                        <li>
+                            <a href="#Window::initialize" target="_self">Window::initialize</a>
+                        </li>
+                        <li>
+                            <a href="#Window::setLoopCallback" target="_self">Window::setLoopCallback</a>
+                        </li>
+                        <li>
+                            <a href="#Window::startLoop<" target="_self">Window::startLoop</a>
+                        </li>
+                        <li>
+                            <a href="#Window::exitWindow" target="_self">Window::exitWindow</a>
+                        </li>
+                        <li>
+                            <a href="#Window::getFrameRate" target="_self">Window::getFrameRate</a>
+                        </li>
+                        <li>
+                            <a href="#Window::getWindowData" target="_self">Window::getWindowData</a>
+                        </li>
+                    </ul>
+                    <!-- <li>
+                        <a href="#World Subsystem<" target="_self">World Subsystem</a>
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="#" target="_self">Entity::getMatrix</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::setScale</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::getScale</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::setPosition</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::addToPosition</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::getPosition</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::setOrientation</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Entity::getOrientation</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Camera::getMatrix</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Camera::setPosition</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Camera::getPosition</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Camera::setOrientation</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Camera::getOrientation</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::getOrthographic</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::setOrthographic</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::getPerspective</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::setPerspecProjection</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::getFieldOfView</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::setFieldOfView</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::getNearPlane</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::setNearPlane</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::getFarPlane</a>
+                        </li>
+                        <li>
+                            <a href="#" target="_self">Projection::setFarPlane</a>
+                        </li>
+                    </ul> -->
+                    <li>
+                        Resource Loader Subsystem
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="#FileLoader::generatePathForFile" target="_self">FileLoader::generatePathForFile</a>
+                        </li>
+                        <li>
+                            <a href="#FileLoader::setProgramSystemPath" target="_self">FileLoader::setProgramSystemPath</a>
+                        </li>
+                        <li>
+                            <a href="#FileLoader::read" target="_self">FileLoader::read</a>
+                        </li>
+                        <li>
+                            <a href="#ModelLoader::read" target="_self">ModelLoader::read</a>
+                        </li>
+                        <li>
+                            <a href="#ShaderLoader::load" target="_self">ShaderLoader::load</a>
+                        </li>
+                        <li>
+                            <a href="#TextureLoader::load2d" target="_self">TextureLoader::load2d</a>
+                        </li>
+                        <li>
+                            <a href="#TextureLoader::loadCubemap" target="_self">TextureLoader::loadCubemap</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Input Subsystem
+                    </li>
+                    <ul>
+                        <li>
+                            <a href="#Input::setKeyUpCallbackFunction" target="_self">Input::setKeyUpCallbackFunction</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#Input::setKeyDownCallbackFunction" target="_self">Input::setKeyDownCallbackFunction</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#Input::setMouseMovementCallbackFunction" target="_self">Input::setMouseMovementCallbackFunction</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#Input::setMouseDownCallbackFunction" target="_self">Input::setMouseDownCallbackFunction</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#Input::setMouseUpCallbackFunction" target="_self">Input::setMouseUpCallbackFunction</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="#Input::setMouseScrollCallbackFunction" target="_self">Input::setMouseScrollCallbackFunction</a>
+                        </li>
+                    </ul>
+                </ul>
+            </li>
+            <li>
+                <a href="#Basic Usage Examples" target="_self">Basic Usage Examples</a>
+                <ul>
+                    <li>
+                        <a href="#Creating a Empty Window" target="_self">Creating a Empty Window</a>
+                    </li>
+                    <li>
+                        <a href="#Rendering an Object" target="_self">Rendering an Object</a>
+                    </li>
+                    <li>
+                        <a href="#Textures" target="_self">Textures</a>
+                    </li>
+                    <li>
+                        <a href="#Skyboxes" target="_self">Skyboxes</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">Light Sources</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">Text on Screen</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" target="_self">Compiling and Link to a Game Project</a>
+                <ul>
+                    <li>
+                        <a href="#" target="_self">For Unix Systems</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">For Web Browsers</a>
+                    </li>
+                    <li>
+                        <a href="#" target="_self">For Windows Systems</a>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </nav>
+
+    <article>
+        <h2 id="Introduction">Introduction</h2>
+        <hr/>
+        <section>
+            <p>
+                This document specifies, explains and demonstrate examples of usage of the Apollo Game  Library, a library dedicated to simplify and accelerate the creation of game applications using C/C++ languages. Just to keep the user focused on the core features of the application, rather than technical details under the hood, automatically doing the complex tasks such as loading models, textures shaders into memory, rendering objects, perform matrix calculations, handle windowing system independent of the target platform and handle user input via mouse, keyboard or joystick.
+            </p>
+        </section>
+
+        <section>
+            <h3 id="Capabilites">Capabilites</h3>
+            <p>
+                The Apolo Game Library is capable to offering a three dimensional rendering context through a windowing system, achieved by the built-in SDL 2.0 library, a very popular Windowing system used by many AAA games.
+            </p>
+            <p>
+                The rendering context is achieved with support for hardware graphics acceleration, using OpenGL 3.3+. Direct rendering commands are not available due to these commands becoming deprecated in OpenGL  version after 3.0.
+            </p>
+            <p>
+                OpenGL 3.3+ and OpenGL ES 3.0+ are the only graphics libraries supported in the Apolo Game Library.
+            </p>
+            <p>
+                Depending of the target system, the GPU rendering may be or may not be activated. In cases of embedded or very old devices, software only rendering may be the only option available. Consult the platform you want to develop for specific details.
+            </p>
+            <p>
+                Other capabilities are present if form of file loaders for 3D models, supporting different model formats, textures and shaders.
+            </p>
+            <p>
+                The input system is implemented by SDL, every action is captured and send to callback functions for further implementation, depending of the needs.
+            </p>
+            <p>
+                Playback of audio files is supported by SDL, but yet not implemented by Apple Game Library.
+            </p>
+        </section>
+
+        <section>
+            <h3 id="Device Targets">Device Targets</h3>
+            <p>
+                The Apolo Game Library is designed to offer a large set of supported operating systems and devices types. Future compatibility with newer operating systems versions may be limited or deprecated due to enterprises practicing closed environment actions, such as depreciating OpenGL, Apple is the one of most notorious for such actions.
+            </p>
+            <p>
+                The library offers support to be built using different compilers, including Emcripten, the most popular compiler for building projects to WebAssembly and therefore being transformable to a executable inside a web browser:
+            </p>
+            <p>
+                Officially supported Operating Systems include:
+            </p>
+            <ul>
+                <li>
+                    Apple macOS, from 10.5 to 13.0;
+                </li>
+                <li>
+                    Linux systems with kernel 3.4 or superior;
+                </li>
+                <li>
+                    Microsoft Windows 7 or superior;
+                </li>
+            </ul>
+            <p>
+                Support for mobile devices such as Android or iOS is limited by the internet browsers that are installed on these systems. The officially supported internet browses include:
+            </p>
+            <ul>
+                <li>
+                    Apple Safari, from 12.0 or superior;
+                </li>
+                <li>
+                    Google Chrome, from 99 or superior;
+                </li>
+                <li>
+                    Mozilla Firefox, from 75 or superior;
+                </li>
+            </ul>
+            <p>
+                Other Operating systems based on unix or other internet browsers based on chromium may be supported as well, but there are a non-zero chance of failure in some way.
+            </p>
+        </section>
+    </article>
+
+    <article>
+        <h2 id="Structure Overview<">Structure Overview</h2>
+        <hr/>
+        <section>
+            <p>
+                The library offers a large set of built-in functions, present if form of functions grouped by namespaces, classes from object oriented programming, and data access from structures.
+            </p>
+            <p>
+                Some resources are design to be used as functions that defines a state-like machine and some are design to be in form of classes to give the liberty of being inherited or instantiated multiple times.
+            </p>
+        </section>
+        <section>
+            <h3 id="Core Subsystem">Core Subsystem</h3>
+            <p>
+                The kernel of the application is the core subsystem, composed by:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <b>Window module</b>, responsible for manage the windowing system with help of SDL, is a state-like machine meaning that is not necessary to instantiate as a class object, but is necessary to call a `initialize(width, height, title) function and point a callback function for game logic. The Window Module implements the main application loop, with each maintain the Rendering, Logic, Input detection and Time management. Some calls inside the main loop are pointed to callback functions that the developer can implement in their side with each can contain game logic.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Render module</b>, responsible for initialize the rendering context and respond for draw calls;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Shader module</b>, responsible for interacting with the OpenGL shader system, setting uniform variables to the shader programs, before them running on the GPU. Every Entity data sent to the GPU passes through the Shader module.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>VAO module</b>, (Vertex Array Object) responsible for setting a data structure inside the GPU memory, with each contains the model data.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>VBO Module</b>, (Vertex Buffer Object) responsible for setting blocks of data structures inside the GPU memory, with each contains the model data.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>EBO Module</b>, (Element Buffer Object) responsible for organizing model data in indices for faster rendering on by the GPU.
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 id="World Subsystem">World Subsystem</h3>
+            <p>
+                The World subsystem offers an abstraction of the real world that can be implemented by the core subsystem. Composed by:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <b>Entity class</b>, the Entity class is the most abstract way to materialize any kind of object in the scenery, it contains basic proprieties and functions to move, rotate and scale the object, it also contains references to any kind of textures, models and shaders that the Entity may have during his life cycle, theses properties are optionals, meaning that an Entity can exist without being composed by any material or behavior. In the Apolo Game Library, a shader program is normally attached in an Entity object, offering the opportunity to determine how the model should absorve and reflect light, or emitting light if that is the case in mind, as well being deformed by external events and many other possibilites.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Camera class</b>, is the component that offers a point of view in relationship with other Entities that may be present in the world. The camera matrix is basically the abstraction of the world, when the Camera moves, all the Entities are what really being moved.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Projection class</b>, is the component that set up how the world are being projected in Camera, there are two forms of projection available in the library, the Perspective and Orthogonal projections.
+                    </p>
+                </li>
+            </ul>
+            <p>
+                There is a question regarding the nature of the implementation of a Camera in a scenery, generally in other game libraries or engines, a Camera can be a variation of an Entity. In Apolo Game Library the Camera is the second element of the world transformation triad, composed by an Entity, a Camera and a Projection, you can’t have an euclidean world without these 3 components, (more specifically, they matrices), being calculated by the rendering system.
+            </p>
+            <p>
+                The library offers some derivatives of the Entity class, available for use in the game implementation, with built-in features that may become useful for speed-up the development:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <b>Text class</b>, can be used to present text information inside the rendering context;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Light class</b>, can be used to render object that emit light, their light can affect other objects depending of the shader program attached to the other Entities.
+                    </p>
+                </li>
+            </ul>
+            <p>
+                The library offers some derivatives of the Camera class, available for use in the game implementation, with built-in features that may become useful for speed-up the development:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <b>Debug Camera</b>, can be used to freely move through the scenery without any barriers with the use of a mouse;
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 id="Resource Loader Subsystem">Resource Loader Subsystem</h3>
+            <p>
+                The Loader Subsystem is a series of modules that support reading of different file formats, that can be used by the rendering system to load 3D models, textures, shaders, and other file formats. The developer can implement customized file loaders with help of the File Loader Module.
+            </p>
+            <p>
+                The Loader Subsystem is composed by:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <b>FileLoader Module</b>, It’s a generic File loader that returns the file content in string format (char*), it is necessary to inform a subfolder that the file has to be located, in the root directory where the main application is located. The path from the system root through the executable is automatically managed by the File Loader module.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Texture Loader Module</b>, with help of stb_image library dependency, the Texture Loader can read the most conventional image formats to the application. You can consult the stb_image documentation for more details. The module offers two ways of loading, the 2D format, with each is the recommend way to load a texture, and the cube map texture used to load texture in 3D, most suitable for cubes and skyboxes.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Model Loader Module</b>, this module can load an image in ModelData data structure to the rendering context. Please note that the Model loader by itself cannot load directly a model file to the rendering context. This behavior is due the multiple formats available to store 3D models in files. So the loading functions are handled by specific modules that helps this loader to read a model. The supported file formats:
+                    </p>
+                    <ul>
+                        <li>
+                            <p>
+                                <b>Wavefront Object</b> can be spotted by the file format .OBJ. is a geometry definition file format first developed by Wavefront Technologies for its Advanced Visualizer animation package. The support for this format is limited due to vastly different ways available to store information in this format, see the Wavefront Object specification for more details.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Stanford Object</b> can be spotted by the .PLY extension. The Stanford Object is a computer file format known as the Polygon File Format or the Stanford Triangle Format. It was principally designed to store three-dimensional data from 3D scanners. The support for this file format specification is almost full, it’s the recommended way to load 3D models in Apolo Game Library.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>
+                        <b>Shader Loader Module</b>, responsible for loading shader text programs from the system into memory, compiling, linking to the rendering context and checking for possible syntaxes errors committed by the developer. Note that the shader programs are compiled and check in execution time and load to the GPU device. Another feature provided by the Shader Loader is the automatic conversion between GLSL versions for desktop and mobile/web versions. So a GLSL program, with <code>#version 330</code> can be automatically changed to <code>#version 300 es</code> in compile time.
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3 id="Input Subsystem">Input Subsystem</h3>
+            <p>
+                The input subsystem is responsible to capture any kind of event emitted by the user, despite the specification of SDL Events being able to capture even screen update events, the Apolo Game Library does not yet implement this feature, only, keyboard, mouse and generic joystick events.
+            </p>
+            <p>
+                The submodule has the following behavior: The submodule structure serves as an interface to the developer with each can further implement callback functions to handle submodule related events. The calls are made by the Input module, with each check if the developer has implemented the functions, if is so, the function are called passing some event related data.
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        <b>Keyboard Module:</b> Keyboard related events, such as KeyUp and KeyDown;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Mouse Module:</b> Mouse related events, such as ClickUp, ClickDown, Movement and Scroll;
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <b>Joystick Module:</b> Is specified in the code but it’s not yet implemented in the library;
+                    </p>
+                </li>
+            </ul>
+        </section>
+    </article>
+
+    <article>
+        <h2 id="API Functions Reference">API Functions Reference</h2>
+        <hr/>
+        <section>
+            <h3 id="Render::drawArrays">Render::drawArrays</h3>
+            <p>
+                Draw elements from a Entity object without use of indices.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Render::drawArrays(struct Entity* model)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>model</i>
+                <dd>
+                    <p>
+                        Indicates a reference to Entity object to be drawn.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Render::drawElements">Render::drawElements</h3>
+            <p>
+                Draw elements from a Entity object with use of indices.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Render::drawElements(struct Entity* model)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>model</i>
+                <dd>
+                    <p>
+                        Indicates a reference to Entity object to be drawn.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Render::drawElementsInstanced">Render::drawElementsInstanced</h3>
+            <p>
+                Draw elements from a Entity object multiple times with use of indices.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void drawElementsInstanced(struct Entity* model, uint count)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>model</i>
+                <dd>
+                    <p>
+                        Indicates a reference to Entity object to be drawn.
+                    </p>
+                </dd>
+                <i>count</i>
+                <dd>
+                    <p>
+                        Inform the quantity of models to be drawn in a single OpenGL call
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Render::initialize">Render::initialize</h3>
+            <p>
+                Initialize the rendering system, it's a necessary call to make a functional rendering enviroment.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>Render::initialize(Window::WindowData* window)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>window</i>
+                <dd>
+                    <p>
+                        A reference to a struct returned from the method Window::initialize;
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+        
+        <br><hr/>
+        <section>
+            <h3 id="Render::drawElementsInstanced">Render::drawElementsInstanced</h3>
+            <p>
+                Draw elements from a Entity object multiple times with use of indices.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void drawElementsInstanced(struct Entity* model, uint count)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>model</i>
+                <dd>
+                    <p>
+                        Indicates a reference to Entity object to be drawn.
+                    </p>
+                </dd>
+                <i>count</i>
+                <dd>
+                    <p>
+                        Inform the quantity of models to be drawn in a single OpenGL call
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setActiveProgram">Shader::setActiveProgram</h3>
+            <p>
+                Set the shader module with a shader program Id, the calls to uniform functions are affected by the current shader id.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setActiveProgram(uint shaderId);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>shaderId</i>
+                <dd>
+                    <p>
+                        the shader program Id attached from a Entity object.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::getActiveShaderId">Shader::getActiveShaderId</h3>
+            <p>
+                Get the current shaderId.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>uint getActiveShaderId();</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>void</i>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>uint</i>
+                <dd>
+                    <p>
+                        The current shader program id in Shader module.
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setUniformModelViewProjection">Shader::setUniformModelViewProjection</h3>
+            <p>
+                Set in the current shader the model, view and projection matrices to work. the matrices had to be declared inside the shader as uniforms.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformModelViewProjection(Entity* entity, glm::mat4 camera, glm::mat4 projection);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>entity</i>
+                <dd>
+                    <p>
+                        Indicates a reference to Entity object to be drawn.
+                    </p>
+                </dd>
+                <i>camera</i>
+                <dd>
+                    <p>
+                        Indicates to camera matrix to be passed to the shader.
+                    </p>
+                </dd>
+                <i>projection</i>
+                <dd>
+                    <p>
+                        Indicates a projection matrix to be passed to the shader.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setUniformModelProjection">Shader::setUniformModelProjection</h3>
+            <p>
+                Set in the current shader the model and projection matrices to work. the matrices had to be declared inside the shader as uniforms.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformModelProjection(Entity* entity, glm::mat4 projection);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>entity</i>
+                <dd>
+                    <p>
+                        Indicates a reference to Entity object to be drawn.
+                    </p>
+                </dd>
+                <i>projection</i>
+                <dd>
+                    <p>
+                        Indicates a projection matrix to be passed to the shader.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Render::drawElementsInstanced">Shader::setUniformTexture</h3>
+            <p>
+                Set a texture id to the shader program, a uniform sampler2D or sampleCube texture should be present in the shader code, declared as "texture0".
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformTexture(uint textureId, uint dimensions);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>textureId</i>
+                <dd>
+                    <p>
+                        Indicates a reference to the texture id previously attached to the Entity object to be drawn.
+                    </p>
+                </dd>
+                <i>dimensions</i>
+                <dd>
+                    <p>
+                        Inform the number of dimensions the texture has, 2 or 3.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setUniformIntArray">Shader::setUniformIntArray</h3>
+            <p>
+                Set a array of int into the shader program.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformIntArray(cchar* name, int* intArray, int size);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>name</i>
+                <dd>
+                    <p>
+                        Indicates the uniform variable present in the shader program, the name must match.
+                    </p>
+                </dd>
+                <i>intArray</i>
+                <dd>
+                    <p>
+                        Points to the array of ints.
+                    </p>
+                </dd>
+                <i>size</i>
+                <dd>
+                    <p>
+                        The size of the int array.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setUniformFloat">Shader::setUniformFloat</h3>
+            <p>
+                Set a float number to the shadem program.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformFloat(cchar* name, float value);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>name</i>
+                <dd>
+                    <p>
+                        Indicates the uniform variable present in the shader program, the name must match.
+                    </p>
+                </dd>
+                <i>value</i>
+                <dd>
+                    <p>
+                        Inform the float value to be passed to the shader program.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setUniformVec2Array">Shader::setUniformVec2Array</h3>
+            <p>
+                
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformVec2Array(cchar* name, const float* value, int size);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>name</i>
+                <dd>
+                    <p>
+                        Indicates the uniform variable present in the shader program, the name must match.
+                    </p>
+                </dd>
+                <i>value</i>
+                <dd>
+                    <p>
+                        Inform the refence to the floats values to be passed to the shader program.
+                    </p>
+                </dd>
+                <i>size</i>
+                <dd>
+                    <p>
+                        The size of the float array.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Shader::setUniformVec3">Shader::setUniformVec3</h3>
+            <p>
+                Set a vec3 data type to the shadem program, the shader has the vec3 data type, in the CPU execution side we have the glm::vec3 to be used.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setUniformVec3(cchar* name, glm::vec3 value);</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>name</i>
+                <dd>
+                    <p>
+                        Indicates the uniform variable present in the shader program, the name must match.
+                    </p>
+                </dd>
+                <i>vlaue</i>
+                <dd>
+                    <p>
+                        The glm::vec3 is converted to a GLSL vec3 deta type.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Window::exitWindow">Window::exitWindow</h3>
+            <p>
+                Exit the current window, causing the entire program to shutdown.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Window::exitWindow()</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>void</i>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Window::getFrameRate">Window::getFrameRate</h3>
+            <p>
+                Get the current number of frames beign pushed to the screen during the last second.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>float Window::getFrameRate()</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>void</i>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>float</i>
+                <dd>
+                    <p>
+                        The current FPS number.
+                    </p>
+                </dd>
+            </section>
+            
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Window::getWindowData">Window::getWindowData</h3>
+            <p>
+                Return the WindowData structure, storing the window height, width, aspect ratio etc. It must be initilized first with Window::initialize().
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>struct Window::WindowData* Window::getWindowData()</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>void</i>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>struct Window::WindowData*</i>
+                <dd>
+                    <p>
+                        The WindowData structure, storing the window height, width, aspect ratio etc.
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Window::initialize">Window::initialize</h3>
+            <p>
+                initializes the Window managing system.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Window::initialize(ushort width, ushort height, char* title)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>width</i>
+                <dd>
+                    <p>
+                        The window width in pixels;
+                    </p>
+                </dd>
+                <i>height</i>
+                <dd>
+                    <p>
+                        The window height in pixels;
+                    </p>
+                </dd>
+                <i>title</i>
+                <dd>
+                    <p>
+                        A title to be located at the top of the window, maximum length of 128 bytes.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Window::setLoopCallback">Window::setLoopCallback</h3>
+            <p>
+                The developer can pass a pointer to a function to handle the game logic. This function will be called multiple times in a span of a second, depending of the CPU limits of the device. If you dont't set this you can't have access to the mainLoop, therefore not being able to calculate the game login in real time.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Window::setLoopCallback(void (*mainLoop)())</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>mainLoop</i>
+                <dd>
+                    <p>
+                        It's the function pointer, the reference will be called after the rendering loop starts.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Window::startLoop">Window::startLoop</h3>
+            <p>
+                Starts the rendering loop. Before calling this function, be sure to initialize the window system, the render system and to customize the loop with game logic, set a callback function <code>Window::setLoopCallback(void (*mainLoop))</code>. But that is optional.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Window::startLoop()</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>none</i>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="FileLoader::setProgramSystemPath">FileLoader::setProgramSystemPath</h3>
+            <p>
+                Initialize the Loader subsystem by providing the executable path string, It need to point to the executable path location in system.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setProgramSystemPath(std::string programPath)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>programPath</i>
+                <dd>
+                    <p>
+                        System path to the executable
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="FileLoader::read">FileLoader::read</h3>
+            <p>
+                Read the file pointed by the path. It needs to be an absolute path.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void setProgramSystemPath(std::string programPath)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>programPath</i>
+                <dd>
+                    <p>
+                        System path to the executable.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <i>void</i>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="ModelLoader::load">ModelLoader::load</h3>
+            <p>
+                Read the file pointed by the path. the model file must be located in a subfolder named <code>models</code> in the executable root directory. It's only necessary to point the filename + extension.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>modelFileName</i>
+                <dd>
+                    <p>
+                        The name of the model file to be loaded, The module supportes .ply and .obj files.
+                    </p>
+                </dd>
+                <i>relatedShaderId</i>
+                <dd>
+                    <p>
+                        Related shader id from the entity object.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>struct Mesh*</i>
+                <dd>
+                    <p>
+                        A struct contained a bunch of tickets given by the OpenGL context. these tickets would be useful later to point to the OpenGL rendering context with model we want to render later.
+                    </p>
+                    <p>
+                        The ticket are just a GLuint (aka unsigned int)  number from zero to 2ˆ32;
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="ShaderLoader::load">ShaderLoader::load</h3>
+            <p>
+                Load the shader file to the rendering context . Keep in mind that the texture content will be located in the GPU and discarted by the CPU context. The shader file must be located in a subfolder named <code>shaders</code> in the executable root directory. It's only necessary to point the file name + extension. Example: <code>vertexShader.vs</code> 
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>GLuint load(cchar* vertexFileName, cchar* fragmentFileName)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>vertexFileName</i>
+                <dd>
+                    <p>
+                        The name of the vertex shader file. it should have a .vs extension.
+                    </p>
+                </dd>
+                <i>fragmentFileName</i>
+                <dd>
+                    <p>
+                        The name of the fragment shader file. it should have a .fs extension.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>shader program id</i>
+                <dd>
+                    <p>
+                        Given the vertex and fragment shaders, these two are compiled, checked and linked together, forming a shader program, the shader program are stored in the rendering context and a shader program id is returned. It is a ticket with point to the program stored on the GPU. Dont't lose your ticket to avoid potential memory leaks.
+                    </p>
+                    <p>
+                        The ticket are just a GLuint (aka unsigned int)  number from zero to 2ˆ32;
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="TextureLoader::load2d">TextureLoader::load2d</h3>
+            <p>
+                Load a 2D texture to the rendering context pointed by a given name. Keep in mind that the texture content will be located in the GPU and discarted by the CPU context. The texture file must be located in a subfolder named <code>textures</code> in the executable root directory. It's only necessary to point the file name + extension. Example: box.png.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>GLuint TextureLoader::load2d(cchar* textureFileName)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>textureFileName</i>
+                <dd>
+                    <p>
+                        The name of the texture. The Module supports the .jpg and .png extensions.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>texture id</i>
+                <dd>
+                    <p>
+                        Given the texture file, the file is loaded into the rendering context and a texture id is returned. It is a ticket with point to the texture stored on the GPU. Dont't lose your ticket to avoid potential memory leaks.
+                    </p>
+                    <p>
+                        The ticket are just a GLuint (aka unsigned int)  number from zero to 2ˆ32;
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="TextureLoader::loadCubemap">TextureLoader::loadCubemap</h3>
+            <p>
+                Load a 3D cubemap texture to the rendering context pointed by a vector of texture names. Keep in mind that the texture content will be located in the GPU and discarted by the CPU context. The textures files must be located in a subfolder named <code>textures</code> in the executable root directory. In the vector, It's only necessary to point the file name + extension. Example: box.png.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>GLuint TextureLoader::loadCubemap(std::vector&lt;cchar*> textureFaces)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>textureFaces</i>
+                <dd>
+                    <p>
+                        A std::vector also known as a List&lt;String> if you are more familiar with other languages. It's a list of texture names. The Module supports the .jpg and .png extensions.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>texture id</i>
+                <dd>
+                    <p>
+                        Given the list of texture names, these files are loaded into the rendering context and a unique texture id is returned. It is a ticket with point to the cubemap texture stored on the GPU. Dont't lose your ticket to avoid potential memory leaks.
+                    </p>
+                    <p>
+                        The ticket are just a GLuint (aka unsigned int)  number from zero to 2ˆ32;
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Input::setKeyUpCallbackFunction">Input::setKeyUpCallbackFunction</h3>
+            <p>
+                Set a Input callback function.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Input::setKeyUpCallbackFunction(void (*callback)(int)) </code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>callback</i>
+                <dd>
+                    <p>
+                        A callback for the action.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>void</i>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Input::setKeyDownCallbackFunction">Input::setKeyDownCallbackFunction</h3>
+            <p>
+                Set a Input callback function.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Input::setKeyDownCallbackFunction(void (*callback)(int)) </code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>callback</i>
+                <dd>
+                    <p>
+                        A callback for the action.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>void</i>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Input::setMouseMovementCallbackFunction">Input::setMouseMovementCallbackFunction</h3>
+            <p>
+                Set a Input callback function.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Input::setMouseMovementCallbackFunction(void (*callback)(double, double))</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>callback</i>
+                <dd>
+                    <p>
+                        A callback for the action.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>void</i>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Input::setMouseDownCallbackFunction">Input::setMouseDownCallbackFunction</h3>
+            <p>
+                Set a Input callback function.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Input::setMouseDownCallbackFunction(void (*callback)(int button, int x, int y))</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>callback</i>
+                <dd>
+                    <p>
+                        A callback for the action.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>void</i>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Input::setMouseUpCallbackFunction">Input::setMouseUpCallbackFunction</h3>
+            <p>
+                Set a Input callback function.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Input::setMouseUpCallbackFunction(void (*callback)(int button, int x, int y))</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>callback</i>
+                <dd>
+                    <p>
+                        A callback for the action.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>void</i>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="Input::setMouseScrollCallbackFunction">Input::setMouseScrollCallbackFunction</h3>
+            <p>
+                Set a Input callback function.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>void Input::setMouseScrollCallbackFunction(void (*callback)(double, double))</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>callback</i>
+                <dd>
+                    <p>
+                        A callback for the action.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>void</i>
+            </section>
+        </section>
+
+    </article>
+
+    <article>
+        <h2 id="Basic Usage Examples">Basic Usage Examples</h2>
+        <hr/>
+        <p>
+            In this section there are present some examples to how initialize the system and feed up with Entities, Cameras, Projections, Game Logic, Input Handling etc.
+        </p>
+        <section>
+            <h3 id="Creating a Empty Window">Creating a Empty Window</h3>
+            <p>
+                To create a minimum functional environment for developing games we will need to initialize the core subsystem of the library first.
+            </p>
+            <h4>minimumExample.c</h4>
+            <div>
+                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
+                <code> </code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 640;</code>
+                <code>unsigned short width = 640;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    glClearColor(0.60, 0.50, 0.70, 1);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                Then we create the windowing system, providing a width, height and title to the <code>Window::initialize(width, height, title);</code>. The width and height can be any <code>unsigned short</code> number up to 65535, the title can be defined as a <code>const char*</code>.
+            </p>
+            <p>
+                During the main loop, the library can call a not yet defined function with each we can place the game execution logic, we can tell the windowing system what function will be by passing the address of it to <code>Window::setLoopCallback(mainLoop);</code>.
+            </p>
+            <p>
+                Next, we initialize the rendering system, setting a rendering context for the window, but not yet started the rendering loop.
+            </p>
+            <p>
+                Finally, we start the rendering loop by calling <code>Window::startLoop()</code>, after that, we will enter in inifite loop, only exing after manually close the window.
+            </p>
+            <p>
+                On execution, we are gifted with a new window tinted with a purple-ish color. If you need help to compile this example, check the "Compile and Link to a Game Project" section.
+            </p>
+            <figure>
+                <img src="./images/basicWindow.png"/>
+                <figcaption>A system window rendering a purple-ish background.</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3 id="Rendering an Object">Rendering an Object</h3>
+            <p>
+                To render an object, we will need to load a model file, a simple shader program, instantiate a Entity, a Camera and a Projection object, and render-it in the <code>mainLoop</code> function. In this case we will load a cube into the rendering context.
+            </p>
+            <p>
+                Sounds like a lot of things, but if we want to render anything more than a color, we will have to construct a scenery for our presentation.
+            </p>
+            <p>
+                In the early versions of OpenGL we can simply give some commands to draw some triangles and we are technically done. But these methods are deprecated for already many years. The modern way requires some additional work, but the return of the investment will pay the hassle.
+            </p>
+            <p>
+                Before continuing:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Create a folder/directory in the root of your source code file named <code>models</code>. Inside you can place the <code>cube.ply</code> file. If you dont't have the model file, you can very easily create one with <a href="https://www.blender.org/" target="_blank">Blender</a>. Dont't forget to save as <code>.ply</code> format.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Create a folder/directory in the root of your source code file named <code>shaders</code>. Inside you can place the following code:
+                    </p>
+                    <h4>defaultShader.vs</h4>
+                    <div>
+                        <code>#version 330</code>
+                        <code> </code>
+                        <code>in vec3 positionVec;</code>
+                        <code> </code>
+                        <code>uniform mat4 modelMatrix;</code>
+                        <code>uniform mat4 viewMatrix;</code>
+                        <code>uniform mat4 projectionMatrix;</code>
+                        <code>uniform vec3 fragColor;</code>
+                        <code> </code>
+                        <code>out vec3 outFragColor;</code>
+                        <code> </code>
+                        <code>void main() {</code>
+                        <code>    outFragColor = fragColor;</code>
+                        <code>    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(positionVec, 1.0);</code>
+                        <code>}</code>
+                    </div>
+
+                    <h4>defaultShader.fs</h4>
+                    <div>
+                        <code>#version 330</code>
+                        <code> </code>
+                        <code>in vec3 outFragColor;</code>
+                        <code></code>
+                        <code>out vec4 frag_Color;</code>
+                        <code> </code>
+                        <code>void main() {</code>
+                        <code>     frag_Color = vec4(outFragColor, 1.0f) * vec4(0.75, 0.75, 0.75, 1.0f);</code>
+                        <code>}</code>
+                    </div>
+                </li>
+            </ul>
+            <p>
+                After that, we can procced to write the following code:
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, glm::mat4(1.0f), glm::mat4((1.0f)));</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code>    cube = new Entity();</code>
+                <code>    cube->relatedShaderId = shaderId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
+                <code>    cube->setScale(glm::vec3(0.5));</code>
+                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                Continuing from the example before, We start initializing the Input subsystem by providing the executable path string to the <code>FileLoader::setProgramSystemPath(char*);</code>.
+            </p>
+            <p>
+                Next, we invoke the ShaderLoader module to load the shaders into the memory. One thing to note is that all shaders informed must be located at subfolder called <code>shaders</code>. If all goes well, the OpenGL context will return to us a ticket, with each is a number reference to the content loaded into GPU.
+            </p>
+            <p>
+                We also need to instantiate a cube object, based on a Entity class, attach the shader reference to it, set the initial positions and scales, and finally attach a 3D model to it, the model contents are stored in the GPU's memory, therefore, you cannot have direct access via CPU. the mesh property in Entity are just a bunch of tickets that OpenGL give to us when we want to draw with the model. We simply pass the id's to the OpenGL rendering context and he will locate the model and rendering for you.
+            </p>
+            <p>
+                in the <code>mainLoop</code> function we tell our shader module to activate the shader program we want to use. In <code>Shader::setUniformModelViewProjection(Entity*, glm::mat4, glm::mat4);</code> we pass the Entity to the rendering context, as well the Camera and the Projection matrix, this is necessary to inform what object we want to render, with each camera will be observed, and what projection should be appeared.
+            </p>
+            <p>
+                Finally, we tell the <code>Render</code> to draw the element.
+            </p>
+            <figure>
+                <img src="./images/basicQuad.png"/>
+                <figcaption>A system window rendering a blue-ish cube in a dark background.</figcaption>
+            </figure>
+            <p>
+                But, as you may notice, this cube, dosen't look like a cube.. This happen because of the absence of a Camera and a Projection components in our world. To be able to see the other side of the cube, we will need to create a Camera and a Projection in our world, and set the camera to rotate the view angle a little bit.
+            </p>
+            <p>
+                There is another approach to view the other faces of the cube. which is simple tell the cube to rotate, but again, with the absence of a camera and a projection things will not be drawn as the way we should expect.
+            </p>
+            <p>
+                Let's begin to add the camera and a projection for our world:
+            </p>
+            <div>
+                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+            </div>
+            <p>
+                Before the <code>Window::startLoop();</code> we can <b>place</b> he following code:
+            </p>
+            <div>
+                <code>camera = new Camera();</code>
+                <code>camera->setPosition(glm::vec3(0, 0, 1));</code>
+                <code>camera->setOrientation(-90.0f, 0.0f);</code>
+                <code> </code>
+                <code>projection = new Projection();</code>
+                <code>projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+            </div>
+            <p>
+                Our <code>mainLoop</code> function will look like this:
+            </p>
+            <div>
+                <code>void mainLoop() {</code>
+                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+            </div>
+            <figure>
+                <img src="./images/basicCube.png"/>
+                <figcaption>A system window rendering a blue-ish cube rotating in X and Y axis in a dark background.</figcaption>
+            </figure>
+
+            <p>
+                For reference and easy copy/paste, the main source implementation in this example should look like this:
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code>    cube = new Entity();</code>
+                <code>    cube->relatedShaderId = shaderId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
+                <code>    cube->setScale(glm::vec3(0.5));</code>
+                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
+                <code>    camera->setOrientation(-90.0f, 0.0f);</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+        </section>
+
+        <section>
+            <h3 id="Textures">Textures</h3>
+            <p>
+                What if we want to give this cube a more detailed surface? We can do by attaching a texture for the model. With the TextureLoader Module, we can pass a name for the texture file, and get a openGL id for that texture which we can attach to a Entity and rendering it. 
+            </p>
+            <p>
+                The process of rendering with a texture must be done inside the GPU, so we will have to make some additional changes to the shaders:
+            </p>
+            <h4>defaultShader.vs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 positionVec;</code>
+                <code>in vec3 normals;</code>
+                <code>in vec2 texCoord;</code>
+                <code> </code>
+                <code>uniform mat4 modelMatrix;</code>
+                <code>uniform mat4 viewMatrix;</code>
+                <code>uniform mat4 projectionMatrix;</code>
+                <code> </code>
+                <code>uniform vec3 fragColor;</code>
+                <code> </code>
+                <code>out vec3 outFragColor;</code>
+                <code>out vec2 outTexCoord;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(positionVec, 1.0);</code>
+                <code>    outFragColor = fragColor;</code>
+                <code>    outTexCoord = texCoord;</code>
+                <code>}</code>
+            </div>
+
+            <h4>defaultShader.fs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 outFragColor;</code>
+                <code>in vec2 outTexCoord;</code>
+                <code> </code>
+                <code>uniform sampler2D texture0;</code>
+                <code> </code>
+                <code>out vec4 frag_Color;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>     frag_Color = texture(texture0, outTexCoord) * vec4(outFragColor, 1.0f) * vec4(0.75, 0.75, 0.75, 1.0f);</code>
+                <code>}</code>
+            </div>
+            <p>
+                We will use a cubemap texture contained in one image file, on the moment of rendering, the texture will wrap our cube, just like making a paper cube and mounting it. Keep in mind that for other models different than a cube, this texture may not fit correctly, You can count with help of models editors like <a href="blender.org" target="_blank">Blender</a> to make a texture file that can wrap your model correctly.
+            </p>
+            <figure>
+                <img src="./images/mosaic.png"/>
+                <figcaption>A cubemap texture representing abstract figures for each face.</figcaption>
+            </figure>
+            <p>
+                You can save this texture in your project folder, it's ready for use. Remember, texures files are stored in a subfolder named <code>textures</code>, in your executable root directory/folder.
+            </p>
+            <p>
+                Based on the previous example code, we will continue from there: 
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
+                <code class="added">#include &lt;Apolo/Loaders/TextureLoader.hpp></code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code class="modified">    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code class="added">    GLuint textureId = TextureLoader::load2d("mosaic.png");</code>
+                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code> </code>
+                <code>    cube = new Entity();</code>
+                <code class="added">    cube->relatedTextureId = textureId;</code>
+                <code>    cube->relatedShaderId = shaderId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
+                <code class="modified">    cube->setScale(glm::vec3(0.75));</code>
+                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
+                <code>    camera->setOrientation(-90.0f, 0.0f);</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                It's more simple to show the whole code with emphasis on waht was added, removed, or modified.
+            </p>
+            <p>
+                If every thing was done correctly, the cube will be shown to us.
+            </p>
+            <figure>
+                <img src="./images/textured_cube.png"/>
+                <figcaption>A rendered cube with some nice textures painted on.</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="Skyboxes">Skyboxes</h3>
+            <p>
+                We got a nice texture cube back on our previous example, but everything outside looks so empty, our World seems like a limbo, and we are in the middle of there. We can think in various possible solutions for this, one of they are setting a color for our background, but this won't solve the problem. In these cases, the skybox is the solution.
+            </p>
+            <p>
+                The skybox it's just a cube with a cubemap texture attach to it. The trick to give a sense of sky in our world, is in the shader program. The skybox cube dosen't behave in the same way as other entities do. In the rendering time, we begin inside of the skybox cube, wherever which side or how much we move, the skybox will always move with us, every other entity will be rendered on top of the skybox. That permit us to yet, be able to see other things.
+            </p>
+            <br>
+            <figure>
+                <img src="./images/skybox/front.bmp"/>
+                <figcaption>One of the skybox faces.</figcaption>
+            </figure>
+            <p>
+                Let's see the code, it has been built on top of the last example, the green lines indicates added lines and yellow modified lines.
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
+                <code>#include &lt;Apolo/Loaders/TextureLoader.hpp></code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code class="added">Entity* skybox;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code class="modified">    camera->setAngleOrientation(-0.25f, glm::vec3(0,1,0));</code>
+                <code> </code>
+                <code class="added">    Shader::setActiveProgram(skybox->relatedShaderId);</code>
+                <code class="added">    Shader::setUniformModelViewProjection(skybox, camera->getMatrix(), projection->getPerspective());</code>
+                <code class="added">    Render::drawElements(skybox);</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code class="modified">    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
+                <code class="added">    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
+                <code class="added">        "right.bmp",</code>
+                <code class="added">        "left.bmp",</code>
+                <code class="added">        "top.bmp",</code>
+                <code class="added">        "bottom.bmp",</code>
+                <code class="added">        "front.bmp",</code>
+                <code class="added">        "back.bmp",</code>
+                <code class="added">    });</code>
+                <code> </code>
+                <code class="modified">    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code class="added">    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
+                <code> </code>
+                <code class="added">    skybox = new Entity();</code>
+                <code class="added">    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
+                <code class="added">    skybox->relatedTextureId = textureSkyboxId;</code>
+                <code class="added">    skybox->relatedShaderId = shaderSkyboxId;</code>
+                <code class="added">    skybox->mesh = ModelLoader::load("cube.ply", skybox->relatedShaderId);</code>
+                <code> </code>
+                <code>    cube = new Entity();</code>
+                <code class="modified">    cube->relatedTextureId = textureCubeId;</code>
+                <code class="modified">    cube->relatedShaderId = shaderCubeId;</code>
+                <code class="modified">    cube->setPosition(glm::vec3(0,0,0));</code>
+                <code>    cube->setScale(glm::vec3(0.75));</code>
+                <code class="added">    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
+                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code class="modified">    camera->setPosition(glm::vec3(0, 0, -2));</code>
+                <code class="modified">    camera->setLookPoint(glm::vec3(0,0,2));;</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                And once everything goes right, the window will comeback for us, in a new world with a nice blue sky.
+            </p>
+            <figure>
+                <img src="./images/skybox.png"/>
+                <figcaption>A rendered cube with textures and a rotating blue sky behind it.</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3>Light Sources</h3>
+        </section>
+        <section>
+            <h3>Text on Screen</h3>
+        </section>
+    </article>
+
+    <article>
+        <h2>Compiling and Link to a Game Project</h2>
+        <hr/>
+        <section>
+            <h3>For Unix Systems</h3>
+        </section>
+        <section>
+            <h3>For Web Browsers</h3>
+        </section>
+        <section>
+            <h3>For Windows Systems</h3>
+        </section>
+    </article>
+
+    <footer>
+        2023 - Anderson Bucchianico
+    </footer>
+</body>
+</html>

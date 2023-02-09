@@ -18,6 +18,7 @@ private:
     glm::vec3 position;
     glm::vec3 upAxis;
     glm::vec3 orientation;
+    glm::vec3 lookPoint;
     
 public:
     Camera();
@@ -27,8 +28,11 @@ public:
     void setPosition(glm::vec3 position);
     glm::vec3 getPosition();
     
+    void setAngleOrientation(float angle, glm::vec3 orientation);
     void setOrientation(float yaw, float pitch);
     glm::vec3 getOrientation();
+    
+    void setLookPoint(glm::vec3 lookPoint);
 };
 
 #endif /* Camera_hpp */

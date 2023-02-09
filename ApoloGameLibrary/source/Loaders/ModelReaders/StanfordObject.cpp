@@ -9,7 +9,6 @@
 //  Stanford Triangle Format. It was principally designed to store
 //  three-dimensional data from 3D scanners.
 //
-//  Vector is a line in .ply file witch contains the vertices, normals and texCoords
 
 #include <Apolo/Loaders/ModelReaders/StanfordObject.hpp>
 
@@ -18,48 +17,58 @@ void checkFileType(FILE* file);
 void checkFormat(FILE* file);
 uint getNumberOf(cchar* elementName, FILE* file);
 void moveFilePointerToAfter(cchar* substring, FILE* file);
-struct VectorDimensionsQty getVectorDimensionsInFile(FILE* file);
-
-struct VectorDimensionsQty {
-    uint8_t vertices = 0;
-    uint8_t normals = 0;
-    uint8_t texCoords = 0;
-};
+void getVectorDimensionsInFile(ModelData* modelData, FILE* file);
 
 ModelData* StanfordObj::extractFrom(FILE* file) {
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData),1);
     checkFileType(file);
     checkFormat(file);
-    uint64_t vertices = getNumberOf(AP_PLY_ELEMENT_VERTEX, file);
-    
-    struct VectorDimensionsQty vecDimensionsQty = getVectorDimensionsInFile(file);
-    
+    uint64_t vertexesCount = getNumberOf(AP_PLY_ELEMENT_VERTEX, file);
+    getVectorDimensionsInFile(modelData, file);
     uint64_t faces = getNumberOf(AP_PLY_ELEMENT_FACE, file);
     moveFilePointerToAfter(AP_PLY_END_HEADER, file);
     
     float* floatBuffer = (float*)calloc(sizeof(float),3);
-    for (int y=0; y<vertices; y++) {
-        fread(floatBuffer, vecDimensionsQty.vertices, sizeof(float), file);
-        modelData->vertices.insert(modelData->vertices.end(), floatBuffer, floatBuffer+vecDimensionsQty.vertices);
+    for (int y=0; y<vertexesCount; y++) {
+        fread(floatBuffer, modelData->vertices.dimensions, sizeof(float), file);
+        modelData->vertices.data.insert(modelData->vertices.data.end(),
+                                        floatBuffer,
+                                        floatBuffer+modelData->vertices.dimensions);
         
-        fread(floatBuffer, vecDimensionsQty.normals, sizeof(float), file);
-        modelData->normals.insert(modelData->normals.end(), floatBuffer, floatBuffer+vecDimensionsQty.normals);
+        fread(floatBuffer, modelData->normals.dimensions, sizeof(float), file);
+        modelData->normals.data.insert(modelData->normals.data.end(),
+                                       floatBuffer,
+                                       floatBuffer+modelData->normals.dimensions);
         
-        fread(floatBuffer, vecDimensionsQty.texCoords, sizeof(float), file);
-        modelData->texCoords.insert(modelData->texCoords.end(), floatBuffer, floatBuffer+vecDimensionsQty.texCoords);
+        fread(floatBuffer, modelData->texCoords.dimensions, sizeof(float), file);
+        modelData->texCoords.data.insert(modelData->texCoords.data.end(),
+                                         floatBuffer,
+                                         floatBuffer+modelData->texCoords.dimensions);
     }
     free(floatBuffer);
-    readFaces(file, faces, &modelData->indices);
+    readFaces(file, faces, &modelData->indices.data);
     return modelData;
 }
 
 void readFaces(FILE* file, uint64_t faces, std::vector<uint>* indices) {
     short facesPerRow = fgetc(file);
     uint* uintBuffer = (uint*)calloc(sizeof(uint), facesPerRow);
-    for (int x=0; x<faces; x++) {
-        fread(uintBuffer, facesPerRow, sizeof(uint), file);
-        indices->insert(indices->end(), uintBuffer, uintBuffer+facesPerRow);
-        fseek(file, +1, SEEK_CUR);
+    if (facesPerRow == 3) {
+        for (int x=0; x<faces; x++) {
+            fread(uintBuffer, facesPerRow, sizeof(uint), file);
+            indices->insert(indices->end(), uintBuffer, uintBuffer+facesPerRow);
+            fseek(file, +1, SEEK_CUR);
+        }
+    } else if (facesPerRow == 4) {
+        for (int x=0; x<faces; x++) {
+            fread(uintBuffer, facesPerRow, sizeof(uint), file);
+            uint triangleFanIndices[6] = {
+                uintBuffer[0],uintBuffer[1],uintBuffer[2],
+                uintBuffer[0],uintBuffer[2],uintBuffer[3]
+            };
+            indices->insert(indices->end(), triangleFanIndices, 6+triangleFanIndices);
+            fseek(file, +1, SEEK_CUR);
+        }
     }
     free(uintBuffer);
 }
@@ -117,10 +126,9 @@ void moveFilePointerToAfter(const char* substring, FILE* file) {
     free(buffer);
 }
 
-struct VectorDimensionsQty getVectorDimensionsInFile(FILE* file) {
+void getVectorDimensionsInFile(ModelData* modelData, FILE* file) {
     cchar* coordinateNames[9] = { "x","y","z", "nx","ny","nz", "s","t","r"};
     char* buffer = (char*) calloc(sizeof(char), AP_PLY_HEADER_LINE_SIZE);
-    struct VectorDimensionsQty vecDimensions;
     uint8_t vectorDimensionsList[3] = {0,0,0};
     for (uint8_t v=0; v<AP_PLY_MAX_VECTOR_DIMENSIONS; v++) {
         fgets(buffer, AP_PLY_HEADER_LINE_SIZE, file);
@@ -131,9 +139,8 @@ struct VectorDimensionsQty getVectorDimensionsInFile(FILE* file) {
             break;
         }
     }
-    vecDimensions.vertices = vectorDimensionsList[0];
-    vecDimensions.normals = vectorDimensionsList[1];
-    vecDimensions.texCoords = vectorDimensionsList[2];
+    modelData->vertices.dimensions = vectorDimensionsList[0];
+    modelData->normals.dimensions = vectorDimensionsList[1];
+    modelData->texCoords.dimensions = vectorDimensionsList[2];
     free(buffer);
-    return vecDimensions;
 }
