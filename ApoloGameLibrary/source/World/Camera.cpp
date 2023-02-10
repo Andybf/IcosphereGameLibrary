@@ -12,13 +12,13 @@ Camera::Camera() {
     this->position = glm::vec3(0.0f, 0.0f, -1.0f);
     this->orientation = glm::vec3(0.0f, 0.0f, -1.0f);
     this->upAxis = glm::vec3(0.0f, 1.0f, 0.0f);
-    this->lookPoint = glm::vec3(0.0f, 0.0f, 0.0f);
+    this->rotationCenter = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 glm::mat4 Camera::getMatrix() {
-    return glm::translate(-this->lookPoint) *
+    return glm::translate(glm::vec3(-this->rotationCenter)) *
            glm::lookAt(this->position, this->position+this->orientation, this->upAxis) *
-           glm::translate(-this->lookPoint);
+           glm::translate(glm::vec3(-this->rotationCenter));
 }
 
 void Camera::setPosition(glm::vec3 position) {
@@ -41,6 +41,6 @@ glm::vec3 Camera::getOrientation() {
     return this->orientation;
 }
 
-void Camera::setLookPoint(glm::vec3 lookPoint) {
-    this->lookPoint = lookPoint;
+void Camera::setRotationCenter(glm::vec3 rotationCenter) {
+    this->rotationCenter = rotationCenter;
 }

@@ -16,6 +16,7 @@ struct Mesh {
     uint eboId;
     uint indicesSize;
     uint verticesSize;
+    ushort dimensions;
 };
 
 #endif /* Mesh_h */

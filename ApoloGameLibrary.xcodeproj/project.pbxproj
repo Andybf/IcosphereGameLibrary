@@ -13,6 +13,8 @@
 		71341CE6298CA8C900D44B37 /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE3298CA8C900D44B37 /* EBO.cpp */; };
 		71341CE7298CA8C900D44B37 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE4298CA8C900D44B37 /* VAO.cpp */; };
 		71341CE8298CA8C900D44B37 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE5298CA8C900D44B37 /* VBO.cpp */; };
+		715137632995C14A00DC9E84 /* ModelCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715137612995C14A00DC9E84 /* ModelCreator.cpp */; };
+		715137642995C14A00DC9E84 /* ModelCreator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 715137622995C14A00DC9E84 /* ModelCreator.hpp */; };
 		71743FAB298817D4006A7C6C /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4529881759006A7C6C /* Render.cpp */; };
 		71743FAC298817D4006A7C6C /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4629881759006A7C6C /* Window.cpp */; };
 		71743FAF298817D4006A7C6C /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4929881759006A7C6C /* Shader.cpp */; };
@@ -58,6 +60,8 @@
 		71341CE3298CA8C900D44B37 /* EBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EBO.cpp; sourceTree = "<group>"; };
 		71341CE4298CA8C900D44B37 /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
 		71341CE5298CA8C900D44B37 /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
+		715137612995C14A00DC9E84 /* ModelCreator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelCreator.cpp; sourceTree = "<group>"; };
+		715137622995C14A00DC9E84 /* ModelCreator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelCreator.hpp; sourceTree = "<group>"; };
 		71743D2829881759006A7C6C /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
 		71743D2B29881759006A7C6C /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		71743D2C29881759006A7C6C /* Render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Render.hpp; sourceTree = "<group>"; };
@@ -532,6 +536,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		715137602995C12000DC9E84 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				715137612995C14A00DC9E84 /* ModelCreator.cpp */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		715137652995C15700DC9E84 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				715137622995C14A00DC9E84 /* ModelCreator.hpp */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		71743D2329881759006A7C6C /* ApoloGameLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +574,7 @@
 		71743D2529881759006A7C6C /* Apolo */ = {
 			isa = PBXGroup;
 			children = (
+				715137652995C15700DC9E84 /* Tools */,
 				71743D2629881759006A7C6C /* Core */,
 				71743D2E29881759006A7C6C /* World */,
 				71743D3729881759006A7C6C /* Loaders */,
@@ -639,6 +660,7 @@
 		71743D4329881759006A7C6C /* source */ = {
 			isa = PBXGroup;
 			children = (
+				715137602995C12000DC9E84 /* Tools */,
 				71743D4429881759006A7C6C /* Core */,
 				71743D4B29881759006A7C6C /* World */,
 				71743D5429881759006A7C6C /* Loaders */,
@@ -1252,6 +1274,7 @@
 				71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */,
 				71743FC4298817E3006A7C6C /* DebugCamera.hpp in Headers */,
 				71743FC5298817E3006A7C6C /* Projection.hpp in Headers */,
+				715137642995C14A00DC9E84 /* ModelCreator.hpp in Headers */,
 				71743FC6298817E3006A7C6C /* Light.hpp in Headers */,
 				71743FC7298817E3006A7C6C /* Text.hpp in Headers */,
 				71743FC8298817E3006A7C6C /* Entity.hpp in Headers */,
@@ -1333,6 +1356,7 @@
 				71743FAC298817D4006A7C6C /* Window.cpp in Sources */,
 				71743FAF298817D4006A7C6C /* Shader.cpp in Sources */,
 				71743FB1298817D4006A7C6C /* Camera.cpp in Sources */,
+				715137632995C14A00DC9E84 /* ModelCreator.cpp in Sources */,
 				71743FB2298817D4006A7C6C /* Entity.cpp in Sources */,
 				71743FB3298817D4006A7C6C /* Projection.cpp in Sources */,
 				71743FB4298817D4006A7C6C /* DebugCamera.cpp in Sources */,

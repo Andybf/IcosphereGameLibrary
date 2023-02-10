@@ -10,6 +10,8 @@
 
 #include "../../Core.hpp"
 #include "../Entity.hpp"
+#include "../../Loaders/ModelReaders/ModelData.hpp"
+#include "../../Loaders/ModelLoader.hpp"
 
 class Text : public Entity {
     

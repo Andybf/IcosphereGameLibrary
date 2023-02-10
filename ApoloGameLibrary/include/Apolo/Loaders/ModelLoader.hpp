@@ -19,6 +19,8 @@
 
 namespace ModelLoader {
 
-    Mesh* load(cchar* modelFileName, uint shaderId);
+    Mesh* loadFromFile(cchar* modelFileName, uint shaderId);
+
+    Mesh* loadFromModelData(ModelData* modelData, uint shaderId);
 };
 

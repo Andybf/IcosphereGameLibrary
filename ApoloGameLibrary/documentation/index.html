@@ -286,7 +286,7 @@
                             <a href="#FileLoader::read" target="_self">FileLoader::read</a>
                         </li>
                         <li>
-                            <a href="#ModelLoader::read" target="_self">ModelLoader::read</a>
+                            <a href="#ModelLoader::loadFromFile" target="_self">ModelLoader::loadFromFile</a>
                         </li>
                         <li>
                             <a href="#ShaderLoader::load" target="_self">ShaderLoader::load</a>
@@ -1283,14 +1283,14 @@
 
         <br><hr/>
         <section>
-            <h3 id="ModelLoader::load">ModelLoader::load</h3>
+            <h3 id="ModelLoader::loadFromFile">ModelLoader::loadFromFile</h3>
             <p>
                 Read the file pointed by the path. the model file must be located in a subfolder named <code>models</code> in the executable root directory. It's only necessary to point the filename + extension.
             </p>
 
             <h4>Specification</h4>
             <dd>
-                <code>Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId)</code>
+                <code>Mesh* ModelLoader::loadFromFile(cchar* modelFileName, uint relatedShaderId)</code>
             </dd>
             
             <h4>Parameters</h4>
@@ -1750,7 +1750,7 @@
                 <code>    cube->relatedShaderId = shaderId;</code>
                 <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
                 <code>    cube->setScale(glm::vec3(0.5));</code>
-                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
                 <code> </code>
                 <code>    Window::startLoop();</code>
                 <code>}</code>
@@ -1862,7 +1862,7 @@
                 <code>    cube->relatedShaderId = shaderId;</code>
                 <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
                 <code>    cube->setScale(glm::vec3(0.5));</code>
-                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
                 <code> </code>
                 <code>    camera = new Camera();</code>
                 <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
@@ -1978,7 +1978,7 @@
                 <code>    cube->relatedShaderId = shaderId;</code>
                 <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
                 <code class="modified">    cube->setScale(glm::vec3(0.75));</code>
-                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
                 <code> </code>
                 <code>    camera = new Camera();</code>
                 <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
@@ -2116,7 +2116,7 @@
                 <code class="added">    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
                 <code class="added">    skybox->relatedTextureId = textureSkyboxId;</code>
                 <code class="added">    skybox->relatedShaderId = shaderSkyboxId;</code>
-                <code class="added">    skybox->mesh = ModelLoader::load("cube.ply", skybox->relatedShaderId);</code>
+                <code class="added">    skybox->mesh = ModelLoader::loadFromFile("cube.ply", skybox->relatedShaderId);</code>
                 <code> </code>
                 <code>    cube = new Entity();</code>
                 <code class="modified">    cube->relatedTextureId = textureCubeId;</code>
@@ -2124,11 +2124,11 @@
                 <code class="modified">    cube->setPosition(glm::vec3(0,0,0));</code>
                 <code>    cube->setScale(glm::vec3(0.75));</code>
                 <code class="added">    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
-                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
                 <code> </code>
                 <code>    camera = new Camera();</code>
                 <code class="modified">    camera->setPosition(glm::vec3(0, 0, -2));</code>
-                <code class="modified">    camera->setLookPoint(glm::vec3(0,0,2));;</code>
+                <code class="modified">    camera->setRotationCenter(glm::vec3(0,0,2));;</code>
                 <code> </code>
                 <code>    projection = new Projection();</code>
                 <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
@@ -2228,7 +2228,7 @@
                 <code>    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
                 <code>    skybox->relatedTextureId = textureSkyboxId;</code>
                 <code>    skybox->relatedShaderId = shaderSkyboxId;</code>
-                <code>    skybox->mesh = ModelLoader::load("cube.ply", skybox->relatedShaderId);</code>
+                <code>    skybox->mesh = ModelLoader::loadFromFile("cube.ply", skybox->relatedShaderId);</code>
                 <code> </code>
                 <code>    cube = new Entity();</code>
                 <code>    cube->relatedTextureId = textureCubeId;</code>
@@ -2236,11 +2236,11 @@
                 <code>    cube->setPosition(glm::vec3(0,0,0));</code>
                 <code>    cube->setScale(glm::vec3(0.75));</code>
                 <code>    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
-                <code>    cube->mesh = ModelLoader::load("cube.ply", cube->relatedShaderId);</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
                 <code> </code>
                 <code>    camera = new Camera();</code>
                 <code>    camera->setPosition(glm::vec3(0, 0, -2));</code>
-                <code>    camera->setLookPoint(glm::vec3(0,0,2));;</code>
+                <code>    camera->setRotationCenter(glm::vec3(0,0,2));;</code>
                 <code> </code>
                 <code>    projection = new Projection();</code>
                 <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
@@ -2273,6 +2273,66 @@
         </section>
         <section>
             <h3>Text on Screen</h3>
+            <p>
+                The library offers a basic text rendering system, whitch supports ASCII characters, as well break lines, at relative low cost of performace. To implement this system, we will need specific shaders for that.
+            </p>
+            <h4>textRendering.vs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 positionVec;</code>
+                <code>in vec3 texCoord;</code>
+                <code> </code>
+                <code>// For certain WebGL implementations, the max number of uniform elements is 256;</code>
+                <code>uniform mat4 modelMatrix;</code>
+                <code>uniform mat4 viewMatrix;</code>
+                <code>uniform mat4 projectionMatrix;</code>
+                <code>uniform int char[120];</code>
+                <code>uniform vec2 pos[120];</code>
+                <code> </code>
+                <code>out vec3 fragColor;</code>
+                <code>out vec3 outTexCoord;</code>
+                <code>out float character;</code>
+                <code> </code>
+                <code>void main(void) {</code>
+                <code>    vec2 newPosition = vec2(positionVec.x + pos[gl_InstanceID].x, -positionVec.y + pos[gl_InstanceID].y);</<code> </code>
+                <code>    gl_Position = projectionMatrix * modelMatrix * vec4(newPosition, 0.0, 1.0);</code>
+                <code> </code>   
+                <code>    outTexCoord = texCoord;</code>
+                <code>    character = float(char[gl_InstanceID]);</code>
+                <code>}</code>
+            </div>
+
+            <h4>textRendering.fs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>precision mediump float;</code>
+                <code> </code>
+                <code>in vec3 outTexCoord; </code>
+                <code>in float character; </code>
+                <code> </code>
+                <code>uniform sampler2D texture0;</code>
+                <code> </code>
+                <code>out vec4 frag_Color;</code>
+                <code> </code>
+                <code>vec2 processCharacterPosition(float character) {</code>
+                <code>    float posPixelY = float(int(character/16.0f))*16.0f;</code>
+                <code>    float xAxisTextureOffset = float(character - posPixelY);</code>
+                <code>    posPixelY /= 256.0f;</code>
+                <code>    float posPixelX = (xAxisTextureOffset*16.0f)/256.0f;</code>
+                <code>    return vec2(posPixelX, posPixelY);</code>
+                <code>}</code>
+                <code> </code>
+                <code>void main(void) {</code>
+                <code>    vec2 charPosition = processCharacterPosition(character);</code>
+                <code>    vec4 texColor = texture(texture0, vec2(charPosition.x+outTexCoord.x, charPosition.y+outTexCoord.y));</code>
+                <code>    if (texColor.a &lt; 0.1) {</code>
+                <code>        discard;</code>
+                <code>    }</code>
+                <code>    frag_Color = texColor;</code>
+                <code>}</code>
+            </div>
         </section>
         <section>
             <h3>Light Sources</h3>

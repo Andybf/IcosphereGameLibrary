@@ -9,9 +9,7 @@
 
 void checkModelData(ModelData* modelData, cchar* modelName);
 
-
-
-Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
+Mesh* ModelLoader::loadFromFile(cchar* modelFileName, uint shaderId) {
     char* objectSourcePath = (char*)calloc(sizeof(char),256);
     FileLoader::generatePathForFile(objectSourcePath ,"objects", modelFileName);
     FILE* file = fopen(objectSourcePath, "rb");
@@ -27,10 +25,13 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     } else {
         WavefrontObj::process(file, modelData);
     }
-    
     fclose(file);
     checkModelData(modelData, modelFileName);
     
+    return ModelLoader::loadFromModelData(modelData, shaderId);
+}
+
+Mesh* ModelLoader::loadFromModelData(ModelData* modelData, uint relatedShaderId) {
     ulong modelsSize = modelData->vertices.data.size()*sizeof(GLfloat);
     ulong normalsSize = modelsSize + modelData->normals.data.size()*sizeof(GLfloat);
     
@@ -64,6 +65,7 @@ Mesh* ModelLoader::load(cchar* modelFileName, uint relatedShaderId) {
     } else {
         mesh->verticesSize = (uint)modelData->vertices.data.size();
     }
+    mesh->dimensions = modelData->vertices.dimensions;
     free(modelData);
     VAO::unbind();
     VBO::unbind();

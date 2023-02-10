@@ -50,7 +50,7 @@ void Render::drawElements(struct Entity* model) {
 void Render::drawArrays(struct Entity* model) {
     AP_TEST(glDrawArrays(model->modelDrawType,
                          AP_INDEX_ZERO,
-                         (float)model->mesh->verticesSize/3));
+                         (float)model->mesh->verticesSize/model->mesh->dimensions));
 }
 
 void saveContextInformation() {
