@@ -6,11 +6,11 @@
 
 MAKEFLAGS += --silent
 
-library_src_path = ~/Desktop/ApoloGameLibrary/ApoloGameLibrary/source
-library_include_path = /Users/anderson/Desktop/ApoloGameLibrary/ApoloGameLibrary/include
+library_src_path = ~/Desktop/IcosphereGameLibrary/IcosphereGameLibrary/source
+library_include_path = /Users/anderson/Desktop/IcosphereGameLibrary/IcosphereGameLibrary/include
 library_dependency_path = /opt/homebrew/Cellar/sdl2/2.26.2/include
 
-game_lib_name = libApoloGameLibrary.a
+game_lib_name = libIcosphereGameLibrary.a
 result_directory = ./lib
 
 all:

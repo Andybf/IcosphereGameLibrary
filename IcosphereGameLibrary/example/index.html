@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            html {
+                height : 100%;
+            }
+            body {
+                height: inherit;
+                margin: 0;
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: 0.5rem;
+            }
+            canvas#canvas {
+            }
+            p#output {
+                background: #222222C0;
+                color: white;
+                font-family: monospace;
+                padding: 1.5rem 0.5rem;
+                height: 192px;
+                min-width: 128px;
+                overflow: scroll;
+                position: absolute;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <canvas
+            class="emscripten"
+            id="canvas"
+            oncontextmenu="event.preventDefault()"
+            tabindex=-1
+        ></canvas>
+        <p id="output"></p>
+    </body>
+
+    <script>
+        var Module = {
+            arguments: [`-w${window.innerWidth}`, `-h${window.innerHeight}`],
+            print: (function() {
+                var element = document.getElementById('output');
+                return function(text) {
+                    element.innerHTML += text + "<br>";
+                };
+            })(),
+            printErr: function(text) {
+                    if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                    if (0) {
+                        dump(text + '\n');
+                    }
+            },
+            canvas: (function() {
+                var canvas = document.getElementById('canvas');
+                return canvas;
+            })()
+        };
+    </script>
+    <script src="index.js"></script>
+</html>
