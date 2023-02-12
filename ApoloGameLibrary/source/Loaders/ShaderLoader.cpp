@@ -11,7 +11,7 @@ GLuint compile(int shaderType, char* sourceContents);
 GLuint link(int vextexId, int fragmentId);
 GLint checkShaderStatus(GLenum status, GLuint shaderId);
 GLint checkProgramStatus(GLenum status, GLuint programId);
-void checkParam(GLuint returnedParameter, GLint programShader);
+void checkParam(GLuint returnedParameter, GLint programShader, GLint status);
 void checkSourceLanguage(char* source);
 void convertSourceToES(char* source);
 void convertSourceToGL(char* source);
@@ -29,6 +29,10 @@ GLuint ShaderLoader::load(cchar* vertexFileName, cchar* fragmentFileName) {
     
     free(vertexShaderSourcePath);
     free(fragmentShaderSourcePath);
+    
+#ifdef AP_DEBUG
+        printf("[AP_SHD_INFO] Loading shaders:\n %s\n %s\n",vertexFileName,fragmentFileName);
+#endif
     
     checkSourceLanguage(vertexShaderSource);
     checkSourceLanguage(fragmentShaderSource);
@@ -62,21 +66,24 @@ GLuint link(int vertexId, int fragmentId) {
 GLint checkShaderStatus(GLenum status, GLuint shaderId) {
     GLint returnedParameter = -1;
     AP_TEST(glGetShaderiv(shaderId, status, &returnedParameter));
-    checkParam(returnedParameter, shaderId);
+    checkParam(returnedParameter, shaderId, status);
     return returnedParameter;
 }
 GLint checkProgramStatus(GLenum status, GLuint programId) {
     GLint returnedParameter = -1;
     AP_TEST(glGetProgramiv(programId, status, &returnedParameter));
-    checkParam(returnedParameter, programId);
+    checkParam(returnedParameter, programId, status);
     return returnedParameter;
 }
 
-void checkParam(GLuint returnedParameter, GLint programShader) {
+void checkParam(GLuint returnedParameter, GLint programShader, GLint status) {
     if (!returnedParameter) {
         char* infoLog = (char*) malloc(sizeof(char)*512);
         AP_TEST(glGetShaderInfoLog(programShader, 512, NULL, infoLog));
-        printf("[AP_SHD_ERROR] Program/ShaderId %d unchecked:\n%s\n",programShader,infoLog);
+        printf("[AP_SHD_ERROR] GL status check: 0x%x\nProgram/ShaderId %d is invalid:\n%s\n",
+               status,
+               programShader,
+               infoLog);
         free(infoLog);
         exit(1);
     }

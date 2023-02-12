@@ -69,7 +69,7 @@ void Window::setLoopCallback(void (*mainLoop)()) {
 void Window::startLoop() {
     
 #ifdef __EMSCRIPTEN__
-    emscripten_set_main_loop(windowLoopCallback, AP_WINDOW_MAX_FPS, 1);
+    emscripten_set_main_loop(windowLoopCallback, 60, 1);
 #else
     SDL_GL_SetSwapInterval(1);
     while(! Input::shouldExitProgram() ) {

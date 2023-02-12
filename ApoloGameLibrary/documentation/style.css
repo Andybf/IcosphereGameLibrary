@@ -1,0 +1,121 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+html {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #F0F1F2;
+}
+body {
+    background-color: white;
+    max-width: 900px;
+    width: inherit;
+    display: flex;
+    margin: 0;
+    row-gap: 2rem;
+    flex-direction: column;
+}
+header {
+    display: flex;
+    row-gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+header > p {
+    text-align: center;
+}
+nav, article {
+    padding: 0rem 1rem;
+}
+section:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+footer {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid grey;
+}
+div {
+    display: flex;
+    flex-direction: column;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    margin-bottom: 0.5rem;
+}
+h3 {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+h4 {
+    margin-bottom: 0.5rem;
+}
+p {
+    text-align: justify;
+    line-height: 18pt;
+}
+code {
+    background-color: #e6e6e6;
+    font-family: monospace;
+    padding: 3px 5px 0px 5px;
+    white-space: pre-wrap
+}
+code.added {
+    background-color: #b5ebb5;
+}
+code.modified {
+    background-color: #eae299;;
+}
+code.deleted {
+    background-color: #daa9a9;
+}
+
+/* Specific for nav contents */
+nav>ol, nav>ol>li>ul, nav>ol>li>ul>li>details>ul {
+    display: grid;
+    row-gap: 1.0rem;
+}
+nav > ol > li > a {
+    display: block;
+    margin-bottom: 1.0rem;
+}
+summary {
+    cursor: pointer;
+}
+details > ul {
+    padding-top: 1rem;
+}
+figure {
+    display: grid;
+    justify-content: center;
+    align-content: end;
+    justify-items: center;
+    row-gap: 1rem;
+    margin: 0;
+}
+img {
+    max-height: 40vh;
+}
+figcaption {
+    font-style: italic;
+    text-align: center;
+}
+video {
+    width: 100%;
+    height: 50vh;
+}
+
+@media print {
+    h2, footer {
+        page-break-before:always
+    }
+}

@@ -23,6 +23,7 @@ all:
 			$(library_src_path)/Core/VAO.cpp\
 			$(library_src_path)/Core/VBO.cpp\
 			$(library_src_path)/Core/EBO.cpp\
+			$(library_src_path)/Tools/ModelCreator.cpp\
 			$(library_src_path)/World/Entity.cpp\
 			$(library_src_path)/World/Camera.cpp\
 			$(library_src_path)/World/Projection.cpp\
@@ -35,6 +36,7 @@ all:
 			$(library_src_path)/Loaders/ModelLoader.cpp\
 			$(library_src_path)/Loaders/ShaderLoader.cpp\
 			$(library_src_path)/Loaders/ModelReaders/StanfordObject.cpp\
+			$(library_src_path)/Loaders/ModelReaders/WavefrontObject.cpp\
 		-I$(library_include_path)\
 		-I$(library_dependency_path)\
 		-D AP_DEBUG=1;
@@ -46,6 +48,7 @@ all:
 		VAO.o\
 		VBO.o\
 		EBO.o\
+		ModelCreator.o\
 		Entity.o\
 		Camera.o\
 		Projection.o\
@@ -57,7 +60,8 @@ all:
 		TextureLoader.o\
 		ModelLoader.o\
 		ShaderLoader.o\
-		StanfordObject.o;
+		StanfordObject.o\
+		WavefrontObject.o;
 		
 	rm \
 		Window.o\
@@ -66,6 +70,7 @@ all:
 		VAO.o\
 		VBO.o\
 		EBO.o\
+		ModelCreator.o\
 		Entity.o\
 		Camera.o\
 		Projection.o\
@@ -77,7 +82,8 @@ all:
 		TextureLoader.o\
 		ModelLoader.o\
 		ShaderLoader.o\
-		StanfordObject.o;
+		StanfordObject.o\
+		WavefrontObject.o;
 		
 	if test -d $(result_directory); then rm -r $(result_directory); fi;
 	mkdir $(result_directory);

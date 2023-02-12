@@ -4,372 +4,292 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        html {
-            display: flex;
-            justify-content: center;
-            background-color: #F0F1F2;
-        }
-        body {
-            max-width: 900px;
-            background-color: white;
-            padding: 0rem 1.5rem;
-            margin: 0;
-            margin-bottom: 2rem;
-            display: grid;
-            row-gap: 2rem;
-        }
-        footer {
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-top: 1px solid grey;
-        }
-        div {
-            display: grid;
-        }
-        h2 {
-            margin-bottom: 0.5rem;
-        }
-        h4 {
-            margin-bottom: 0.5rem;
-        }
-        p {
-            text-align: justify;
-            line-height: 18pt;
-        }
-        code {
-            background-color: #e6e6e6;
-            font-family: monospace;
-            padding: 3px 5px 0px 5px;
-            white-space: pre-wrap
-        }
-        code.added {
-            background-color: #b5ebb5;
-        }
-        code.modified {
-            background-color: #eae299;;
-        }
-        code.deleted {
-            background-color: #daa9a9;
-        }
-        /* Specific for nav contents */
-        nav>ol, nav>ol>li>ul, nav>ol>li>ul>ul {
-            display: grid;
-            row-gap: 0.5rem;
-        }
-        nav > ol > li > a {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        figure {
-            display: grid;
-            justify-content: center;
-            max-height: 512px;
-            align-content: end;
-            justify-items: center;
-        }
-        img {
-            max-height: inherit;
-        }
-        figcaption {
-            display: flex;
-            justify-content: center;
-            font-style: italic;
-            height: initial;
-        }
-        video {
-            width: 100%;
-            height: 50vh;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>IGL Documentation</title>
 </head>
 <body>
     <header>
-        <h1>Apolo Game Library Documentation</h1>
+        <h1>Icosphere Game Library Documentation</h1>
+        <figure>
+            <img src="./doc-figures/images/ico.png"/>
+        </figure>
         <p>
-            Created by: Anderson Bucchianico
+            Written by: Anderson Bucchianico
             <br>
             Creation date: feb/2023
         </p>
     </header>
+
     <nav>
         <h2 id="Contents">Contents</h2>
         <hr/>
         <ol>
             <li>
-                <a href="#Introduction" target="_self">Introduction</a>
+                <a href="#Introduction">Introduction</a>
                 <ul>
                     <li>
-                        <a href="#Capabilites" target="_self">Capabilites</a>
+                        <a href="#Capabilites">Capabilites</a>
                     </li>
                     <li>
-                        <a href="#Device Targets" target="_self">Device Targets</a>
+                        <a href="#Device Targets">Device Targets</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#Structure Overview" target="_self">Structure Overview</a>
+                <a href="#Structure Overview">Structure Overview</a>
                 <ul>
                     <li>
-                        <a href="#Core Subsystem" target="_self">Core Subsystem</a>
+                        <a href="#Core Subsystem">Core Subsystem</a>
                     </li>
                     <li>
-                        <a href="#World Subsystem" target="_self">World Subsystem</a>
+                        <a href="#World Subsystem">World Subsystem</a>
                     </li>
                     <li>
-                        <a href="#Resource Loader Subsystem" target="_self">Resource Loader Subsystem</a>
+                        <a href="#Resource Loader Subsystem">Resource Loader Subsystem</a>
                     </li>
                     <li>
-                        <a href="#Input Subsystem" target="_self">Input Subsystem</a>
+                        <a href="#Input Subsystem">Input Subsystem</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#API Functions Reference" target="_self">API Functions Reference</a>
+                <a href="#Usage Examples">Usage Examples</a>
                 <ul>
                     <li>
-                        Core Subsystem
-                    </li>
-                    <ul>
-                        <li>
-                            <a href="#Render::drawArrays" target="_self">Render::drawArrays</a>
-                        </li>
-                        <li>
-                            <a href="#Render::drawElements" target="_self">Render::drawElements</a>
-                        </li>
-                        <li>
-                            <a href="#Render::drawElementsInstanced" target="_self">Render::drawElementsInstanced</a>
-                        </li>
-                        <li>
-                            <a href="#Render::initialize<" target="_self">Render::initialize</a>
-                        </li>
-                        <li>
-                            <a href="#Render::printContextInformation target="_self">Render::printContextInformation</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setActiveProgram" target="_self">Shader::setActiveProgram</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::getActiveShaderId<" target="_self">Shader::getActiveShaderId</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformModelViewProjection" target="_self">Shader::setUniformModelViewProjection</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformModelProjection" target="_self">Shader::setUniformModelProjection</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformTexture" target="_self">Shader::setUniformTexture</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformIntArray" target="_self">Shader::setUniformIntArray</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformFloat" target="_self">Shader::setUniformFloat</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformVec2Array" target="_self">Shader::setUniformVec2Array</a>
-                        </li>
-                        <li>
-                            <a href="#Shader::setUniformVec3" target="_self">Shader::setUniformVec3</a>
-                        </li>
-                        <li>
-                            <a href="#Window::initialize" target="_self">Window::initialize</a>
-                        </li>
-                        <li>
-                            <a href="#Window::setLoopCallback" target="_self">Window::setLoopCallback</a>
-                        </li>
-                        <li>
-                            <a href="#Window::startLoop<" target="_self">Window::startLoop</a>
-                        </li>
-                        <li>
-                            <a href="#Window::exitWindow" target="_self">Window::exitWindow</a>
-                        </li>
-                        <li>
-                            <a href="#Window::getFrameRate" target="_self">Window::getFrameRate</a>
-                        </li>
-                        <li>
-                            <a href="#Window::getWindowData" target="_self">Window::getWindowData</a>
-                        </li>
-                    </ul>
-                    <!-- <li>
-                        <a href="#World Subsystem<" target="_self">World Subsystem</a>
-                    </li>
-                    <ul>
-                        <li>
-                            <a href="#" target="_self">Entity::getMatrix</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::setScale</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::getScale</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::setPosition</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::addToPosition</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::getPosition</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::setOrientation</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Entity::getOrientation</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Camera::getMatrix</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Camera::setPosition</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Camera::getPosition</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Camera::setOrientation</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Camera::getOrientation</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::getOrthographic</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::setOrthographic</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::getPerspective</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::setPerspecProjection</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::getFieldOfView</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::setFieldOfView</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::getNearPlane</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::setNearPlane</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::getFarPlane</a>
-                        </li>
-                        <li>
-                            <a href="#" target="_self">Projection::setFarPlane</a>
-                        </li>
-                    </ul> -->
-                    <li>
-                        Resource Loader Subsystem
-                    </li>
-                    <ul>
-                        <li>
-                            <a href="#FileLoader::generatePathForFile" target="_self">FileLoader::generatePathForFile</a>
-                        </li>
-                        <li>
-                            <a href="#FileLoader::setProgramSystemPath" target="_self">FileLoader::setProgramSystemPath</a>
-                        </li>
-                        <li>
-                            <a href="#FileLoader::read" target="_self">FileLoader::read</a>
-                        </li>
-                        <li>
-                            <a href="#ModelLoader::loadFromFile" target="_self">ModelLoader::loadFromFile</a>
-                        </li>
-                        <li>
-                            <a href="#ShaderLoader::load" target="_self">ShaderLoader::load</a>
-                        </li>
-                        <li>
-                            <a href="#TextureLoader::load2d" target="_self">TextureLoader::load2d</a>
-                        </li>
-                        <li>
-                            <a href="#TextureLoader::loadCubemap" target="_self">TextureLoader::loadCubemap</a>
-                        </li>
-                    </ul>
-                    <li>
-                        Input Subsystem
-                    </li>
-                    <ul>
-                        <li>
-                            <a href="#Input::setKeyUpCallbackFunction" target="_self">Input::setKeyUpCallbackFunction</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="#Input::setKeyDownCallbackFunction" target="_self">Input::setKeyDownCallbackFunction</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="#Input::setMouseMovementCallbackFunction" target="_self">Input::setMouseMovementCallbackFunction</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="#Input::setMouseDownCallbackFunction" target="_self">Input::setMouseDownCallbackFunction</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="#Input::setMouseUpCallbackFunction" target="_self">Input::setMouseUpCallbackFunction</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="#Input::setMouseScrollCallbackFunction" target="_self">Input::setMouseScrollCallbackFunction</a>
-                        </li>
-                    </ul>
-                </ul>
-            </li>
-            <li>
-                <a href="#Basic Usage Examples" target="_self">Basic Usage Examples</a>
-                <ul>
-                    <li>
-                        <a href="#Creating a Empty Window" target="_self">Creating a Empty Window</a>
+                        <a href="#Creating a Empty Window">Creating a Empty Window</a>
                     </li>
                     <li>
-                        <a href="#Rendering an Object" target="_self">Rendering an Object</a>
+                        <a href="#Rendering an Object">Rendering an Object</a>
                     </li>
                     <li>
-                        <a href="#Textures" target="_self">Textures</a>
+                        <a href="#Textures">Textures</a>
                     </li>
                     <li>
-                        <a href="#Skyboxes" target="_self">Skyboxes</a>
+                        <a href="#Skyboxes">Skyboxes</a>
                     </li>
                     <li>
-                        <a href="#User Inputs and Debug Camera" target="_self">User Inputs and Debug Camera</a>
+                        <a href="#User Inputs and Debug Camera">User Inputs and Debug Camera</a>
                     </li>
                     <li>
-                        <a href="#Text on Screen" target="_self">Text on Screen</a>
+                        <a href="#Text on Screen">Text on Screen</a>
                     </li>
                     <li>
-                        <a href="#Light Sources" target="_self">Light Sources</a>
+                        <a href="#Light Sources">Light Sources</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#" target="_self">Compiling and Link to a Game Project</a>
+                <a href="#API Functions Reference">API Functions Reference</a>
                 <ul>
                     <li>
-                        <a href="#" target="_self">For Unix Systems</a>
+                        <details>
+                            <summary>Core Subsystem</summary>
+                            <ul>
+                                <li>
+                                    <a href="#Render::drawArrays">Render::drawArrays</a>
+                                </li>
+                                <li>
+                                    <a href="#Render::drawElements">Render::drawElements</a>
+                                </li>
+                                <li>
+                                    <a href="#Render::drawElementsInstanced">Render::drawElementsInstanced</a>
+                                </li>
+                                <li>
+                                    <a href="#Render::initialize">Render::initialize</a>
+                                </li>
+                                <li>
+                                    <a href="#Render::printContextInformation>Render::printContextInformation</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setActiveProgram">Shader::setActiveProgram</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::getActiveShaderId">Shader::getActiveShaderId</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformModelViewProjection">Shader::setUniformModelViewProjection</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformModelProjection">Shader::setUniformModelProjection</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformTexture">Shader::setUniformTexture</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformIntArray">Shader::setUniformIntArray</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformFloat">Shader::setUniformFloat</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformVec2Array">Shader::setUniformVec2Array</a>
+                                </li>
+                                <li>
+                                    <a href="#Shader::setUniformVec3">Shader::setUniformVec3</a>
+                                </li>
+                                <li>
+                                    <a href="#Window::initialize">Window::initialize</a>
+                                </li>
+                                <li>
+                                    <a href="#Window::setLoopCallback">Window::setLoopCallback</a>
+                                </li>
+                                <li>
+                                    <a href="#Window::startLoop">Window::startLoop</a>
+                                </li>
+                                <li>
+                                    <a href="#Window::exitWindow">Window::exitWindow</a>
+                                </li>
+                                <li>
+                                    <a href="#Window::getFrameRate">Window::getFrameRate</a>
+                                </li>
+                                <li>
+                                    <a href="#Window::getWindowData">Window::getWindowData</a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
                     <li>
-                        <a href="#" target="_self">For Web Browsers</a>
+                        <details>
+                            <summary>Resource Loader Subsystem</summary>
+                            <ul>
+                                <li>
+                                    <a href="#FileLoader::generatePathForFile">FileLoader::generatePathForFile</a>
+                                </li>
+                                <li>
+                                    <a href="#FileLoader::setProgramSystemPath">FileLoader::setProgramSystemPath</a>
+                                </li>
+                                <li>
+                                    <a href="#FileLoader::read">FileLoader::read</a>
+                                </li>
+                                <li>
+                                    <a href="#ModelLoader::loadFromFile">ModelLoader::loadFromFile</a>
+                                </li>
+                                <li>
+                                    <a href="#ShaderLoader::load">ShaderLoader::load</a>
+                                </li>
+                                <li>
+                                    <a href="#TextureLoader::load2d">TextureLoader::load2d</a>
+                                </li>
+                                <li>
+                                    <a href="#TextureLoader::loadCubemap">TextureLoader::loadCubemap</a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
                     <li>
-                        <a href="#" target="_self">For Windows Systems</a>
+                        <details>
+                            <summary>Input Subsystem</summary>
+                            <ul>
+                                <li>
+                                    <a href="#Input::setKeyUpCallbackFunction">Input::setKeyUpCallbackFunction</a>
+                                </li>
+                                <li>
+                                    <a href="#Input::setKeyDownCallbackFunction">Input::setKeyDownCallbackFunction</a>
+                                </li>
+                                <li>
+                                    <a href="#Input::setMouseMovementCallbackFunction">Input::setMouseMovementCallbackFunction</a>
+                                </li>
+                                <li>
+                                    <a href="#Input::setMouseDownCallbackFunction">Input::setMouseDownCallbackFunction</a>
+                                </li>
+                                <li>
+                                    <a href="#Input::setMouseUpCallbackFunction">Input::setMouseUpCallbackFunction</a>
+                                </li>
+                                <li>
+                                    <a href="#Input::setMouseScrollCallbackFunction">Input::setMouseScrollCallbackFunction</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>World Subsystem</summary>
+                            <ul>
+                                <li>
+                                    <a href="#">Camera::getMatrix</a>
+                                </li>
+                                <li>
+                                    <a href="#">Camera::setPosition</a>
+                                </li>
+                                <li>
+                                    <a href="#">Camera::getPosition</a>
+                                </li>
+                                <li>
+                                    <a href="#">Camera::setOrientation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Camera::getOrientation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::getMatrix</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::setScale</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::getScale</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::setPosition</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::addToPosition</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::getPosition</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::setOrientation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Entity::getOrientation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::getOrthographic</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::setOrthographic</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::getPerspective</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::setPerspecProjection</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::getFieldOfView</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::setFieldOfView</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::getNearPlane</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::setNearPlane</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::getFarPlane</a>
+                                </li>
+                                <li>
+                                    <a href="#">Projection::setFarPlane</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#Compiling and Link to a Game Project">Compiling and Link to a Game Project</a>
+                <ul>
+                    <li>
+                        <a href="#">For Unix Systems</a>
+                    </li>
+                    <li>
+                        <a href="#">For Web Browsers</a>
+                    </li>
+                    <li>
+                        <a href="#">For Windows Systems</a>
                     </li>
                 </ul>
             </li>
@@ -377,24 +297,27 @@
     </nav>
 
     <article>
-        <h2 id="Introduction">Introduction</h2>
+        <section>
+            <h2 id="Introduction">1 - Introduction</h2>
+            <a href="#Contents">&#8617; back to top</a>
+        </section>
         <hr/>
         <section>
             <p>
-                This document specifies, explains and demonstrate examples of usage of the Apollo Game  Library, a library dedicated to simplify and accelerate the creation of game applications using C/C++ languages. Just to keep the user focused on the core features of the application, rather than technical details under the hood, automatically doing the complex tasks such as loading models, textures shaders into memory, rendering objects, perform matrix calculations, handle windowing system independent of the target platform and handle user input via mouse, keyboard or joystick.
+                This document specifies, explains and demonstrate examples of usage of the Icosphere Game  Library, a library dedicated to simplify and accelerate the creation of game applications using C/C++ languages. Just to keep the user focused on the core features of the application, rather than technical details under the hood, automatically doing the complex tasks such as loading models, textures shaders into memory, rendering objects, perform matrix calculations, handle windowing system independent of the target platform and handle user input via mouse, keyboard or joystick.
             </p>
         </section>
 
         <section>
             <h3 id="Capabilites">Capabilites</h3>
             <p>
-                The Apolo Game Library is capable to offering a three dimensional rendering context through a windowing system, achieved by the built-in SDL 2.0 library, a very popular Windowing system used by many AAA games.
+                The Icosphere Game Library is capable to offering a three dimensional rendering context through a windowing system, achieved by the built-in SDL 2.0 library, a very popular Windowing system used by many AAA games.
             </p>
             <p>
                 The rendering context is achieved with support for hardware graphics acceleration, using OpenGL 3.3+. Direct rendering commands are not available due to these commands becoming deprecated in OpenGL  version after 3.0.
             </p>
             <p>
-                OpenGL 3.3+ and OpenGL ES 3.0+ are the only graphics libraries supported in the Apolo Game Library.
+                OpenGL 3.3+ and OpenGL ES 3.0+ are the only graphics libraries supported in the Icosphere Game Library.
             </p>
             <p>
                 Depending of the target system, the GPU rendering may be or may not be activated. In cases of embedded or very old devices, software only rendering may be the only option available. Consult the platform you want to develop for specific details.
@@ -413,7 +336,7 @@
         <section>
             <h3 id="Device Targets">Device Targets</h3>
             <p>
-                The Apolo Game Library is designed to offer a large set of supported operating systems and devices types. Future compatibility with newer operating systems versions may be limited or deprecated due to enterprises practicing closed environment actions, such as depreciating OpenGL, Apple is the one of most notorious for such actions.
+                The Icosphere Game Library is designed to offer a large set of supported operating systems and devices types. Future compatibility with newer operating systems versions may be limited or deprecated due to enterprises practicing closed environment actions, such as depreciating OpenGL, Apple is the one of most notorious for such actions.
             </p>
             <p>
                 The library offers support to be built using different compilers, including Emcripten, the most popular compiler for building projects to WebAssembly and therefore being transformable to a executable inside a web browser:
@@ -453,7 +376,10 @@
     </article>
 
     <article>
-        <h2 id="Structure Overview<">Structure Overview</h2>
+        <section>
+            <h2 id="Structure Overview">2 - Structure Overview</h2>
+            <a href="#Contents">&#8617; back to top</a>
+        </section>
         <hr/>
         <section>
             <p>
@@ -510,7 +436,7 @@
             <ul>
                 <li>
                     <p>
-                        <b>Entity class</b>, the Entity class is the most abstract way to materialize any kind of object in the scenery, it contains basic proprieties and functions to move, rotate and scale the object, it also contains references to any kind of textures, models and shaders that the Entity may have during his life cycle, theses properties are optionals, meaning that an Entity can exist without being composed by any material or behavior. In the Apolo Game Library, a shader program is normally attached in an Entity object, offering the opportunity to determine how the model should absorve and reflect light, or emitting light if that is the case in mind, as well being deformed by external events and many other possibilites.
+                        <b>Entity class</b>, the Entity class is the most abstract way to materialize any kind of object in the scenery, it contains basic proprieties and functions to move, rotate and scale the object, it also contains references to any kind of textures, models and shaders that the Entity may have during his life cycle, theses properties are optionals, meaning that an Entity can exist without being composed by any material or behavior. In the Icosphere Game Library, a shader program is normally attached in an Entity object, offering the opportunity to determine how the model should absorve and reflect light, or emitting light if that is the case in mind, as well being deformed by external events and many other possibilites.
                     </p>
                 </li>
                 <li>
@@ -525,7 +451,7 @@
                 </li>
             </ul>
             <p>
-                There is a question regarding the nature of the implementation of a Camera in a scenery, generally in other game libraries or engines, a Camera can be a variation of an Entity. In Apolo Game Library the Camera is the second element of the world transformation triad, composed by an Entity, a Camera and a Projection, you can’t have an euclidean world without these 3 components, (more specifically, they matrices), being calculated by the rendering system.
+                There is a question regarding the nature of the implementation of a Camera in a scenery, generally in other game libraries or engines, a Camera can be a variation of an Entity. In Icosphere Game Library the Camera is the second element of the world transformation triad, composed by an Entity, a Camera and a Projection, you can’t have an euclidean world without these 3 components, (more specifically, they matrices), being calculated by the rendering system.
             </p>
             <p>
                 The library offers some derivatives of the Entity class, available for use in the game implementation, with built-in features that may become useful for speed-up the development:
@@ -585,7 +511,7 @@
                         </li>
                         <li>
                             <p>
-                                <b>Stanford Object</b> can be spotted by the .PLY extension. The Stanford Object is a computer file format known as the Polygon File Format or the Stanford Triangle Format. It was principally designed to store three-dimensional data from 3D scanners. The support for this file format specification is almost full, it’s the recommended way to load 3D models in Apolo Game Library.
+                                <b>Stanford Object</b> can be spotted by the .PLY extension. The Stanford Object is a computer file format known as the Polygon File Format or the Stanford Triangle Format. It was principally designed to store three-dimensional data from 3D scanners. The support for this file format specification is almost full, it’s the recommended way to load 3D models in Icosphere Game Library.
                             </p>
                         </li>
                     </ul>
@@ -601,7 +527,7 @@
         <section>
             <h3 id="Input Subsystem">Input Subsystem</h3>
             <p>
-                The input subsystem is responsible to capture any kind of event emitted by the user, despite the specification of SDL Events being able to capture even screen update events, the Apolo Game Library does not yet implement this feature, only, keyboard, mouse and generic joystick events.
+                The input subsystem is responsible to capture any kind of event emitted by the user, despite the specification of SDL Events being able to capture even screen update events, the Icosphere Game Library does not yet implement this feature, only, keyboard, mouse and generic joystick events.
             </p>
             <p>
                 The submodule has the following behavior: The submodule structure serves as an interface to the developer with each can further implement callback functions to handle submodule related events. The calls are made by the Input module, with each check if the developer has implemented the functions, if is so, the function are called passing some event related data.
@@ -627,7 +553,754 @@
     </article>
 
     <article>
-        <h2 id="API Functions Reference">API Functions Reference</h2>
+        <section>
+            <h2 id="Usage Examples">3 - Usage Examples</h2>
+            <a href="#Contents">&#8617; back to top</a>
+        </section>
+        <hr/>
+        <p>
+            In this section there are present some examples to how initialize the system and feed up with Entities, Cameras, Projections, Game Logic, Input Handling etc.
+        </p>
+        <section>
+            <h3 id="Creating a Empty Window">Creating a Empty Window</h3>
+            <p>
+                To create a minimum functional environment for developing games we will need to initialize the core subsystem of the library first.
+            </p>
+            <h4>minimumExample.c</h4>
+            <div>
+                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+                <code> </code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 640;</code>
+                <code>unsigned short width = 640;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    glClearColor(0.60, 0.50, 0.70, 1);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                Then we create the windowing system, providing a width, height and title to the <code>Window::initialize(width, height, title);</code>. The width and height can be any <code>unsigned short</code> number up to 65535, the title can be defined as a <code>const char*</code>.
+            </p>
+            <p>
+                During the main loop, the library can call a not yet defined function with each we can place the game execution logic, we can tell the windowing system what function will be by passing the address of it to <code>Window::setLoopCallback(mainLoop);</code>.
+            </p>
+            <p>
+                Next, we initialize the rendering system, setting a rendering context for the window, but not yet started the rendering loop.
+            </p>
+            <p>
+                Finally, we start the rendering loop by calling <code>Window::startLoop()</code>, after that, we will enter in inifite loop, only exing after manually close the window.
+            </p>
+            <p>
+                On execution, we are gifted with a new window tinted with a purple-ish color. If you need help to compile this example, check the "Compile and Link to a Game Project" section.
+            </p>
+            <figure>
+                <img src="./doc-figures/images/basicWindow.png"/>
+                <figcaption>A system window rendering a purple-ish background.</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3 id="Rendering an Object">Rendering an Object</h3>
+            <p>
+                To render an object, we will need to load a model file, a simple shader program, instantiate a Entity, a Camera and a Projection object, and render-it in the <code>mainLoop</code> function. In this case we will load a cube into the rendering context.
+            </p>
+            <p>
+                Sounds like a lot of things, but if we want to render anything more than a color, we will have to construct a scenery for our presentation.
+            </p>
+            <p>
+                In the early versions of OpenGL we can simply give some commands to draw some triangles and we are technically done. But these methods are deprecated for already many years. The modern way requires some additional work, but the return of the investment will pay the hassle.
+            </p>
+            <p>
+                Before continuing:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Create a folder/directory in the root of your source code file named <code>models</code>. Inside you can place the <code>cube.ply</code> file. If you dont't have the model file, you can very easily create one with <a href="https://www.blender.org/" target="_blank">Blender</a>. Dont't forget to save as <code>.ply</code> format.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Create a folder/directory in the root of your source code file named <code>shaders</code>. Inside you can place the following code:
+                    </p>
+                    <h4>defaultShader.vs</h4>
+                    <div>
+                        <code>#version 330</code>
+                        <code> </code>
+                        <code>in vec3 positionVec;</code>
+                        <code> </code>
+                        <code>uniform mat4 modelMatrix;</code>
+                        <code>uniform mat4 viewMatrix;</code>
+                        <code>uniform mat4 projectionMatrix;</code>
+                        <code>uniform vec3 fragColor;</code>
+                        <code> </code>
+                        <code>out vec3 outFragColor;</code>
+                        <code> </code>
+                        <code>void main() {</code>
+                        <code>    outFragColor = fragColor;</code>
+                        <code>    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(positionVec, 1.0);</code>
+                        <code>}</code>
+                    </div>
+
+                    <h4>defaultShader.fs</h4>
+                    <div>
+                        <code>#version 330</code>
+                        <code> </code>
+                        <code>in vec3 outFragColor;</code>
+                        <code></code>
+                        <code>out vec4 frag_Color;</code>
+                        <code> </code>
+                        <code>void main() {</code>
+                        <code>     frag_Color = vec4(outFragColor, 1.0f) * vec4(0.75, 0.75, 0.75, 1.0f);</code>
+                        <code>}</code>
+                    </div>
+                </li>
+            </ul>
+            <p>
+                After that, we can procced to write the following code:
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, glm::mat4(1.0f), glm::mat4((1.0f)));</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code>    cube = new Entity();</code>
+                <code>    cube->relatedShaderId = shaderId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
+                <code>    cube->setScale(glm::vec3(0.5));</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                Continuing from the example before, We start initializing the Input subsystem by providing the executable path string to the <code>FileLoader::setProgramSystemPath(char*);</code>.
+            </p>
+            <p>
+                Next, we invoke the ShaderLoader module to load the shaders into the memory. One thing to note is that all shaders informed must be located at subfolder called <code>shaders</code>. If all goes well, the OpenGL context will return to us a ticket, with each is a number reference to the content loaded into GPU.
+            </p>
+            <p>
+                We also need to instantiate a cube object, based on a Entity class, attach the shader reference to it, set the initial positions and scales, and finally attach a 3D model to it, the model contents are stored in the GPU's memory, therefore, you cannot have direct access via CPU. the mesh property in Entity are just a bunch of tickets that OpenGL give to us when we want to draw with the model. We simply pass the id's to the OpenGL rendering context and he will locate the model and rendering for you.
+            </p>
+            <p>
+                in the <code>mainLoop</code> function we tell our shader module to activate the shader program we want to use. In <code>Shader::setUniformModelViewProjection(Entity*, glm::mat4, glm::mat4);</code> we pass the Entity to the rendering context, as well the Camera and the Projection matrix, this is necessary to inform what object we want to render, with each camera will be observed, and what projection should be appeared.
+            </p>
+            <p>
+                Finally, we tell the <code>Render</code> to draw the element.
+            </p>
+            <figure>
+                <img src="./doc-figures/images/basicQuad.png"/>
+                <figcaption>A system window rendering a blue-ish cube in a dark background.</figcaption>
+            </figure>
+            <p>
+                But, as you may notice, this cube, dosen't look like a cube.. This happen because of the absence of a Camera and a Projection components in our world. To be able to see the other side of the cube, we will need to create a Camera and a Projection in our world, and set the camera to rotate the view angle a little bit.
+            </p>
+            <p>
+                There is another approach to view the other faces of the cube. which is simple tell the cube to rotate, but again, with the absence of a camera and a projection things will not be drawn as the way we should expect.
+            </p>
+            <p>
+                Let's begin to add the camera and a projection for our world:
+            </p>
+            <div>
+                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+            </div>
+            <p>
+                Before the <code>Window::startLoop();</code> we can <b>place</b> he following code:
+            </p>
+            <div>
+                <code>camera = new Camera();</code>
+                <code>camera->setPosition(glm::vec3(0, 0, 1));</code>
+                <code>camera->setOrientation(-90.0f, 0.0f);</code>
+                <code> </code>
+                <code>projection = new Projection();</code>
+                <code>projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+            </div>
+            <p>
+                Our <code>mainLoop</code> function will look like this:
+            </p>
+            <div>
+                <code>void mainLoop() {</code>
+                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+            </div>
+            <figure>
+                <img src="./doc-figures/images/basicCube.png"/>
+                <figcaption>A system window rendering a blue-ish cube rotating in X and Y axis in a dark background.</figcaption>
+            </figure>
+
+            <p>
+                For reference and easy copy/paste, the main source implementation in this example should look like this:
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code>    cube = new Entity();</code>
+                <code>    cube->relatedShaderId = shaderId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
+                <code>    cube->setScale(glm::vec3(0.5));</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
+                <code>    camera->setOrientation(-90.0f, 0.0f);</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+        </section>
+
+        <section>
+            <h3 id="Textures">Textures</h3>
+            <p>
+                What if we want to give this cube a more detailed surface? We can do by attaching a texture for the model. With the TextureLoader Module, we can pass a name for the texture file, and get a openGL id for that texture which we can attach to a Entity and rendering it. 
+            </p>
+            <p>
+                The process of rendering with a texture must be done inside the GPU, so we will have to make some additional changes to the shaders:
+            </p>
+            <h4>defaultShader.vs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 positionVec;</code>
+                <code>in vec3 normals;</code>
+                <code>in vec2 texCoord;</code>
+                <code> </code>
+                <code>uniform mat4 modelMatrix;</code>
+                <code>uniform mat4 viewMatrix;</code>
+                <code>uniform mat4 projectionMatrix;</code>
+                <code> </code>
+                <code>uniform vec3 fragColor;</code>
+                <code> </code>
+                <code>out vec3 outFragColor;</code>
+                <code>out vec2 outTexCoord;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(positionVec, 1.0);</code>
+                <code>    outFragColor = fragColor;</code>
+                <code>    outTexCoord = texCoord;</code>
+                <code>}</code>
+            </div>
+
+            <h4>defaultShader.fs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 outFragColor;</code>
+                <code>in vec2 outTexCoord;</code>
+                <code> </code>
+                <code>uniform sampler2D texture0;</code>
+                <code> </code>
+                <code>out vec4 frag_Color;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>     frag_Color = texture(texture0, outTexCoord) * vec4(outFragColor, 1.0f) * vec4(0.75, 0.75, 0.75, 1.0f);</code>
+                <code>}</code>
+            </div>
+            <p>
+                We will use a cubemap texture contained in one image file, on the moment of rendering, the texture will wrap our cube, just like making a paper cube and mounting it. Keep in mind that for other models different than a cube, this texture may not fit correctly, You can count with help of models editors like <a href="blender.org" target="_blank">Blender</a> to make a texture file that can wrap your model correctly.
+            </p>
+            <figure>
+                <img src="./example-materials/mosaic.png"/>
+                <figcaption>A cubemap texture representing abstract figures for each face.</figcaption>
+            </figure>
+            <p>
+                You can save this texture in your project folder, it's ready for use. Remember, texures files are stored in a subfolder named <code>textures</code>, in your executable root directory/folder.
+            </p>
+            <p>
+                Based on the previous example code, we will continue from there: 
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
+                <code class="added">#include &lt;Icosphere/Loaders/TextureLoader.hpp></code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code class="modified">    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code class="added">    GLuint textureId = TextureLoader::load2d("mosaic.png");</code>
+                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code> </code>
+                <code>    cube = new Entity();</code>
+                <code class="added">    cube->relatedTextureId = textureId;</code>
+                <code>    cube->relatedShaderId = shaderId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
+                <code class="modified">    cube->setScale(glm::vec3(0.75));</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
+                <code>    camera->setOrientation(-90.0f, 0.0f);</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                It's more simple to show the whole code with emphasis on waht was added, removed, or modified.
+            </p>
+            <p>
+                If every thing was done correctly, the cube will be shown to us.
+            </p>
+            <figure>
+                <img src="./doc-figures/images/textured_cube.png"/>
+                <figcaption>A rendered cube with some nice textures painted on.</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h3 id="Skyboxes">Skyboxes</h3>
+            <p>
+                We got a nice texture cube back on our previous example, but everything outside looks so empty, our World seems like a limbo, and we are in the middle of there. We can think in various possible solutions for this, one of they are setting a color for our background, but this won't solve the problem. In these cases, the skybox is the solution.
+            </p>
+            <p>
+                The skybox it's just a cube with a cubemap texture attach to it. The trick to give a sense of sky in our world, is in the shader program. The skybox cube dosen't behave in the same way as other entities do. In the rendering time, we begin inside of the skybox cube, wherever which side or how much we move, the skybox will always move with us, every other entity will be rendered on top of the skybox. That permit us to yet, be able to see other things.
+            </p>
+            <br>
+            <figure>
+                <img src="./example-materials/skybox/front.bmp"/>
+                <figcaption>One of the skybox faces.</figcaption>
+            </figure>
+            <p>
+                To be able to render a skybox, we will need a customized shader, written specificly for that type of need.
+            </p>
+            <h4>skybox.vs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 positionVec;</code>
+                <code> </code>
+                <code>uniform mat4 modelMatrix;</code>
+                <code>uniform mat4 viewMatrix;</code>
+                <code>uniform mat4 projectionMatrix;</code>
+                <code> </code>
+                <code>out vec3 fragColor;</code>
+                <code>out vec2 outTexCoord;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>    vec4 pos = projectionMatrix * mat4(mat3(viewMatrix)) * modelMatrix * vec4(positionVec, 0.0f);</code>
+                <code>    gl_Position = vec4(pos.x, pos.y, pos.w, pos.w);</code>
+                <code>    fragColor = vec3(1,1,1);</code>
+                <code>    outTexCoord = vec3(positionVec.x, positionVec.y, positionVec.z);</code>
+                <code>}</code>
+            </div>
+
+            <h4>skybox.fs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 outFragColor;</code>
+                <code>in vec2 outTexCoord;</code>
+                <code> </code>
+                <code>uniform samplerCube skybox;</code>
+                <code> </code>
+                <code>out vec4 frag_Color;</code>
+                <code> </code>
+                <code>void main() {</code>
+                <code>     frag_Color = texture(skybox, outTexCoord);</code>
+                <code>}</code>
+            </div>
+            <p>
+                Don't forgot to add the defualt Shaders to our project, we will need two different shaders, one for the skybox, and one for the cube.
+            </p>
+            <p>
+                Let's see the main code, it has been built on top of the last example, the green lines indicates added lines and yellow modified lines.
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/TextureLoader.hpp></code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code class="added">Entity* skybox;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code class="modified">    camera->setAngleOrientation(-0.25f, glm::vec3(0,1,0));</code>
+                <code> </code>
+                <code class="added">    Shader::setActiveProgram(skybox->relatedShaderId);</code>
+                <code class="added">    Shader::setUniformModelViewProjection(skybox, camera->getMatrix(), projection->getPerspective());</code>
+                <code class="added">    Render::drawElements(skybox);</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code class="modified">    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
+                <code class="added">    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
+                <code class="added">        "right.bmp",</code>
+                <code class="added">        "left.bmp",</code>
+                <code class="added">        "top.bmp",</code>
+                <code class="added">        "bottom.bmp",</code>
+                <code class="added">        "front.bmp",</code>
+                <code class="added">        "back.bmp",</code>
+                <code class="added">    });</code>
+                <code> </code>
+                <code class="modified">    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code class="added">    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
+                <code> </code>
+                <code class="added">    skybox = new Entity();</code>
+                <code class="added">    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
+                <code class="added">    skybox->relatedTextureId = textureSkyboxId;</code>
+                <code class="added">    skybox->relatedShaderId = shaderSkyboxId;</code>
+                <code class="added">    skybox->mesh = ModelLoader::loadFromFile("cube.ply", skybox->relatedShaderId);</code>
+                <code> </code>
+                <code>    cube = new Entity();</code>
+                <code class="modified">    cube->relatedTextureId = textureCubeId;</code>
+                <code class="modified">    cube->relatedShaderId = shaderCubeId;</code>
+                <code class="modified">    cube->setPosition(glm::vec3(0,0,0));</code>
+                <code>    cube->setScale(glm::vec3(0.75));</code>
+                <code class="added">    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code class="modified">    camera->setPosition(glm::vec3(0, 0, -2));</code>
+                <code class="modified">    camera->setRotationCenter(glm::vec3(0,0,2));;</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+            </div>
+            <p>
+                And once everything goes right, the window will comeback for us, in a new world with a nice blue sky.
+            </p>
+            <figure>
+                <img src="./doc-figures/images/skybox.png"/>
+                <figcaption>A rendered cube with textures and a rotating blue sky behind it.</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3 id="User Inputs and Debug Camera">User Inputs and Debug Camera</h3>
+            <p>
+                It's great to build a rich and detailed world, but sometimes, you could wish that with some button pushes and some mouse movements you can be able to see more angles of the world. This is possible with the Input System, combined with a Debug Camera.
+            </p>
+            <p>
+                The Input System allows you, as a Icosphere Game Library user and a developer, to get inputs details from the final user to the application. The calls must be set up using callback functions. We will see how to do that later in the code bellow.
+            </p>
+            <p>
+                The Debug Camera it's a built-in Camera inherited class that gives the ability to user to free explore the world. It's called Debug Camera because of his behavoir, present in past released games, mainly used by developers to get a better view of what is going on with the game.
+            </p>
+            <p>
+                Let's see how the code looks like, the source it's getting bigger as more resources we put into it. The green lines indicates code that was added in relation of the source of the previous example.
+            </p>
+            <h4>cubeRender.c</h4>
+            <div>
+                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
+				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
+                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
+                <code>#include &lt;Icosphere/Loaders/TextureLoader.hpp></code>
+                <code class="added">#include &lt;Icosphere/Inputs/Inputs.hpp></code>
+                <code class="added">#include &lt;Icosphere/World/Cameras/DebugCamera.hpp></code>
+                <code> </code>
+                <code>Entity* cube;</code>
+                <code>Entity* skybox;</code>
+                <code>Camera* camera;</code>
+                <code>Projection* projection;</code>
+                <code class="added">DebugCamera* debugCamera;</code>
+                <code> </code>
+                <code>char title[16] = "Basic test";</code>
+                <code>unsigned short height = 720;</code>
+                <code>unsigned short width = 720;</code>
+                <code> </code>
+                <code class="added">    void mouseClickUp(int button, int x, int y);</code>
+                <code class="added">    void mouseClickDown(int button, int x, int y);</code>
+                <code class="added">    void mouseMovement(double xpos, double ypos);</code>
+                <code class="added">    void mouseScroll(double xpos, double ypos);</code>
+                <code> </code>
+                <code>void mainLoop() {</code>
+                <code>    camera->setAngleOrientation(-0.25f, glm::vec3(0,1,0));</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(skybox->relatedShaderId);</code>
+                <code>    Shader::setUniformModelViewProjection(skybox, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(skybox);</code>
+                <code> </code>
+                <code class="added">    Input::setMouseUpCallbackFunction(mouseClickUp);</code>
+                <code class="added">    Input::setMouseDownCallbackFunction(mouseClickDown);</code>
+                <code class="added">    Input::setMouseMovementCallbackFunction(mouseMovement);</code>
+                <code class="added">    Input::setMouseScrollCallbackFunction(mouseScroll);</code>
+                <code> </code>
+                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
+                <code>    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
+                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
+                <code>    Render::drawElements(cube);</code>
+                <code>}</code>
+                <code> </code>
+                <code>int main(int argc, const char * argv[]) {</code>
+                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
+                <code>    Window::initialize(width, height, title);</code>
+                <code>    Window::setLoopCallback(mainLoop);</code>
+                <code>    Render::initialize(Window::getWindowData());</code>
+                <code> </code>
+                <code>    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
+                <code>    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
+                <code>        "right.bmp",</code>
+                <code>        "left.bmp",</code>
+                <code>        "top.bmp",</code>
+                <code>        "bottom.bmp",</code>
+                <code>        "front.bmp",</code>
+                <code>        "back.bmp",</code>
+                <code>    });</code>
+                <code> </code>
+                <code>    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
+                <code>    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
+                <code> </code>
+                <code>    skybox = new Entity();</code>
+                <code>    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
+                <code>    skybox->relatedTextureId = textureSkyboxId;</code>
+                <code>    skybox->relatedShaderId = shaderSkyboxId;</code>
+                <code>    skybox->mesh = ModelLoader::loadFromFile("cube.ply", skybox->relatedShaderId);</code>
+                <code> </code>
+                <code>    cube = new Entity();</code>
+                <code>    cube->relatedTextureId = textureCubeId;</code>
+                <code>    cube->relatedShaderId = shaderCubeId;</code>
+                <code>    cube->setPosition(glm::vec3(0,0,0));</code>
+                <code>    cube->setScale(glm::vec3(0.75));</code>
+                <code>    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
+                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
+                <code> </code>
+                <code>    camera = new Camera();</code>
+                <code>    camera->setPosition(glm::vec3(0, 0, -2));</code>
+                <code>    camera->setRotationCenter(glm::vec3(0,0,2));;</code>
+                <code> </code>
+                <code>    projection = new Projection();</code>
+                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
+                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
+                <code> </code>
+                <code class="added">    debugCamera = new DebugCamera(camera);</code>
+                <code> </code>
+                <code>    Window::startLoop();</code>
+                <code>}</code>
+                <code class="added">void mouseClickUp(int button, int x, int y) {</code>
+                <code class="added">    debugCamera->handleMouseClickUp();</code>
+                <code class="added">}</code>
+                <code class="added"> </code>
+                <code class="added">void mouseClickDown(int button, int x, int y) {</code>
+                <code class="added">    debugCamera->handleMouseClickDown();</code>
+                <code class="added">}</code>
+                <code class="added"> </code>
+                <code class="added">void mouseMovement(double xpos, double ypos) {</code>
+                <code class="added">    debugCamera->handleMouseMovement(xpos, ypos);</code>
+                <code class="added">}</code>
+                <code class="added"> </code>
+                <code class="added">void mouseScroll(double xpos, double ypos) {</code>
+                <code class="added">    debugCamera->handleMouseScroll(xpos, ypos);</code>
+                <code class="added">}</code>
+            </div>
+            <p>
+                Once everything goes well, you should be able to see around with the debug camera, just with your mouse.
+            </p>
+            <figure>
+                <video controls loop>
+                    <source src="./doc-figures/video/inputCamera.webm" type="video/webm"/>
+                    Your browser dows not support the video function.
+                </video>
+                <figcaption>A video showing the user controlling the camera's rotation around cube with the mouse.</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h3 id="Text on Screen">Text on Screen</h3>
+            <p>
+                The library offers a basic text rendering system, whitch supports ASCII characters, as well break lines, at relative low cost of performace. To implement this system, we will need specific shaders for that.
+            </p>
+            <h4>textRendering.vs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>in vec3 positionVec;</code>
+                <code>in vec3 texCoord;</code>
+                <code> </code>
+                <code>// For certain WebGL implementations, the max number of uniform elements is 256;</code>
+                <code>uniform mat4 modelMatrix;</code>
+                <code>uniform mat4 viewMatrix;</code>
+                <code>uniform mat4 projectionMatrix;</code>
+                <code>uniform int char[120];</code>
+                <code>uniform vec2 pos[120];</code>
+                <code> </code>
+                <code>out vec3 fragColor;</code>
+                <code>out vec3 outTexCoord;</code>
+                <code>out float character;</code>
+                <code> </code>
+                <code>void main(void) {</code>
+                <code>    vec2 newPosition = vec2(positionVec.x + pos[gl_InstanceID].x, -positionVec.y + pos[gl_InstanceID].y);</<code> </code>
+                <code>    gl_Position = projectionMatrix * modelMatrix * vec4(newPosition, 0.0, 1.0);</code>
+                <code> </code>   
+                <code>    outTexCoord = texCoord;</code>
+                <code>    character = float(char[gl_InstanceID]);</code>
+                <code>}</code>
+            </div>
+
+            <h4>textRendering.fs</h4>
+            <div>
+                <code>#version 330</code>
+                <code> </code>
+                <code>precision mediump float;</code>
+                <code> </code>
+                <code>in vec3 outTexCoord; </code>
+                <code>in float character; </code>
+                <code> </code>
+                <code>uniform sampler2D texture0;</code>
+                <code> </code>
+                <code>out vec4 frag_Color;</code>
+                <code> </code>
+                <code>vec2 processCharacterPosition(float character) {</code>
+                <code>    float posPixelY = float(int(character/16.0f))*16.0f;</code>
+                <code>    float xAxisTextureOffset = float(character - posPixelY);</code>
+                <code>    posPixelY /= 256.0f;</code>
+                <code>    float posPixelX = (xAxisTextureOffset*16.0f)/256.0f;</code>
+                <code>    return vec2(posPixelX, posPixelY);</code>
+                <code>}</code>
+                <code> </code>
+                <code>void main(void) {</code>
+                <code>    vec2 charPosition = processCharacterPosition(character);</code>
+                <code>    vec4 texColor = texture(texture0, vec2(charPosition.x+outTexCoord.x, charPosition.y+outTexCoord.y));</code>
+                <code>    if (texColor.a &lt; 0.1) {</code>
+                <code>        discard;</code>
+                <code>    }</code>
+                <code>    frag_Color = texColor;</code>
+                <code>}</code>
+            </div>
+        </section>
+        <section>
+            <h3>Light Sources</h3>
+            <p>
+                <i>soon</i>
+            </p>
+        </section>
+    </article>
+
+    <article>
+        <section>
+            <h2 id="API Functions Reference">4 - API Functions Reference</h2>
+            <a href="#Contents">&#8617; back to top</a>
+        </section>
         <hr/>
         <section>
             <h3 id="Render::drawArrays">Render::drawArrays</h3>
@@ -1608,748 +2281,29 @@
     </article>
 
     <article>
-        <h2 id="Basic Usage Examples">Basic Usage Examples</h2>
-        <hr/>
-        <p>
-            In this section there are present some examples to how initialize the system and feed up with Entities, Cameras, Projections, Game Logic, Input Handling etc.
-        </p>
         <section>
-            <h3 id="Creating a Empty Window">Creating a Empty Window</h3>
-            <p>
-                To create a minimum functional environment for developing games we will need to initialize the core subsystem of the library first.
-            </p>
-            <h4>minimumExample.c</h4>
-            <div>
-                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
-                <code> </code>
-                <code>char title[16] = "Basic test";</code>
-                <code>unsigned short height = 640;</code>
-                <code>unsigned short width = 640;</code>
-                <code> </code>
-                <code>void mainLoop() {</code>
-                <code>    glClearColor(0.60, 0.50, 0.70, 1);</code>
-                <code>}</code>
-                <code> </code>
-                <code>int main(int argc, const char * argv[]) {</code>
-                <code>    Window::initialize(width, height, title);</code>
-                <code>    Window::setLoopCallback(mainLoop);</code>
-                <code>    Render::initialize(Window::getWindowData());</code>
-                <code>    Window::startLoop();</code>
-                <code>}</code>
-            </div>
-            <p>
-                Then we create the windowing system, providing a width, height and title to the <code>Window::initialize(width, height, title);</code>. The width and height can be any <code>unsigned short</code> number up to 65535, the title can be defined as a <code>const char*</code>.
-            </p>
-            <p>
-                During the main loop, the library can call a not yet defined function with each we can place the game execution logic, we can tell the windowing system what function will be by passing the address of it to <code>Window::setLoopCallback(mainLoop);</code>.
-            </p>
-            <p>
-                Next, we initialize the rendering system, setting a rendering context for the window, but not yet started the rendering loop.
-            </p>
-            <p>
-                Finally, we start the rendering loop by calling <code>Window::startLoop()</code>, after that, we will enter in inifite loop, only exing after manually close the window.
-            </p>
-            <p>
-                On execution, we are gifted with a new window tinted with a purple-ish color. If you need help to compile this example, check the "Compile and Link to a Game Project" section.
-            </p>
-            <figure>
-                <img src="./doc-figures/images/basicWindow.png"/>
-                <figcaption>A system window rendering a purple-ish background.</figcaption>
-            </figure>
+            <h2 id="Compiling and Link to a Game Project">5 - Compiling and Link to a Game Project</h2>
+            <a href="#Contents">&#8617; back to top</a>
         </section>
-        <section>
-            <h3 id="Rendering an Object">Rendering an Object</h3>
-            <p>
-                To render an object, we will need to load a model file, a simple shader program, instantiate a Entity, a Camera and a Projection object, and render-it in the <code>mainLoop</code> function. In this case we will load a cube into the rendering context.
-            </p>
-            <p>
-                Sounds like a lot of things, but if we want to render anything more than a color, we will have to construct a scenery for our presentation.
-            </p>
-            <p>
-                In the early versions of OpenGL we can simply give some commands to draw some triangles and we are technically done. But these methods are deprecated for already many years. The modern way requires some additional work, but the return of the investment will pay the hassle.
-            </p>
-            <p>
-                Before continuing:
-            </p>
-            <ul>
-                <li>
-                    <p>
-                        Create a folder/directory in the root of your source code file named <code>models</code>. Inside you can place the <code>cube.ply</code> file. If you dont't have the model file, you can very easily create one with <a href="https://www.blender.org/" target="_blank">Blender</a>. Dont't forget to save as <code>.ply</code> format.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Create a folder/directory in the root of your source code file named <code>shaders</code>. Inside you can place the following code:
-                    </p>
-                    <h4>defaultShader.vs</h4>
-                    <div>
-                        <code>#version 330</code>
-                        <code> </code>
-                        <code>in vec3 positionVec;</code>
-                        <code> </code>
-                        <code>uniform mat4 modelMatrix;</code>
-                        <code>uniform mat4 viewMatrix;</code>
-                        <code>uniform mat4 projectionMatrix;</code>
-                        <code>uniform vec3 fragColor;</code>
-                        <code> </code>
-                        <code>out vec3 outFragColor;</code>
-                        <code> </code>
-                        <code>void main() {</code>
-                        <code>    outFragColor = fragColor;</code>
-                        <code>    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(positionVec, 1.0);</code>
-                        <code>}</code>
-                    </div>
-
-                    <h4>defaultShader.fs</h4>
-                    <div>
-                        <code>#version 330</code>
-                        <code> </code>
-                        <code>in vec3 outFragColor;</code>
-                        <code></code>
-                        <code>out vec4 frag_Color;</code>
-                        <code> </code>
-                        <code>void main() {</code>
-                        <code>     frag_Color = vec4(outFragColor, 1.0f) * vec4(0.75, 0.75, 0.75, 1.0f);</code>
-                        <code>}</code>
-                    </div>
-                </li>
-            </ul>
-            <p>
-                After that, we can procced to write the following code:
-            </p>
-            <h4>cubeRender.c</h4>
-            <div>
-                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
-                <code> </code>
-                <code>Entity* cube;</code>
-                <code>char title[16] = "Basic test";</code>
-                <code>unsigned short height = 720;</code>
-                <code>unsigned short width = 720;</code>
-                <code> </code>
-                <code>void mainLoop() {</code>
-                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
-                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
-                <code>    Shader::setUniformModelViewProjection(cube, glm::mat4(1.0f), glm::mat4((1.0f)));</code>
-                <code>    Render::drawElements(cube);</code>
-                <code>}</code>
-                <code> </code>
-                <code>int main(int argc, const char * argv[]) {</code>
-                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
-                <code>    Window::initialize(width, height, title);</code>
-                <code>    Window::setLoopCallback(mainLoop);</code>
-                <code>    Render::initialize(Window::getWindowData());</code>
-                <code> </code>
-                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
-                <code>    cube = new Entity();</code>
-                <code>    cube->relatedShaderId = shaderId;</code>
-                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
-                <code>    cube->setScale(glm::vec3(0.5));</code>
-                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
-                <code> </code>
-                <code>    Window::startLoop();</code>
-                <code>}</code>
-            </div>
-            <p>
-                Continuing from the example before, We start initializing the Input subsystem by providing the executable path string to the <code>FileLoader::setProgramSystemPath(char*);</code>.
-            </p>
-            <p>
-                Next, we invoke the ShaderLoader module to load the shaders into the memory. One thing to note is that all shaders informed must be located at subfolder called <code>shaders</code>. If all goes well, the OpenGL context will return to us a ticket, with each is a number reference to the content loaded into GPU.
-            </p>
-            <p>
-                We also need to instantiate a cube object, based on a Entity class, attach the shader reference to it, set the initial positions and scales, and finally attach a 3D model to it, the model contents are stored in the GPU's memory, therefore, you cannot have direct access via CPU. the mesh property in Entity are just a bunch of tickets that OpenGL give to us when we want to draw with the model. We simply pass the id's to the OpenGL rendering context and he will locate the model and rendering for you.
-            </p>
-            <p>
-                in the <code>mainLoop</code> function we tell our shader module to activate the shader program we want to use. In <code>Shader::setUniformModelViewProjection(Entity*, glm::mat4, glm::mat4);</code> we pass the Entity to the rendering context, as well the Camera and the Projection matrix, this is necessary to inform what object we want to render, with each camera will be observed, and what projection should be appeared.
-            </p>
-            <p>
-                Finally, we tell the <code>Render</code> to draw the element.
-            </p>
-            <figure>
-                <img src="./doc-figures/images/basicQuad.png"/>
-                <figcaption>A system window rendering a blue-ish cube in a dark background.</figcaption>
-            </figure>
-            <p>
-                But, as you may notice, this cube, dosen't look like a cube.. This happen because of the absence of a Camera and a Projection components in our world. To be able to see the other side of the cube, we will need to create a Camera and a Projection in our world, and set the camera to rotate the view angle a little bit.
-            </p>
-            <p>
-                There is another approach to view the other faces of the cube. which is simple tell the cube to rotate, but again, with the absence of a camera and a projection things will not be drawn as the way we should expect.
-            </p>
-            <p>
-                Let's begin to add the camera and a projection for our world:
-            </p>
-            <div>
-                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
-                <code> </code>
-                <code>Entity* cube;</code>
-                <code>Camera* camera;</code>
-                <code>Projection* projection;</code>
-            </div>
-            <p>
-                Before the <code>Window::startLoop();</code> we can <b>place</b> he following code:
-            </p>
-            <div>
-                <code>camera = new Camera();</code>
-                <code>camera->setPosition(glm::vec3(0, 0, 1));</code>
-                <code>camera->setOrientation(-90.0f, 0.0f);</code>
-                <code> </code>
-                <code>projection = new Projection();</code>
-                <code>projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
-                <code>projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
-            </div>
-            <p>
-                Our <code>mainLoop</code> function will look like this:
-            </p>
-            <div>
-                <code>void mainLoop() {</code>
-                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
-                <code> </code>
-                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
-                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
-                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
-                <code>    Render::drawElements(cube);</code>
-                <code>}</code>
-            </div>
-            <figure>
-                <img src="./doc-figures/images/basicCube.png"/>
-                <figcaption>A system window rendering a blue-ish cube rotating in X and Y axis in a dark background.</figcaption>
-            </figure>
-
-            <p>
-                For reference and easy copy/paste, the main source implementation in this example should look like this:
-            </p>
-            <h4>cubeRender.c</h4>
-            <div>
-                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
-                <code> </code>
-                <code>Entity* cube;</code>
-                <code>Camera* camera;</code>
-                <code>Projection* projection;</code>
-                <code>char title[16] = "Basic test";</code>
-                <code>unsigned short height = 720;</code>
-                <code>unsigned short width = 720;</code>
-                <code> </code>
-                <code>void mainLoop() {</code>
-                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
-                <code> </code>
-                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
-                <code>    Shader::setUniformVec3("fragColor", glm::vec3(0.40f, 0.45f ,0.60f));</code>
-                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
-                <code>    Render::drawElements(cube);</code>
-                <code>}</code>
-                <code> </code>
-                <code>int main(int argc, const char * argv[]) {</code>
-                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
-                <code>    Window::initialize(width, height, title);</code>
-                <code>    Window::setLoopCallback(mainLoop);</code>
-                <code>    Render::initialize(Window::getWindowData());</code>
-                <code> </code>
-                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
-                <code>    cube = new Entity();</code>
-                <code>    cube->relatedShaderId = shaderId;</code>
-                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
-                <code>    cube->setScale(glm::vec3(0.5));</code>
-                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
-                <code> </code>
-                <code>    camera = new Camera();</code>
-                <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
-                <code>    camera->setOrientation(-90.0f, 0.0f);</code>
-                <code> </code>
-                <code>    projection = new Projection();</code>
-                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
-                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
-                <code>    Window::startLoop();</code>
-                <code>}</code>
-            </div>
-        </section>
-
-        <section>
-            <h3 id="Textures">Textures</h3>
-            <p>
-                What if we want to give this cube a more detailed surface? We can do by attaching a texture for the model. With the TextureLoader Module, we can pass a name for the texture file, and get a openGL id for that texture which we can attach to a Entity and rendering it. 
-            </p>
-            <p>
-                The process of rendering with a texture must be done inside the GPU, so we will have to make some additional changes to the shaders:
-            </p>
-            <h4>defaultShader.vs</h4>
-            <div>
-                <code>#version 330</code>
-                <code> </code>
-                <code>in vec3 positionVec;</code>
-                <code>in vec3 normals;</code>
-                <code>in vec2 texCoord;</code>
-                <code> </code>
-                <code>uniform mat4 modelMatrix;</code>
-                <code>uniform mat4 viewMatrix;</code>
-                <code>uniform mat4 projectionMatrix;</code>
-                <code> </code>
-                <code>uniform vec3 fragColor;</code>
-                <code> </code>
-                <code>out vec3 outFragColor;</code>
-                <code>out vec2 outTexCoord;</code>
-                <code> </code>
-                <code>void main() {</code>
-                <code>    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(positionVec, 1.0);</code>
-                <code>    outFragColor = fragColor;</code>
-                <code>    outTexCoord = texCoord;</code>
-                <code>}</code>
-            </div>
-
-            <h4>defaultShader.fs</h4>
-            <div>
-                <code>#version 330</code>
-                <code> </code>
-                <code>in vec3 outFragColor;</code>
-                <code>in vec2 outTexCoord;</code>
-                <code> </code>
-                <code>uniform sampler2D texture0;</code>
-                <code> </code>
-                <code>out vec4 frag_Color;</code>
-                <code> </code>
-                <code>void main() {</code>
-                <code>     frag_Color = texture(texture0, outTexCoord) * vec4(outFragColor, 1.0f) * vec4(0.75, 0.75, 0.75, 1.0f);</code>
-                <code>}</code>
-            </div>
-            <p>
-                We will use a cubemap texture contained in one image file, on the moment of rendering, the texture will wrap our cube, just like making a paper cube and mounting it. Keep in mind that for other models different than a cube, this texture may not fit correctly, You can count with help of models editors like <a href="blender.org" target="_blank">Blender</a> to make a texture file that can wrap your model correctly.
-            </p>
-            <figure>
-                <img src="./example-materials/mosaic.png"/>
-                <figcaption>A cubemap texture representing abstract figures for each face.</figcaption>
-            </figure>
-            <p>
-                You can save this texture in your project folder, it's ready for use. Remember, texures files are stored in a subfolder named <code>textures</code>, in your executable root directory/folder.
-            </p>
-            <p>
-                Based on the previous example code, we will continue from there: 
-            </p>
-            <h4>cubeRender.c</h4>
-            <div>
-                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
-                <code class="added">#include &lt;Apolo/Loaders/TextureLoader.hpp></code>
-                <code> </code>
-                <code>Entity* cube;</code>
-                <code>Camera* camera;</code>
-                <code>Projection* projection;</code>
-                <code>char title[16] = "Basic test";</code>
-                <code>unsigned short height = 720;</code>
-                <code>unsigned short width = 720;</code>
-                <code> </code>
-                <code>void mainLoop() {</code>
-                <code>    cube->setOrientation(0.25f, glm::vec3(1,1,0));</code>
-                <code> </code>
-                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
-                <code class="modified">    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
-                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
-                <code>    Render::drawElements(cube);</code>
-                <code>}</code>
-                <code> </code>
-                <code>int main(int argc, const char * argv[]) {</code>
-                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
-                <code>    Window::initialize(width, height, title);</code>
-                <code>    Window::setLoopCallback(mainLoop);</code>
-                <code>    Render::initialize(Window::getWindowData());</code>
-                <code> </code>
-                <code class="added">    GLuint textureId = TextureLoader::load2d("mosaic.png");</code>
-                <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
-                <code> </code>
-                <code>    cube = new Entity();</code>
-                <code class="added">    cube->relatedTextureId = textureId;</code>
-                <code>    cube->relatedShaderId = shaderId;</code>
-                <code>    cube->setPosition(glm::vec3(0,0,-1));</code>
-                <code class="modified">    cube->setScale(glm::vec3(0.75));</code>
-                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
-                <code> </code>
-                <code>    camera = new Camera();</code>
-                <code>    camera->setPosition(glm::vec3(0, 0, 1));</code>
-                <code>    camera->setOrientation(-90.0f, 0.0f);</code>
-                <code> </code>
-                <code>    projection = new Projection();</code>
-                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
-                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
-                <code>    Window::startLoop();</code>
-                <code>}</code>
-            </div>
-            <p>
-                It's more simple to show the whole code with emphasis on waht was added, removed, or modified.
-            </p>
-            <p>
-                If every thing was done correctly, the cube will be shown to us.
-            </p>
-            <figure>
-                <img src="./doc-figures/images/textured_cube.png"/>
-                <figcaption>A rendered cube with some nice textures painted on.</figcaption>
-            </figure>
-        </section>
-
-        <section>
-            <h3 id="Skyboxes">Skyboxes</h3>
-            <p>
-                We got a nice texture cube back on our previous example, but everything outside looks so empty, our World seems like a limbo, and we are in the middle of there. We can think in various possible solutions for this, one of they are setting a color for our background, but this won't solve the problem. In these cases, the skybox is the solution.
-            </p>
-            <p>
-                The skybox it's just a cube with a cubemap texture attach to it. The trick to give a sense of sky in our world, is in the shader program. The skybox cube dosen't behave in the same way as other entities do. In the rendering time, we begin inside of the skybox cube, wherever which side or how much we move, the skybox will always move with us, every other entity will be rendered on top of the skybox. That permit us to yet, be able to see other things.
-            </p>
-            <br>
-            <figure>
-                <img src="./example-materials/skybox/front.bmp"/>
-                <figcaption>One of the skybox faces.</figcaption>
-            </figure>
-            <p>
-                To be able to render a skybox, we will need a customized shader, written specificly for that type of need.
-            </p>
-            <h4>skybox.vs</h4>
-            <div>
-                <code>#version 330</code>
-                <code> </code>
-                <code>in vec3 positionVec;</code>
-                <code> </code>
-                <code>uniform mat4 modelMatrix;</code>
-                <code>uniform mat4 viewMatrix;</code>
-                <code>uniform mat4 projectionMatrix;</code>
-                <code> </code>
-                <code>out vec3 fragColor;</code>
-                <code>out vec2 outTexCoord;</code>
-                <code> </code>
-                <code>void main() {</code>
-                <code>    vec4 pos = projectionMatrix * mat4(mat3(viewMatrix)) * modelMatrix * vec4(positionVec, 0.0f);</code>
-                <code>    gl_Position = vec4(pos.x, pos.y, pos.w, pos.w);</code>
-                <code>    fragColor = vec3(1,1,1);</code>
-                <code>    outTexCoord = vec3(positionVec.x, positionVec.y, positionVec.z);</code>
-                <code>}</code>
-            </div>
-
-            <h4>skybox.fs</h4>
-            <div>
-                <code>#version 330</code>
-                <code> </code>
-                <code>in vec3 outFragColor;</code>
-                <code>in vec2 outTexCoord;</code>
-                <code> </code>
-                <code>uniform samplerCube skybox;</code>
-                <code> </code>
-                <code>out vec4 frag_Color;</code>
-                <code> </code>
-                <code>void main() {</code>
-                <code>     frag_Color = texture(skybox, outTexCoord);</code>
-                <code>}</code>
-            </div>
-            <p>
-                Don't forgot to add the defualt Shaders to our project, we will need two different shaders, one for the skybox, and one for the cube.
-            </p>
-            <p>
-                Let's see the main code, it has been built on top of the last example, the green lines indicates added lines and yellow modified lines.
-            </p>
-            <h4>cubeRender.c</h4>
-            <div>
-                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/TextureLoader.hpp></code>
-                <code> </code>
-                <code>Entity* cube;</code>
-                <code class="added">Entity* skybox;</code>
-                <code>Camera* camera;</code>
-                <code>Projection* projection;</code>
-                <code>char title[16] = "Basic test";</code>
-                <code>unsigned short height = 720;</code>
-                <code>unsigned short width = 720;</code>
-                <code> </code>
-                <code>void mainLoop() {</code>
-                <code class="modified">    camera->setAngleOrientation(-0.25f, glm::vec3(0,1,0));</code>
-                <code> </code>
-                <code class="added">    Shader::setActiveProgram(skybox->relatedShaderId);</code>
-                <code class="added">    Shader::setUniformModelViewProjection(skybox, camera->getMatrix(), projection->getPerspective());</code>
-                <code class="added">    Render::drawElements(skybox);</code>
-                <code> </code>
-                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
-                <code>    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
-                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
-                <code>    Render::drawElements(cube);</code>
-                <code>}</code>
-                <code> </code>
-                <code>int main(int argc, const char * argv[]) {</code>
-                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
-                <code>    Window::initialize(width, height, title);</code>
-                <code>    Window::setLoopCallback(mainLoop);</code>
-                <code>    Render::initialize(Window::getWindowData());</code>
-                <code> </code>
-                <code class="modified">    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
-                <code class="added">    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
-                <code class="added">        "right.bmp",</code>
-                <code class="added">        "left.bmp",</code>
-                <code class="added">        "top.bmp",</code>
-                <code class="added">        "bottom.bmp",</code>
-                <code class="added">        "front.bmp",</code>
-                <code class="added">        "back.bmp",</code>
-                <code class="added">    });</code>
-                <code> </code>
-                <code class="modified">    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
-                <code class="added">    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
-                <code> </code>
-                <code class="added">    skybox = new Entity();</code>
-                <code class="added">    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
-                <code class="added">    skybox->relatedTextureId = textureSkyboxId;</code>
-                <code class="added">    skybox->relatedShaderId = shaderSkyboxId;</code>
-                <code class="added">    skybox->mesh = ModelLoader::loadFromFile("cube.ply", skybox->relatedShaderId);</code>
-                <code> </code>
-                <code>    cube = new Entity();</code>
-                <code class="modified">    cube->relatedTextureId = textureCubeId;</code>
-                <code class="modified">    cube->relatedShaderId = shaderCubeId;</code>
-                <code class="modified">    cube->setPosition(glm::vec3(0,0,0));</code>
-                <code>    cube->setScale(glm::vec3(0.75));</code>
-                <code class="added">    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
-                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
-                <code> </code>
-                <code>    camera = new Camera();</code>
-                <code class="modified">    camera->setPosition(glm::vec3(0, 0, -2));</code>
-                <code class="modified">    camera->setRotationCenter(glm::vec3(0,0,2));;</code>
-                <code> </code>
-                <code>    projection = new Projection();</code>
-                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
-                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
-                <code>    Window::startLoop();</code>
-                <code>}</code>
-            </div>
-            <p>
-                And once everything goes right, the window will comeback for us, in a new world with a nice blue sky.
-            </p>
-            <figure>
-                <img src="./doc-figures/images/skybox.png"/>
-                <figcaption>A rendered cube with textures and a rotating blue sky behind it.</figcaption>
-            </figure>
-        </section>
-        <section>
-            <h3>User Inputs and Debug Camera</h3>
-            <p>
-                It's great to build a rich and detailed world, but sometimes, you could wish that with some button pushes and some mouse movements you can be able to see more angles of the world. This is possible with the Input System, combined with a Debug Camera.
-            </p>
-            <p>
-                The Input System allows you, as a Apolo Game Library user and a developer, to get inputs details from the final user to the application. The calls must be set up using callback functions. We will see how to do that later in the code bellow.
-            </p>
-            <p>
-                The Debug Camera it's a built-in Camera inherited class that gives the ability to user to free explore the world. It's called Debug Camera because of his behavoir, present in past released games, mainly used by developers to get a better view of what is going on with the game.
-            </p>
-            <p>
-                Let's see how the code looks like, the source it's getting bigger as more resources we put into it. The green lines indicates code that was added in relation of the source of the previous example.
-            </p>
-            <h4>cubeRender.c</h4>
-            <div>
-                <code>#include &lt;Apolo/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Apolo/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Apolo/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Apolo/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Apolo/World/Projection.hpp&gt;</code>
-                <code>#include &lt;Apolo/Loaders/TextureLoader.hpp></code>
-                <code class="added">#include &lt;Apolo/Inputs/Inputs.hpp></code>
-                <code class="added">#include &lt;Apolo/World/Cameras/DebugCamera.hpp></code>
-                <code> </code>
-                <code>Entity* cube;</code>
-                <code>Entity* skybox;</code>
-                <code>Camera* camera;</code>
-                <code>Projection* projection;</code>
-                <code class="added">DebugCamera* debugCamera;</code>
-                <code> </code>
-                <code>char title[16] = "Basic test";</code>
-                <code>unsigned short height = 720;</code>
-                <code>unsigned short width = 720;</code>
-                <code> </code>
-                <code class="added">    void mouseClickUp(int button, int x, int y);</code>
-                <code class="added">    void mouseClickDown(int button, int x, int y);</code>
-                <code class="added">    void mouseMovement(double xpos, double ypos);</code>
-                <code class="added">    void mouseScroll(double xpos, double ypos);</code>
-                <code> </code>
-                <code>void mainLoop() {</code>
-                <code>    camera->setAngleOrientation(-0.25f, glm::vec3(0,1,0));</code>
-                <code> </code>
-                <code>    Shader::setActiveProgram(skybox->relatedShaderId);</code>
-                <code>    Shader::setUniformModelViewProjection(skybox, camera->getMatrix(), projection->getPerspective());</code>
-                <code>    Render::drawElements(skybox);</code>
-                <code> </code>
-                <code class="added">    Input::setMouseUpCallbackFunction(mouseClickUp);</code>
-                <code class="added">    Input::setMouseDownCallbackFunction(mouseClickDown);</code>
-                <code class="added">    Input::setMouseMovementCallbackFunction(mouseMovement);</code>
-                <code class="added">    Input::setMouseScrollCallbackFunction(mouseScroll);</code>
-                <code> </code>
-                <code>    Shader::setActiveProgram(cube->relatedShaderId);</code>
-                <code>    Shader::setUniformVec3("fragColor", glm::vec3(1, 1, 1));</code>
-                <code>    Shader::setUniformModelViewProjection(cube, camera->getMatrix(), projection->getPerspective());</code>
-                <code>    Render::drawElements(cube);</code>
-                <code>}</code>
-                <code> </code>
-                <code>int main(int argc, const char * argv[]) {</code>
-                <code>    FileLoader::setProgramSystemPath(argv[0]);</code>
-                <code>    Window::initialize(width, height, title);</code>
-                <code>    Window::setLoopCallback(mainLoop);</code>
-                <code>    Render::initialize(Window::getWindowData());</code>
-                <code> </code>
-                <code>    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
-                <code>    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
-                <code>        "right.bmp",</code>
-                <code>        "left.bmp",</code>
-                <code>        "top.bmp",</code>
-                <code>        "bottom.bmp",</code>
-                <code>        "front.bmp",</code>
-                <code>        "back.bmp",</code>
-                <code>    });</code>
-                <code> </code>
-                <code>    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
-                <code>    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
-                <code> </code>
-                <code>    skybox = new Entity();</code>
-                <code>    skybox->textureType = GL_TEXTURE_CUBE_MAP;</code>
-                <code>    skybox->relatedTextureId = textureSkyboxId;</code>
-                <code>    skybox->relatedShaderId = shaderSkyboxId;</code>
-                <code>    skybox->mesh = ModelLoader::loadFromFile("cube.ply", skybox->relatedShaderId);</code>
-                <code> </code>
-                <code>    cube = new Entity();</code>
-                <code>    cube->relatedTextureId = textureCubeId;</code>
-                <code>    cube->relatedShaderId = shaderCubeId;</code>
-                <code>    cube->setPosition(glm::vec3(0,0,0));</code>
-                <code>    cube->setScale(glm::vec3(0.75));</code>
-                <code>    cube->setOrientation(-60.0f, glm::vec3(1,1,0));</code>
-                <code>    cube->mesh = ModelLoader::loadFromFile("cube.ply", cube->relatedShaderId);</code>
-                <code> </code>
-                <code>    camera = new Camera();</code>
-                <code>    camera->setPosition(glm::vec3(0, 0, -2));</code>
-                <code>    camera->setRotationCenter(glm::vec3(0,0,2));;</code>
-                <code> </code>
-                <code>    projection = new Projection();</code>
-                <code>    projection->setPerspecProjection(90, Window::getWindowData()->aspectRatio, 0.1f, 200.0f);</code>
-                <code>    projection->setOrthographic(0.0f, (float)Window::getWindowData()->width, (float)Window::getWindowData()->height, 0.0f);</code>
-                <code> </code>
-                <code class="added">    debugCamera = new DebugCamera(camera);</code>
-                <code> </code>
-                <code>    Window::startLoop();</code>
-                <code>}</code>
-                <code class="added">void mouseClickUp(int button, int x, int y) {</code>
-                <code class="added">    debugCamera->handleMouseClickUp();</code>
-                <code class="added">}</code>
-                <code class="added"> </code>
-                <code class="added">void mouseClickDown(int button, int x, int y) {</code>
-                <code class="added">    debugCamera->handleMouseClickDown();</code>
-                <code class="added">}</code>
-                <code class="added"> </code>
-                <code class="added">void mouseMovement(double xpos, double ypos) {</code>
-                <code class="added">    debugCamera->handleMouseMovement(xpos, ypos);</code>
-                <code class="added">}</code>
-                <code class="added"> </code>
-                <code class="added">void mouseScroll(double xpos, double ypos) {</code>
-                <code class="added">    debugCamera->handleMouseScroll(xpos, ypos);</code>
-                <code class="added">}</code>
-            </div>
-            <p>
-                Once everything goes well, you should be able to see around with the debug camera, just with your mouse.
-            </p>
-            <video src="./doc-figures/video/inputCamera.webm" controls></video>
-        </section>
-        <section>
-            <h3>Text on Screen</h3>
-            <p>
-                The library offers a basic text rendering system, whitch supports ASCII characters, as well break lines, at relative low cost of performace. To implement this system, we will need specific shaders for that.
-            </p>
-            <h4>textRendering.vs</h4>
-            <div>
-                <code>#version 330</code>
-                <code> </code>
-                <code>in vec3 positionVec;</code>
-                <code>in vec3 texCoord;</code>
-                <code> </code>
-                <code>// For certain WebGL implementations, the max number of uniform elements is 256;</code>
-                <code>uniform mat4 modelMatrix;</code>
-                <code>uniform mat4 viewMatrix;</code>
-                <code>uniform mat4 projectionMatrix;</code>
-                <code>uniform int char[120];</code>
-                <code>uniform vec2 pos[120];</code>
-                <code> </code>
-                <code>out vec3 fragColor;</code>
-                <code>out vec3 outTexCoord;</code>
-                <code>out float character;</code>
-                <code> </code>
-                <code>void main(void) {</code>
-                <code>    vec2 newPosition = vec2(positionVec.x + pos[gl_InstanceID].x, -positionVec.y + pos[gl_InstanceID].y);</<code> </code>
-                <code>    gl_Position = projectionMatrix * modelMatrix * vec4(newPosition, 0.0, 1.0);</code>
-                <code> </code>   
-                <code>    outTexCoord = texCoord;</code>
-                <code>    character = float(char[gl_InstanceID]);</code>
-                <code>}</code>
-            </div>
-
-            <h4>textRendering.fs</h4>
-            <div>
-                <code>#version 330</code>
-                <code> </code>
-                <code>precision mediump float;</code>
-                <code> </code>
-                <code>in vec3 outTexCoord; </code>
-                <code>in float character; </code>
-                <code> </code>
-                <code>uniform sampler2D texture0;</code>
-                <code> </code>
-                <code>out vec4 frag_Color;</code>
-                <code> </code>
-                <code>vec2 processCharacterPosition(float character) {</code>
-                <code>    float posPixelY = float(int(character/16.0f))*16.0f;</code>
-                <code>    float xAxisTextureOffset = float(character - posPixelY);</code>
-                <code>    posPixelY /= 256.0f;</code>
-                <code>    float posPixelX = (xAxisTextureOffset*16.0f)/256.0f;</code>
-                <code>    return vec2(posPixelX, posPixelY);</code>
-                <code>}</code>
-                <code> </code>
-                <code>void main(void) {</code>
-                <code>    vec2 charPosition = processCharacterPosition(character);</code>
-                <code>    vec4 texColor = texture(texture0, vec2(charPosition.x+outTexCoord.x, charPosition.y+outTexCoord.y));</code>
-                <code>    if (texColor.a &lt; 0.1) {</code>
-                <code>        discard;</code>
-                <code>    }</code>
-                <code>    frag_Color = texColor;</code>
-                <code>}</code>
-            </div>
-        </section>
-        <section>
-            <h3>Light Sources</h3>
-        </section>
-    </article>
-
-    <article>
-        <h2>Compiling and Link to a Game Project</h2>
+        
         <hr/>
         <section>
             <h3>For Unix Systems</h3>
+            <p>
+                <i>soon</i>
+            </p>
         </section>
         <section>
             <h3>For Web Browsers</h3>
+            <p>
+                <i>soon</i>
+            </p>
         </section>
         <section>
             <h3>For Windows Systems</h3>
+            <p>
+                <i>soon</i>
+            </p>
         </section>
     </article>
 

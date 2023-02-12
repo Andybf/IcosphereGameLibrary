@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 09/02/23.
 //
 
-#include "ModelCreator.hpp"
+#include <Apolo/Tools/ModelCreator.hpp>
 
 ModelData* ModelCreator::grid(uint width, uint height, float squareSize) {
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData), 1);
