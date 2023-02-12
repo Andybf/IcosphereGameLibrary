@@ -7,95 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		71341CE0298CA89E00D44B37 /* VBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71341CDD298CA89E00D44B37 /* VBO.hpp */; };
-		71341CE1298CA89E00D44B37 /* EBO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71341CDE298CA89E00D44B37 /* EBO.hpp */; };
-		71341CE2298CA89E00D44B37 /* VAO.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71341CDF298CA89E00D44B37 /* VAO.hpp */; };
-		71341CE6298CA8C900D44B37 /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE3298CA8C900D44B37 /* EBO.cpp */; };
-		71341CE7298CA8C900D44B37 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE4298CA8C900D44B37 /* VAO.cpp */; };
-		71341CE8298CA8C900D44B37 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71341CE5298CA8C900D44B37 /* VBO.cpp */; };
-		715137632995C14A00DC9E84 /* ModelCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 715137612995C14A00DC9E84 /* ModelCreator.cpp */; };
-		715137642995C14A00DC9E84 /* ModelCreator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 715137622995C14A00DC9E84 /* ModelCreator.hpp */; };
-		71743FAB298817D4006A7C6C /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4529881759006A7C6C /* Render.cpp */; };
-		71743FAC298817D4006A7C6C /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4629881759006A7C6C /* Window.cpp */; };
-		71743FAF298817D4006A7C6C /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4929881759006A7C6C /* Shader.cpp */; };
-		71743FB1298817D4006A7C6C /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4C29881759006A7C6C /* Camera.cpp */; };
-		71743FB2298817D4006A7C6C /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4D29881759006A7C6C /* Entity.cpp */; };
-		71743FB3298817D4006A7C6C /* Projection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D4E29881759006A7C6C /* Projection.cpp */; };
-		71743FB4298817D4006A7C6C /* DebugCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5029881759006A7C6C /* DebugCamera.cpp */; };
-		71743FB5298817D4006A7C6C /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5229881759006A7C6C /* Text.cpp */; };
-		71743FB6298817D4006A7C6C /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5329881759006A7C6C /* Light.cpp */; };
-		71743FB7298817D4006A7C6C /* WavefrontObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5629881759006A7C6C /* WavefrontObject.cpp */; };
-		71743FB8298817D4006A7C6C /* StanfordObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5729881759006A7C6C /* StanfordObject.cpp */; };
-		71743FB9298817D4006A7C6C /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5829881759006A7C6C /* TextureLoader.cpp */; };
-		71743FBA298817D4006A7C6C /* ModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5929881759006A7C6C /* ModelLoader.cpp */; };
-		71743FBB298817D4006A7C6C /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5A29881759006A7C6C /* ShaderLoader.cpp */; };
-		71743FBC298817D4006A7C6C /* FileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71743D5B29881759006A7C6C /* FileLoader.cpp */; };
-		71743FBE298817E3006A7C6C /* Window.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2829881759006A7C6C /* Window.hpp */; };
-		71743FC1298817E3006A7C6C /* Shader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2B29881759006A7C6C /* Shader.hpp */; };
-		71743FC2298817E3006A7C6C /* Render.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2C29881759006A7C6C /* Render.hpp */; };
-		71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D2D29881759006A7C6C /* Mesh.hpp */; };
-		71743FC4298817E3006A7C6C /* DebugCamera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3029881759006A7C6C /* DebugCamera.hpp */; };
-		71743FC5298817E3006A7C6C /* Projection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3129881759006A7C6C /* Projection.hpp */; };
-		71743FC6298817E3006A7C6C /* Light.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3329881759006A7C6C /* Light.hpp */; };
-		71743FC7298817E3006A7C6C /* Text.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3429881759006A7C6C /* Text.hpp */; };
-		71743FC8298817E3006A7C6C /* Entity.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3529881759006A7C6C /* Entity.hpp */; };
-		71743FC9298817E3006A7C6C /* Camera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3629881759006A7C6C /* Camera.hpp */; };
-		71743FCA298817E3006A7C6C /* ModelData.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3929881759006A7C6C /* ModelData.hpp */; };
-		71743FCB298817E3006A7C6C /* StanfordObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3A29881759006A7C6C /* StanfordObject.hpp */; };
-		71743FCC298817E3006A7C6C /* WavefrontObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3B29881759006A7C6C /* WavefrontObject.hpp */; };
-		71743FCD298817E3006A7C6C /* ShaderLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3C29881759006A7C6C /* ShaderLoader.hpp */; };
-		71743FCE298817E3006A7C6C /* FileLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3D29881759006A7C6C /* FileLoader.hpp */; };
-		71743FCF298817E3006A7C6C /* TextureLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3E29881759006A7C6C /* TextureLoader.hpp */; };
-		71743FD0298817E3006A7C6C /* ModelLoader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D3F29881759006A7C6C /* ModelLoader.hpp */; };
-		71743FD1298817E3006A7C6C /* Core.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D4029881759006A7C6C /* Core.hpp */; };
-		71743FD2298817E3006A7C6C /* Inputs.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 71743D4229881759006A7C6C /* Inputs.hpp */; };
-		7192046F298999910037D1F8 /* Inputs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7192046E298999910037D1F8 /* Inputs.cpp */; };
+		7117FD7A2999500F00F4BB29 /* ModelCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD5F29994FFD00F4BB29 /* ModelCreator.cpp */; };
+		7117FD7B2999500F00F4BB29 /* Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6129994FFD00F4BB29 /* Render.cpp */; };
+		7117FD7C2999500F00F4BB29 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6229994FFD00F4BB29 /* Window.cpp */; };
+		7117FD7D2999500F00F4BB29 /* VAO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6329994FFD00F4BB29 /* VAO.cpp */; };
+		7117FD7E2999500F00F4BB29 /* EBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6429994FFD00F4BB29 /* EBO.cpp */; };
+		7117FD7F2999500F00F4BB29 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6529994FFD00F4BB29 /* Shader.cpp */; };
+		7117FD802999500F00F4BB29 /* VBO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6629994FFD00F4BB29 /* VBO.cpp */; };
+		7117FD812999500F00F4BB29 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6829994FFD00F4BB29 /* Camera.cpp */; };
+		7117FD822999500F00F4BB29 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6929994FFD00F4BB29 /* Entity.cpp */; };
+		7117FD832999500F00F4BB29 /* Projection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6A29994FFD00F4BB29 /* Projection.cpp */; };
+		7117FD842999500F00F4BB29 /* DebugCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6C29994FFD00F4BB29 /* DebugCamera.cpp */; };
+		7117FD852999500F00F4BB29 /* Text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6E29994FFD00F4BB29 /* Text.cpp */; };
+		7117FD862999500F00F4BB29 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD6F29994FFD00F4BB29 /* Light.cpp */; };
+		7117FD872999500F00F4BB29 /* WavefrontObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7229994FFD00F4BB29 /* WavefrontObject.cpp */; };
+		7117FD882999500F00F4BB29 /* StanfordObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7329994FFD00F4BB29 /* StanfordObject.cpp */; };
+		7117FD892999500F00F4BB29 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7429994FFD00F4BB29 /* TextureLoader.cpp */; };
+		7117FD8A2999500F00F4BB29 /* ModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7529994FFD00F4BB29 /* ModelLoader.cpp */; };
+		7117FD8B2999500F00F4BB29 /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7629994FFD00F4BB29 /* ShaderLoader.cpp */; };
+		7117FD8C2999500F00F4BB29 /* FileLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7729994FFD00F4BB29 /* FileLoader.cpp */; };
+		7117FD8D2999500F00F4BB29 /* Inputs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7117FD7929994FFD00F4BB29 /* Inputs.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7117FD3F29994FF400F4BB29 /* ModelCreator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelCreator.hpp; sourceTree = "<group>"; };
+		7117FD4129994FF400F4BB29 /* VBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
+		7117FD4229994FF400F4BB29 /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
+		7117FD4329994FF400F4BB29 /* VAO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
+		7117FD4429994FF400F4BB29 /* EBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EBO.hpp; sourceTree = "<group>"; };
+		7117FD4529994FF400F4BB29 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		7117FD4629994FF400F4BB29 /* Render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Render.hpp; sourceTree = "<group>"; };
+		7117FD4729994FF400F4BB29 /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
+		7117FD4A29994FF400F4BB29 /* DebugCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DebugCamera.hpp; sourceTree = "<group>"; };
+		7117FD4B29994FF400F4BB29 /* Projection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projection.hpp; sourceTree = "<group>"; };
+		7117FD4D29994FF400F4BB29 /* Light.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Light.hpp; sourceTree = "<group>"; };
+		7117FD4E29994FF400F4BB29 /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
+		7117FD4F29994FF400F4BB29 /* Entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Entity.hpp; sourceTree = "<group>"; };
+		7117FD5029994FF400F4BB29 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		7117FD5329994FF400F4BB29 /* ModelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelData.hpp; sourceTree = "<group>"; };
+		7117FD5429994FF400F4BB29 /* StanfordObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StanfordObject.hpp; sourceTree = "<group>"; };
+		7117FD5529994FF400F4BB29 /* WavefrontObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WavefrontObject.hpp; sourceTree = "<group>"; };
+		7117FD5629994FF400F4BB29 /* ShaderLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
+		7117FD5729994FF400F4BB29 /* FileLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileLoader.hpp; sourceTree = "<group>"; };
+		7117FD5829994FF400F4BB29 /* TextureLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
+		7117FD5929994FF400F4BB29 /* ModelLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelLoader.hpp; sourceTree = "<group>"; };
+		7117FD5A29994FF400F4BB29 /* Core.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Core.hpp; sourceTree = "<group>"; };
+		7117FD5C29994FF400F4BB29 /* Inputs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Inputs.hpp; sourceTree = "<group>"; };
+		7117FD5F29994FFD00F4BB29 /* ModelCreator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelCreator.cpp; sourceTree = "<group>"; };
+		7117FD6129994FFD00F4BB29 /* Render.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
+		7117FD6229994FFD00F4BB29 /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
+		7117FD6329994FFD00F4BB29 /* VAO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
+		7117FD6429994FFD00F4BB29 /* EBO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EBO.cpp; sourceTree = "<group>"; };
+		7117FD6529994FFD00F4BB29 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		7117FD6629994FFD00F4BB29 /* VBO.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
+		7117FD6829994FFD00F4BB29 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		7117FD6929994FFD00F4BB29 /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		7117FD6A29994FFD00F4BB29 /* Projection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projection.cpp; sourceTree = "<group>"; };
+		7117FD6C29994FFD00F4BB29 /* DebugCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DebugCamera.cpp; sourceTree = "<group>"; };
+		7117FD6E29994FFD00F4BB29 /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
+		7117FD6F29994FFD00F4BB29 /* Light.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
+		7117FD7229994FFD00F4BB29 /* WavefrontObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontObject.cpp; sourceTree = "<group>"; };
+		7117FD7329994FFD00F4BB29 /* StanfordObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StanfordObject.cpp; sourceTree = "<group>"; };
+		7117FD7429994FFD00F4BB29 /* TextureLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
+		7117FD7529994FFD00F4BB29 /* ModelLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLoader.cpp; sourceTree = "<group>"; };
+		7117FD7629994FFD00F4BB29 /* ShaderLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
+		7117FD7729994FFD00F4BB29 /* FileLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileLoader.cpp; sourceTree = "<group>"; };
+		7117FD7929994FFD00F4BB29 /* Inputs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Inputs.cpp; sourceTree = "<group>"; };
 		7119E64E2988ABC500D71CB5 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		71341CDD298CA89E00D44B37 /* VBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
-		71341CDE298CA89E00D44B37 /* EBO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EBO.hpp; sourceTree = "<group>"; };
-		71341CDF298CA89E00D44B37 /* VAO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAO.hpp; sourceTree = "<group>"; };
-		71341CE3298CA8C900D44B37 /* EBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EBO.cpp; sourceTree = "<group>"; };
-		71341CE4298CA8C900D44B37 /* VAO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAO.cpp; sourceTree = "<group>"; };
-		71341CE5298CA8C900D44B37 /* VBO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VBO.cpp; sourceTree = "<group>"; };
-		715137612995C14A00DC9E84 /* ModelCreator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelCreator.cpp; sourceTree = "<group>"; };
-		715137622995C14A00DC9E84 /* ModelCreator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelCreator.hpp; sourceTree = "<group>"; };
-		71743D2829881759006A7C6C /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
-		71743D2B29881759006A7C6C /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
-		71743D2C29881759006A7C6C /* Render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Render.hpp; sourceTree = "<group>"; };
-		71743D2D29881759006A7C6C /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
-		71743D3029881759006A7C6C /* DebugCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DebugCamera.hpp; sourceTree = "<group>"; };
-		71743D3129881759006A7C6C /* Projection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projection.hpp; sourceTree = "<group>"; };
-		71743D3329881759006A7C6C /* Light.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Light.hpp; sourceTree = "<group>"; };
-		71743D3429881759006A7C6C /* Text.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Text.hpp; sourceTree = "<group>"; };
-		71743D3529881759006A7C6C /* Entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Entity.hpp; sourceTree = "<group>"; };
-		71743D3629881759006A7C6C /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
-		71743D3929881759006A7C6C /* ModelData.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelData.hpp; sourceTree = "<group>"; };
-		71743D3A29881759006A7C6C /* StanfordObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StanfordObject.hpp; sourceTree = "<group>"; };
-		71743D3B29881759006A7C6C /* WavefrontObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WavefrontObject.hpp; sourceTree = "<group>"; };
-		71743D3C29881759006A7C6C /* ShaderLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderLoader.hpp; sourceTree = "<group>"; };
-		71743D3D29881759006A7C6C /* FileLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileLoader.hpp; sourceTree = "<group>"; };
-		71743D3E29881759006A7C6C /* TextureLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureLoader.hpp; sourceTree = "<group>"; };
-		71743D3F29881759006A7C6C /* ModelLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelLoader.hpp; sourceTree = "<group>"; };
-		71743D4029881759006A7C6C /* Core.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Core.hpp; sourceTree = "<group>"; };
-		71743D4229881759006A7C6C /* Inputs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Inputs.hpp; sourceTree = "<group>"; };
-		71743D4529881759006A7C6C /* Render.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Render.cpp; sourceTree = "<group>"; };
-		71743D4629881759006A7C6C /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
-		71743D4929881759006A7C6C /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
-		71743D4C29881759006A7C6C /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
-		71743D4D29881759006A7C6C /* Entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
-		71743D4E29881759006A7C6C /* Projection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projection.cpp; sourceTree = "<group>"; };
-		71743D5029881759006A7C6C /* DebugCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DebugCamera.cpp; sourceTree = "<group>"; };
-		71743D5229881759006A7C6C /* Text.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Text.cpp; sourceTree = "<group>"; };
-		71743D5329881759006A7C6C /* Light.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
-		71743D5629881759006A7C6C /* WavefrontObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WavefrontObject.cpp; sourceTree = "<group>"; };
-		71743D5729881759006A7C6C /* StanfordObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StanfordObject.cpp; sourceTree = "<group>"; };
-		71743D5829881759006A7C6C /* TextureLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
-		71743D5929881759006A7C6C /* ModelLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLoader.cpp; sourceTree = "<group>"; };
-		71743D5A29881759006A7C6C /* ShaderLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
-		71743D5B29881759006A7C6C /* FileLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileLoader.cpp; sourceTree = "<group>"; };
 		71743DFC29881759006A7C6C /* glew.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = glew.c; sourceTree = "<group>"; };
 		71743DFD29881759006A7C6C /* glew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
 		71743DFF29881759006A7C6C /* stb_image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stb_image.hpp; sourceTree = "<group>"; };
@@ -519,14 +497,13 @@
 		71743FA72988175A006A7C6C /* rotate_normalized_axis.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rotate_normalized_axis.hpp; sourceTree = "<group>"; };
 		71743FA82988175A006A7C6C /* projection.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = projection.inl; sourceTree = "<group>"; };
 		71743FA92988175A006A7C6C /* type_aligned.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = type_aligned.hpp; sourceTree = "<group>"; };
-		7192046E298999910037D1F8 /* Inputs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Inputs.cpp; sourceTree = "<group>"; };
+		71855A852999460E00253F55 /* libIcosphereGameLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIcosphereGameLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		71920472298A12D70037D1F8 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		71B2AC3E29860CD5001A3AB9 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../opt/homebrew/Cellar/sdl2/2.26.2/lib/libSDL2.a; sourceTree = "<group>"; };
-		71F7430129860A08004CA604 /* libApoloGameLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libApoloGameLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		71F742FF29860A08004CA604 /* Frameworks */ = {
+		71855A832999460E00253F55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -536,208 +513,208 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		715137602995C12000DC9E84 /* Tools */ = {
+		7117FD3D29994FF400F4BB29 /* Icosphere */ = {
 			isa = PBXGroup;
 			children = (
-				715137612995C14A00DC9E84 /* ModelCreator.cpp */,
+				7117FD3E29994FF400F4BB29 /* Tools */,
+				7117FD4029994FF400F4BB29 /* Core */,
+				7117FD4829994FF400F4BB29 /* World */,
+				7117FD5129994FF400F4BB29 /* Loaders */,
+				7117FD5A29994FF400F4BB29 /* Core.hpp */,
+				7117FD5B29994FF400F4BB29 /* Inputs */,
+			);
+			path = Icosphere;
+			sourceTree = "<group>";
+		};
+		7117FD3E29994FF400F4BB29 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD3F29994FF400F4BB29 /* ModelCreator.hpp */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		715137652995C15700DC9E84 /* Tools */ = {
+		7117FD4029994FF400F4BB29 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				715137622995C14A00DC9E84 /* ModelCreator.hpp */,
+				7117FD4129994FF400F4BB29 /* VBO.hpp */,
+				7117FD4229994FF400F4BB29 /* Window.hpp */,
+				7117FD4329994FF400F4BB29 /* VAO.hpp */,
+				7117FD4429994FF400F4BB29 /* EBO.hpp */,
+				7117FD4529994FF400F4BB29 /* Shader.hpp */,
+				7117FD4629994FF400F4BB29 /* Render.hpp */,
+				7117FD4729994FF400F4BB29 /* Mesh.hpp */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7117FD4829994FF400F4BB29 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD4929994FF400F4BB29 /* Cameras */,
+				7117FD4B29994FF400F4BB29 /* Projection.hpp */,
+				7117FD4C29994FF400F4BB29 /* Entities */,
+				7117FD4F29994FF400F4BB29 /* Entity.hpp */,
+				7117FD5029994FF400F4BB29 /* Camera.hpp */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		7117FD4929994FF400F4BB29 /* Cameras */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD4A29994FF400F4BB29 /* DebugCamera.hpp */,
+			);
+			path = Cameras;
+			sourceTree = "<group>";
+		};
+		7117FD4C29994FF400F4BB29 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD4D29994FF400F4BB29 /* Light.hpp */,
+				7117FD4E29994FF400F4BB29 /* Text.hpp */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		7117FD5129994FF400F4BB29 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD5229994FF400F4BB29 /* ModelReaders */,
+				7117FD5629994FF400F4BB29 /* ShaderLoader.hpp */,
+				7117FD5729994FF400F4BB29 /* FileLoader.hpp */,
+				7117FD5829994FF400F4BB29 /* TextureLoader.hpp */,
+				7117FD5929994FF400F4BB29 /* ModelLoader.hpp */,
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		7117FD5229994FF400F4BB29 /* ModelReaders */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD5329994FF400F4BB29 /* ModelData.hpp */,
+				7117FD5429994FF400F4BB29 /* StanfordObject.hpp */,
+				7117FD5529994FF400F4BB29 /* WavefrontObject.hpp */,
+			);
+			path = ModelReaders;
+			sourceTree = "<group>";
+		};
+		7117FD5B29994FF400F4BB29 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD5C29994FF400F4BB29 /* Inputs.hpp */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		7117FD5D29994FFD00F4BB29 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD5E29994FFD00F4BB29 /* Tools */,
+				7117FD6029994FFD00F4BB29 /* Core */,
+				7117FD6729994FFD00F4BB29 /* World */,
+				7117FD7029994FFD00F4BB29 /* Loaders */,
+				7117FD7829994FFD00F4BB29 /* Inputs */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		7117FD5E29994FFD00F4BB29 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD5F29994FFD00F4BB29 /* ModelCreator.cpp */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		71743D2329881759006A7C6C /* ApoloGameLibrary */ = {
+		7117FD6029994FFD00F4BB29 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD6129994FFD00F4BB29 /* Render.cpp */,
+				7117FD6229994FFD00F4BB29 /* Window.cpp */,
+				7117FD6329994FFD00F4BB29 /* VAO.cpp */,
+				7117FD6429994FFD00F4BB29 /* EBO.cpp */,
+				7117FD6529994FFD00F4BB29 /* Shader.cpp */,
+				7117FD6629994FFD00F4BB29 /* VBO.cpp */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		7117FD6729994FFD00F4BB29 /* World */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD6829994FFD00F4BB29 /* Camera.cpp */,
+				7117FD6929994FFD00F4BB29 /* Entity.cpp */,
+				7117FD6A29994FFD00F4BB29 /* Projection.cpp */,
+				7117FD6B29994FFD00F4BB29 /* Cameras */,
+				7117FD6D29994FFD00F4BB29 /* Entities */,
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		7117FD6B29994FFD00F4BB29 /* Cameras */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD6C29994FFD00F4BB29 /* DebugCamera.cpp */,
+			);
+			path = Cameras;
+			sourceTree = "<group>";
+		};
+		7117FD6D29994FFD00F4BB29 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD6E29994FFD00F4BB29 /* Text.cpp */,
+				7117FD6F29994FFD00F4BB29 /* Light.cpp */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		7117FD7029994FFD00F4BB29 /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD7129994FFD00F4BB29 /* ModelReaders */,
+				7117FD7429994FFD00F4BB29 /* TextureLoader.cpp */,
+				7117FD7529994FFD00F4BB29 /* ModelLoader.cpp */,
+				7117FD7629994FFD00F4BB29 /* ShaderLoader.cpp */,
+				7117FD7729994FFD00F4BB29 /* FileLoader.cpp */,
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		7117FD7129994FFD00F4BB29 /* ModelReaders */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD7229994FFD00F4BB29 /* WavefrontObject.cpp */,
+				7117FD7329994FFD00F4BB29 /* StanfordObject.cpp */,
+			);
+			path = ModelReaders;
+			sourceTree = "<group>";
+		};
+		7117FD7829994FFD00F4BB29 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				7117FD7929994FFD00F4BB29 /* Inputs.cpp */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		71743D2329881759006A7C6C /* IcosphereGameLibrary */ = {
 			isa = PBXGroup;
 			children = (
 				71743D2429881759006A7C6C /* include */,
-				71743D4329881759006A7C6C /* source */,
 				71743D5D29881759006A7C6C /* dependencies */,
+				7117FD5D29994FFD00F4BB29 /* source */,
 				71920472298A12D70037D1F8 /* makefile */,
 			);
-			path = ApoloGameLibrary;
+			path = IcosphereGameLibrary;
 			sourceTree = "<group>";
 		};
 		71743D2429881759006A7C6C /* include */ = {
 			isa = PBXGroup;
 			children = (
-				71743D2529881759006A7C6C /* Apolo */,
+				7117FD3D29994FF400F4BB29 /* Icosphere */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		71743D2529881759006A7C6C /* Apolo */ = {
-			isa = PBXGroup;
-			children = (
-				715137652995C15700DC9E84 /* Tools */,
-				71743D2629881759006A7C6C /* Core */,
-				71743D2E29881759006A7C6C /* World */,
-				71743D3729881759006A7C6C /* Loaders */,
-				71743D4029881759006A7C6C /* Core.hpp */,
-				71743D4129881759006A7C6C /* Inputs */,
-			);
-			path = Apolo;
-			sourceTree = "<group>";
-		};
-		71743D2629881759006A7C6C /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				71743D2829881759006A7C6C /* Window.hpp */,
-				71743D2C29881759006A7C6C /* Render.hpp */,
-				71743D2B29881759006A7C6C /* Shader.hpp */,
-				71743D2D29881759006A7C6C /* Mesh.hpp */,
-				71341CDF298CA89E00D44B37 /* VAO.hpp */,
-				71341CDD298CA89E00D44B37 /* VBO.hpp */,
-				71341CDE298CA89E00D44B37 /* EBO.hpp */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		71743D2E29881759006A7C6C /* World */ = {
-			isa = PBXGroup;
-			children = (
-				71743D2F29881759006A7C6C /* Cameras */,
-				71743D3129881759006A7C6C /* Projection.hpp */,
-				71743D3229881759006A7C6C /* Entities */,
-				71743D3529881759006A7C6C /* Entity.hpp */,
-				71743D3629881759006A7C6C /* Camera.hpp */,
-			);
-			path = World;
-			sourceTree = "<group>";
-		};
-		71743D2F29881759006A7C6C /* Cameras */ = {
-			isa = PBXGroup;
-			children = (
-				71743D3029881759006A7C6C /* DebugCamera.hpp */,
-			);
-			path = Cameras;
-			sourceTree = "<group>";
-		};
-		71743D3229881759006A7C6C /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				71743D3329881759006A7C6C /* Light.hpp */,
-				71743D3429881759006A7C6C /* Text.hpp */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		71743D3729881759006A7C6C /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				71743D3829881759006A7C6C /* ModelReaders */,
-				71743D3D29881759006A7C6C /* FileLoader.hpp */,
-				71743D3F29881759006A7C6C /* ModelLoader.hpp */,
-				71743D3C29881759006A7C6C /* ShaderLoader.hpp */,
-				71743D3E29881759006A7C6C /* TextureLoader.hpp */,
-			);
-			path = Loaders;
-			sourceTree = "<group>";
-		};
-		71743D3829881759006A7C6C /* ModelReaders */ = {
-			isa = PBXGroup;
-			children = (
-				71743D3929881759006A7C6C /* ModelData.hpp */,
-				71743D3A29881759006A7C6C /* StanfordObject.hpp */,
-				71743D3B29881759006A7C6C /* WavefrontObject.hpp */,
-			);
-			path = ModelReaders;
-			sourceTree = "<group>";
-		};
-		71743D4129881759006A7C6C /* Inputs */ = {
-			isa = PBXGroup;
-			children = (
-				71743D4229881759006A7C6C /* Inputs.hpp */,
-			);
-			path = Inputs;
-			sourceTree = "<group>";
-		};
-		71743D4329881759006A7C6C /* source */ = {
-			isa = PBXGroup;
-			children = (
-				715137602995C12000DC9E84 /* Tools */,
-				71743D4429881759006A7C6C /* Core */,
-				71743D4B29881759006A7C6C /* World */,
-				71743D5429881759006A7C6C /* Loaders */,
-				71743D5C29881759006A7C6C /* Inputs */,
-			);
-			path = source;
-			sourceTree = "<group>";
-		};
-		71743D4429881759006A7C6C /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				71743D4629881759006A7C6C /* Window.cpp */,
-				71743D4529881759006A7C6C /* Render.cpp */,
-				71743D4929881759006A7C6C /* Shader.cpp */,
-				71341CE4298CA8C900D44B37 /* VAO.cpp */,
-				71341CE5298CA8C900D44B37 /* VBO.cpp */,
-				71341CE3298CA8C900D44B37 /* EBO.cpp */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		71743D4B29881759006A7C6C /* World */ = {
-			isa = PBXGroup;
-			children = (
-				71743D4C29881759006A7C6C /* Camera.cpp */,
-				71743D4D29881759006A7C6C /* Entity.cpp */,
-				71743D4E29881759006A7C6C /* Projection.cpp */,
-				71743D4F29881759006A7C6C /* Cameras */,
-				71743D5129881759006A7C6C /* Entities */,
-			);
-			path = World;
-			sourceTree = "<group>";
-		};
-		71743D4F29881759006A7C6C /* Cameras */ = {
-			isa = PBXGroup;
-			children = (
-				71743D5029881759006A7C6C /* DebugCamera.cpp */,
-			);
-			path = Cameras;
-			sourceTree = "<group>";
-		};
-		71743D5129881759006A7C6C /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				71743D5229881759006A7C6C /* Text.cpp */,
-				71743D5329881759006A7C6C /* Light.cpp */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		71743D5429881759006A7C6C /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				71743D5529881759006A7C6C /* ModelReaders */,
-				71743D5B29881759006A7C6C /* FileLoader.cpp */,
-				71743D5929881759006A7C6C /* ModelLoader.cpp */,
-				71743D5A29881759006A7C6C /* ShaderLoader.cpp */,
-				71743D5829881759006A7C6C /* TextureLoader.cpp */,
-			);
-			path = Loaders;
-			sourceTree = "<group>";
-		};
-		71743D5529881759006A7C6C /* ModelReaders */ = {
-			isa = PBXGroup;
-			children = (
-				71743D5629881759006A7C6C /* WavefrontObject.cpp */,
-				71743D5729881759006A7C6C /* StanfordObject.cpp */,
-			);
-			path = ModelReaders;
-			sourceTree = "<group>";
-		};
-		71743D5C29881759006A7C6C /* Inputs */ = {
-			isa = PBXGroup;
-			children = (
-				7192046E298999910037D1F8 /* Inputs.cpp */,
-			);
-			path = Inputs;
 			sourceTree = "<group>";
 		};
 		71743D5D29881759006A7C6C /* dependencies */ = {
@@ -1246,7 +1223,7 @@
 		71F742F829860A08004CA604 = {
 			isa = PBXGroup;
 			children = (
-				71743D2329881759006A7C6C /* ApoloGameLibrary */,
+				71743D2329881759006A7C6C /* IcosphereGameLibrary */,
 				71F7430229860A08004CA604 /* Products */,
 				71B2AC3D29860CD5001A3AB9 /* Frameworks */,
 			);
@@ -1255,7 +1232,7 @@
 		71F7430229860A08004CA604 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71F7430129860A08004CA604 /* libApoloGameLibrary.a */,
+				71855A852999460E00253F55 /* libIcosphereGameLibrary.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1263,54 +1240,31 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		71F742FD29860A08004CA604 /* Headers */ = {
+		71855A812999460E00253F55 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71341CE0298CA89E00D44B37 /* VBO.hpp in Headers */,
-				71743FBE298817E3006A7C6C /* Window.hpp in Headers */,
-				71743FC1298817E3006A7C6C /* Shader.hpp in Headers */,
-				71743FC2298817E3006A7C6C /* Render.hpp in Headers */,
-				71743FC3298817E3006A7C6C /* Mesh.hpp in Headers */,
-				71743FC4298817E3006A7C6C /* DebugCamera.hpp in Headers */,
-				71743FC5298817E3006A7C6C /* Projection.hpp in Headers */,
-				715137642995C14A00DC9E84 /* ModelCreator.hpp in Headers */,
-				71743FC6298817E3006A7C6C /* Light.hpp in Headers */,
-				71743FC7298817E3006A7C6C /* Text.hpp in Headers */,
-				71743FC8298817E3006A7C6C /* Entity.hpp in Headers */,
-				71743FC9298817E3006A7C6C /* Camera.hpp in Headers */,
-				71743FCA298817E3006A7C6C /* ModelData.hpp in Headers */,
-				71341CE1298CA89E00D44B37 /* EBO.hpp in Headers */,
-				71743FCB298817E3006A7C6C /* StanfordObject.hpp in Headers */,
-				71743FCC298817E3006A7C6C /* WavefrontObject.hpp in Headers */,
-				71743FCD298817E3006A7C6C /* ShaderLoader.hpp in Headers */,
-				71743FCE298817E3006A7C6C /* FileLoader.hpp in Headers */,
-				71341CE2298CA89E00D44B37 /* VAO.hpp in Headers */,
-				71743FCF298817E3006A7C6C /* TextureLoader.hpp in Headers */,
-				71743FD0298817E3006A7C6C /* ModelLoader.hpp in Headers */,
-				71743FD1298817E3006A7C6C /* Core.hpp in Headers */,
-				71743FD2298817E3006A7C6C /* Inputs.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		71F7430029860A08004CA604 /* ApoloGameLibrary */ = {
+		71855A842999460E00253F55 /* IcosphereGameLibrary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71F7430529860A08004CA604 /* Build configuration list for PBXNativeTarget "ApoloGameLibrary" */;
+			buildConfigurationList = 71855A862999460E00253F55 /* Build configuration list for PBXNativeTarget "IcosphereGameLibrary" */;
 			buildPhases = (
-				71F742FD29860A08004CA604 /* Headers */,
-				71F742FE29860A08004CA604 /* Sources */,
-				71F742FF29860A08004CA604 /* Frameworks */,
+				71855A812999460E00253F55 /* Headers */,
+				71855A822999460E00253F55 /* Sources */,
+				71855A832999460E00253F55 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ApoloGameLibrary;
-			productName = ApoloGameLibrary;
-			productReference = 71F7430129860A08004CA604 /* libApoloGameLibrary.a */;
+			name = IcosphereGameLibrary;
+			productName = IcosphereGameLibrary;
+			productReference = 71855A852999460E00253F55 /* libIcosphereGameLibrary.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1322,12 +1276,12 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					71F7430029860A08004CA604 = {
+					71855A842999460E00253F55 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 71F742FC29860A08004CA604 /* Build configuration list for PBXProject "ApoloGameLibrary" */;
+			buildConfigurationList = 71F742FC29860A08004CA604 /* Build configuration list for PBXProject "IcosphereGameLibrary" */;
 			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1340,42 +1294,72 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71F7430029860A08004CA604 /* ApoloGameLibrary */,
+				71855A842999460E00253F55 /* IcosphereGameLibrary */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		71F742FE29860A08004CA604 /* Sources */ = {
+		71855A822999460E00253F55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71341CE7298CA8C900D44B37 /* VAO.cpp in Sources */,
-				7192046F298999910037D1F8 /* Inputs.cpp in Sources */,
-				71743FAB298817D4006A7C6C /* Render.cpp in Sources */,
-				71743FAC298817D4006A7C6C /* Window.cpp in Sources */,
-				71743FAF298817D4006A7C6C /* Shader.cpp in Sources */,
-				71743FB1298817D4006A7C6C /* Camera.cpp in Sources */,
-				715137632995C14A00DC9E84 /* ModelCreator.cpp in Sources */,
-				71743FB2298817D4006A7C6C /* Entity.cpp in Sources */,
-				71743FB3298817D4006A7C6C /* Projection.cpp in Sources */,
-				71743FB4298817D4006A7C6C /* DebugCamera.cpp in Sources */,
-				71743FB5298817D4006A7C6C /* Text.cpp in Sources */,
-				71743FB6298817D4006A7C6C /* Light.cpp in Sources */,
-				71341CE8298CA8C900D44B37 /* VBO.cpp in Sources */,
-				71743FB7298817D4006A7C6C /* WavefrontObject.cpp in Sources */,
-				71743FB8298817D4006A7C6C /* StanfordObject.cpp in Sources */,
-				71341CE6298CA8C900D44B37 /* EBO.cpp in Sources */,
-				71743FB9298817D4006A7C6C /* TextureLoader.cpp in Sources */,
-				71743FBA298817D4006A7C6C /* ModelLoader.cpp in Sources */,
-				71743FBB298817D4006A7C6C /* ShaderLoader.cpp in Sources */,
-				71743FBC298817D4006A7C6C /* FileLoader.cpp in Sources */,
+				7117FD7A2999500F00F4BB29 /* ModelCreator.cpp in Sources */,
+				7117FD7B2999500F00F4BB29 /* Render.cpp in Sources */,
+				7117FD7C2999500F00F4BB29 /* Window.cpp in Sources */,
+				7117FD7D2999500F00F4BB29 /* VAO.cpp in Sources */,
+				7117FD7E2999500F00F4BB29 /* EBO.cpp in Sources */,
+				7117FD7F2999500F00F4BB29 /* Shader.cpp in Sources */,
+				7117FD802999500F00F4BB29 /* VBO.cpp in Sources */,
+				7117FD812999500F00F4BB29 /* Camera.cpp in Sources */,
+				7117FD822999500F00F4BB29 /* Entity.cpp in Sources */,
+				7117FD832999500F00F4BB29 /* Projection.cpp in Sources */,
+				7117FD842999500F00F4BB29 /* DebugCamera.cpp in Sources */,
+				7117FD852999500F00F4BB29 /* Text.cpp in Sources */,
+				7117FD862999500F00F4BB29 /* Light.cpp in Sources */,
+				7117FD872999500F00F4BB29 /* WavefrontObject.cpp in Sources */,
+				7117FD882999500F00F4BB29 /* StanfordObject.cpp in Sources */,
+				7117FD892999500F00F4BB29 /* TextureLoader.cpp in Sources */,
+				7117FD8A2999500F00F4BB29 /* ModelLoader.cpp in Sources */,
+				7117FD8B2999500F00F4BB29 /* ShaderLoader.cpp in Sources */,
+				7117FD8C2999500F00F4BB29 /* FileLoader.cpp in Sources */,
+				7117FD8D2999500F00F4BB29 /* Inputs.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		71855A872999460E00253F55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/IcosphereGameLibrary/include",
+					/opt/homebrew/Cellar/sdl2/2.26.2/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		71855A882999460E00253F55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/IcosphereGameLibrary/include",
+					/opt/homebrew/Cellar/sdl2/2.26.2/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		71F7430329860A08004CA604 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1485,69 +1469,23 @@
 			};
 			name = Release;
 		};
-		71F7430629860A08004CA604 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_STRICT_PROTOTYPES = NO;
-				CODE_SIGN_STYLE = Automatic;
-				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"AP_DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					/opt/homebrew/Cellar/sdl2/2.26.2/include,
-					/Users/anderson/Desktop/ApoloGameLibrary/ApoloGameLibrary/dependencies,
-					/Users/anderson/Desktop/ApoloGameLibrary/ApoloGameLibrary/include,
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/homebrew/Cellar/sdl2/2.26.2/lib,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		71F7430729860A08004CA604 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_STRICT_PROTOTYPES = NO;
-				CODE_SIGN_STYLE = Automatic;
-				EXECUTABLE_PREFIX = lib;
-				HEADER_SEARCH_PATHS = (
-					/opt/homebrew/Cellar/sdl2/2.26.2/include,
-					/Users/anderson/Desktop/ApoloGameLibrary/ApoloGameLibrary/dependencies,
-					/Users/anderson/Desktop/ApoloGameLibrary/ApoloGameLibrary/include,
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/opt/homebrew/Cellar/sdl2/2.26.2/lib,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71F742FC29860A08004CA604 /* Build configuration list for PBXProject "ApoloGameLibrary" */ = {
+		71855A862999460E00253F55 /* Build configuration list for PBXNativeTarget "IcosphereGameLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				71F7430329860A08004CA604 /* Debug */,
-				71F7430429860A08004CA604 /* Release */,
+				71855A872999460E00253F55 /* Debug */,
+				71855A882999460E00253F55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71F7430529860A08004CA604 /* Build configuration list for PBXNativeTarget "ApoloGameLibrary" */ = {
+		71F742FC29860A08004CA604 /* Build configuration list for PBXProject "IcosphereGameLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				71F7430629860A08004CA604 /* Debug */,
-				71F7430729860A08004CA604 /* Release */,
+				71F7430329860A08004CA604 /* Debug */,
+				71F7430429860A08004CA604 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
