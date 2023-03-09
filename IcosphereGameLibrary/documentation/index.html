@@ -20,7 +20,7 @@
         <p>
             Written by: Anderson Bucchianico
             <br>
-            Creation date: feb/2023
+            Creation date: mar/2023
         </p>
     </header>
 
@@ -102,7 +102,7 @@
                                     <a href="#Render::initialize">Render::initialize</a>
                                 </li>
                                 <li>
-                                    <a href="#Render::printContextInformation>Render::printContextInformation</a>
+                                    <a href="#Render::printContextInformation">Render::printContextInformation</a>
                                 </li>
                                 <li>
                                     <a href="#Shader::setActiveProgram">Shader::setActiveProgram</a>
@@ -176,6 +176,9 @@
                                 </li>
                                 <li>
                                     <a href="#TextureLoader::loadCubemap">TextureLoader::loadCubemap</a>
+                                </li>
+                                <li>
+                                    <a href="#TextureLoader::loadFromFile">TextureLoader::loadFromFile</a>
                                 </li>
                             </ul>
                         </details>
@@ -572,8 +575,7 @@
             </p>
             <h4>minimumExample.c</h4>
             <div>
-                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
+                <code>#include &lt;Icosphere.hpp&gt;</code>
                 <code> </code>
                 <code>char title[16] = "Basic test";</code>
                 <code>unsigned short height = 640;</code>
@@ -672,12 +674,7 @@
             </p>
             <h4>cubeRender.c</h4>
             <div>
-                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
+                <code>#include &lt;Icosphere.hpp&gt;</code>
                 <code> </code>
                 <code>Entity* cube;</code>
                 <code>char title[16] = "Basic test";</code>
@@ -778,14 +775,7 @@
             </p>
             <h4>cubeRender.c</h4>
             <div>
-                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
+                <code>#include &lt;Icosphere.hpp&gt;</code>
                 <code> </code>
                 <code>Entity* cube;</code>
                 <code>Camera* camera;</code>
@@ -890,15 +880,7 @@
             </p>
             <h4>cubeRender.c</h4>
             <div>
-                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
-                <code class="added">#include &lt;Icosphere/Loaders/TextureLoader.hpp></code>
+                <code>#include &lt;Icosphere.hpp&gt;</code>
                 <code> </code>
                 <code>Entity* cube;</code>
                 <code>Camera* camera;</code>
@@ -922,7 +904,7 @@
                 <code>    Window::setLoopCallback(mainLoop);</code>
                 <code>    Render::initialize(Window::getWindowData());</code>
                 <code> </code>
-                <code class="added">    GLuint textureId = TextureLoader::load2d("mosaic.png");</code>
+                <code class="added">    GLuint textureCubeId = TextureLoader::load2d(TextureLoader::loadFromFile("mosaic.png");</code>
                 <code>    GLuint shaderId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
                 <code> </code>
                 <code>    cube = new Entity();</code>
@@ -1014,15 +996,7 @@
             </p>
             <h4>cubeRender.c</h4>
             <div>
-                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/TextureLoader.hpp></code>
+                <code>#include &lt;Icosphere.hpp&gt;</code>
                 <code> </code>
                 <code>Entity* cube;</code>
                 <code class="added">Entity* skybox;</code>
@@ -1051,15 +1025,17 @@
                 <code>    Window::setLoopCallback(mainLoop);</code>
                 <code>    Render::initialize(Window::getWindowData());</code>
                 <code> </code>
-                <code class="modified">    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
-                <code class="added">    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
-                <code class="added">        "right.bmp",</code>
-                <code class="added">        "left.bmp",</code>
-                <code class="added">        "top.bmp",</code>
-                <code class="added">        "bottom.bmp",</code>
-                <code class="added">        "front.bmp",</code>
-                <code class="added">        "back.bmp",</code>
+                <code class="modified">    GLuint textureCubeId = TextureLoader::load2d(TextureLoader::loadFromFile("mosaic.png");</code>
+                <code class="added">    std::vector&lt;struct Image*&gt; cubemapImage;</code>
+                <code class="added">    cubemapImage.insert(cubemapImage.end(), {</code>
+                <code class="added">        TextureLoader::loadFromFile("right.bmp"),</code>
+                <code class="added">        TextureLoader::loadFromFile("left.bmp"),</code>
+                <code class="added">        TextureLoader::loadFromFile("bottom.bmp"),</code>
+                <code class="added">        TextureLoader::loadFromFile("top.bmp"),</code>
+                <code class="added">        TextureLoader::loadFromFile("front.bmp"),</code>
+                <code class="added">        TextureLoader::loadFromFile("back.bmp"),</code>
                 <code class="added">    });</code>
+                <code class="added">    GLuint textureSkyboxId = TextureLoader::loadCubemap(cubemapImage);</code>
                 <code> </code>
                 <code class="modified">    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
                 <code class="added">    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
@@ -1112,17 +1088,7 @@
             </p>
             <h4>cubeRender.c</h4>
             <div>
-                <code>#include &lt;Icosphere/Core/Window.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Core/Render.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Core/Shader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/FileLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/ModelLoader.hpp&gt;</code>
-				<code>#include &lt;Icosphere/Loaders/ShaderLoader.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Camera.hpp&gt;</code>
-                <code>#include &lt;Icosphere/World/Projection.hpp&gt;</code>
-                <code>#include &lt;Icosphere/Loaders/TextureLoader.hpp></code>
-                <code class="added">#include &lt;Icosphere/Inputs/Inputs.hpp></code>
-                <code class="added">#include &lt;Icosphere/World/Cameras/DebugCamera.hpp></code>
+                <code>#include &lt;Icosphere.hpp&gt;</code>
                 <code> </code>
                 <code>Entity* cube;</code>
                 <code>Entity* skybox;</code>
@@ -1163,15 +1129,17 @@
                 <code>    Window::setLoopCallback(mainLoop);</code>
                 <code>    Render::initialize(Window::getWindowData());</code>
                 <code> </code>
-                <code>    GLuint textureCubeId = TextureLoader::load2d("mosaic.png");</code>
-                <code>    GLuint textureSkyboxId = TextureLoader::loadCubemap(std::vector&lt;cchar*> {</code>
-                <code>        "right.bmp",</code>
-                <code>        "left.bmp",</code>
-                <code>        "top.bmp",</code>
-                <code>        "bottom.bmp",</code>
-                <code>        "front.bmp",</code>
-                <code>        "back.bmp",</code>
+                <code>    GLuint textureCubeId = TextureLoader::load2d(TextureLoader::loadFromFile("mosaic.png");</code>
+                <code>    std::vector&lt;struct Image*&gt; cubemapImage;</code>
+                <code>    cubemapImage.insert(cubemapImage.end(), {</code>
+                <code>        TextureLoader::loadFromFile("right.bmp"),</code>
+                <code>        TextureLoader::loadFromFile("left.bmp"),</code>
+                <code>        TextureLoader::loadFromFile("bottom.bmp"),</code>
+                <code>        TextureLoader::loadFromFile("top.bmp"),</code>
+                <code>        TextureLoader::loadFromFile("front.bmp"),</code>
+                <code>        TextureLoader::loadFromFile("back.bmp"),</code>
                 <code>    });</code>
+                <code>    GLuint textureSkyboxId = TextureLoader::loadCubemap(cubemapImage);</code>
                 <code> </code>
                 <code>    GLuint shaderCubeId = ShaderLoader::load("defaultVertex.vs", "defaultFragment.fs");</code>
                 <code>    GLuint shaderSkyboxId = ShaderLoader::load("skybox.vs", "skybox.fs");</code>
@@ -2046,12 +2014,12 @@
         <section>
             <h3 id="TextureLoader::load2d">TextureLoader::load2d</h3>
             <p>
-                Load a 2D texture to the rendering context pointed by a given name. Keep in mind that the texture content will be located in the GPU and discarted by the CPU context. The texture file must be located in a subfolder named <code>textures</code> in the executable root directory. It's only necessary to point the file name + extension. Example: box.png.
+                Load a 2D texture to the rendering context pointed by a <code>struct Image*</code>. Keep in mind that the texture content will be located in the GPU and discarted by the CPU context.
             </p>
 
             <h4>Specification</h4>
             <dd>
-                <code>GLuint TextureLoader::load2d(cchar* textureFileName)</code>
+                <code>GLuint TextureLoader::load2d(struct Image* imageData)</code>
             </dd>
             
             <h4>Parameters</h4>
@@ -2059,7 +2027,7 @@
                 <i>textureFileName</i>
                 <dd>
                     <p>
-                        The name of the texture. The Module supports the .jpg and .png extensions.
+                        The <code>struct Image*</code> to be loaded.
                     </p>
                 </dd>
             </section>
@@ -2082,20 +2050,20 @@
         <section>
             <h3 id="TextureLoader::loadCubemap">TextureLoader::loadCubemap</h3>
             <p>
-                Load a 3D cubemap texture to the rendering context pointed by a vector of texture names. Keep in mind that the texture content will be located in the GPU and discarted by the CPU context. The textures files must be located in a subfolder named <code>textures</code> in the executable root directory. In the vector, It's only necessary to point the file name + extension. Example: box.png.
+                Load a 3D cubemap texture to the rendering context pointed by a vector of <code>struct Image*</code>. Keep in mind that the texture content will be stored in the GPU and discarted by the CPU context.
             </p>
 
             <h4>Specification</h4>
             <dd>
-                <code>GLuint TextureLoader::loadCubemap(std::vector&lt;cchar*> textureFaces)</code>
+                <code>GLuint TextureLoader::loadCubemap(std::vector&lt;struct Image*> imageDataVector)</code>
             </dd>
             
             <h4>Parameters</h4>
             <section>
-                <i>textureFaces</i>
+                <i>imageDataVector</i>
                 <dd>
                     <p>
-                        A std::vector also known as a List&lt;String> if you are more familiar with other languages. It's a list of texture names. The Module supports the .jpg and .png extensions.
+                        A std::vector also known as a List&lt;String> if you are more familiar with other languages. It's a list of <code>struct Image*</code>.
                     </p>
                 </dd>
             </section>
@@ -2109,6 +2077,39 @@
                     </p>
                     <p>
                         The ticket are just a GLuint (aka unsigned int)  number from zero to 2ˆ32;
+                    </p>
+                </dd>
+            </section>
+        </section>
+
+        <br><hr/>
+        <section>
+            <h3 id="TextureLoader::loadFromFile">TextureLoader::loadFromFile</h3>
+            <p>
+                Load a texture file to the CPU context pointed by a given name. The texture file must be located in a subfolder named <code>textures</code> in the executable root directory. It's only necessary to point the file name + extension. Example: box.png.
+            </p>
+
+            <h4>Specification</h4>
+            <dd>
+                <code>struct Image* TextureLoader::loadFromFile(cchar* textureFileName)</code>
+            </dd>
+            
+            <h4>Parameters</h4>
+            <section>
+                <i>textureFileName</i>
+                <dd>
+                    <p>
+                        A constant char whitch holds the texture file name with extension.
+                    </p>
+                </dd>
+            </section>
+
+            <h4>Return value</h4>
+            <section>
+                <i>struct Image*</i>
+                <dd>
+                    <p>
+                        Given the texture file name a struct Image is returned, which conatins the raw image data, width, height and color channels. This struct can be used later to do some treatment over the image data, giving the liberty to do all kinds of distortions, or simply invoke the <code>TextureLoader::load2d</code> or <code>TextureLoader::loadCubemap</code> to send the data to the Rendering device.
                     </p>
                 </dd>
             </section>
