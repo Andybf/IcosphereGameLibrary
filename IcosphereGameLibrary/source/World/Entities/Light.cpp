@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/World/Entities/Light.hpp>
+#include "./Light.hpp"
 
 Light::Light() {
     this->isSourceObjectVisible = false;

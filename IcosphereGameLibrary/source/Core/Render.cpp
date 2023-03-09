@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 27/01/23.
 //
 
-#include <Icosphere/Core/Render.hpp>
+#include "./Render.hpp"
 
 struct ContextInformation {
     char* glVendor;
@@ -62,7 +62,7 @@ void saveContextInformation() {
 }
 
 void Render::printContextInformation() {
-    printf("Apolo-SDL-OpenGL Context Information:\nglVendor   : %s\nglRenderer : %s\nglVersion  : %s\n\n",
+    printf("Icosphere-SDL-OpenGL Context Information:\nglVendor   : %s\nglRenderer : %s\nglVersion  : %s\n\n",
             contextInfo.glVendor,
             contextInfo.glRenderer,
             contextInfo.glVersion

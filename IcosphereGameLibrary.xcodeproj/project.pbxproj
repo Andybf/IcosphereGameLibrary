@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		710AF999299AF0930090323C /* Icosphere.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Icosphere.hpp; sourceTree = "<group>"; };
 		7117FD3F29994FF400F4BB29 /* ModelCreator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ModelCreator.hpp; sourceTree = "<group>"; };
 		7117FD4129994FF400F4BB29 /* VBO.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VBO.hpp; sourceTree = "<group>"; };
 		7117FD4229994FF400F4BB29 /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Window.hpp; sourceTree = "<group>"; };
@@ -513,103 +514,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7117FD3D29994FF400F4BB29 /* Icosphere */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD3E29994FF400F4BB29 /* Tools */,
-				7117FD4029994FF400F4BB29 /* Core */,
-				7117FD4829994FF400F4BB29 /* World */,
-				7117FD5129994FF400F4BB29 /* Loaders */,
-				7117FD5A29994FF400F4BB29 /* Core.hpp */,
-				7117FD5B29994FF400F4BB29 /* Inputs */,
-			);
-			path = Icosphere;
-			sourceTree = "<group>";
-		};
-		7117FD3E29994FF400F4BB29 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD3F29994FF400F4BB29 /* ModelCreator.hpp */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		7117FD4029994FF400F4BB29 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD4129994FF400F4BB29 /* VBO.hpp */,
-				7117FD4229994FF400F4BB29 /* Window.hpp */,
-				7117FD4329994FF400F4BB29 /* VAO.hpp */,
-				7117FD4429994FF400F4BB29 /* EBO.hpp */,
-				7117FD4529994FF400F4BB29 /* Shader.hpp */,
-				7117FD4629994FF400F4BB29 /* Render.hpp */,
-				7117FD4729994FF400F4BB29 /* Mesh.hpp */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		7117FD4829994FF400F4BB29 /* World */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD4929994FF400F4BB29 /* Cameras */,
-				7117FD4B29994FF400F4BB29 /* Projection.hpp */,
-				7117FD4C29994FF400F4BB29 /* Entities */,
-				7117FD4F29994FF400F4BB29 /* Entity.hpp */,
-				7117FD5029994FF400F4BB29 /* Camera.hpp */,
-			);
-			path = World;
-			sourceTree = "<group>";
-		};
-		7117FD4929994FF400F4BB29 /* Cameras */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD4A29994FF400F4BB29 /* DebugCamera.hpp */,
-			);
-			path = Cameras;
-			sourceTree = "<group>";
-		};
-		7117FD4C29994FF400F4BB29 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD4D29994FF400F4BB29 /* Light.hpp */,
-				7117FD4E29994FF400F4BB29 /* Text.hpp */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		7117FD5129994FF400F4BB29 /* Loaders */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD5229994FF400F4BB29 /* ModelReaders */,
-				7117FD5629994FF400F4BB29 /* ShaderLoader.hpp */,
-				7117FD5729994FF400F4BB29 /* FileLoader.hpp */,
-				7117FD5829994FF400F4BB29 /* TextureLoader.hpp */,
-				7117FD5929994FF400F4BB29 /* ModelLoader.hpp */,
-			);
-			path = Loaders;
-			sourceTree = "<group>";
-		};
-		7117FD5229994FF400F4BB29 /* ModelReaders */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD5329994FF400F4BB29 /* ModelData.hpp */,
-				7117FD5429994FF400F4BB29 /* StanfordObject.hpp */,
-				7117FD5529994FF400F4BB29 /* WavefrontObject.hpp */,
-			);
-			path = ModelReaders;
-			sourceTree = "<group>";
-		};
-		7117FD5B29994FF400F4BB29 /* Inputs */ = {
-			isa = PBXGroup;
-			children = (
-				7117FD5C29994FF400F4BB29 /* Inputs.hpp */,
-			);
-			path = Inputs;
-			sourceTree = "<group>";
-		};
 		7117FD5D29994FFD00F4BB29 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				7117FD5A29994FF400F4BB29 /* Core.hpp */,
 				7117FD5E29994FFD00F4BB29 /* Tools */,
 				7117FD6029994FFD00F4BB29 /* Core */,
 				7117FD6729994FFD00F4BB29 /* World */,
@@ -623,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				7117FD5F29994FFD00F4BB29 /* ModelCreator.cpp */,
+				7117FD3F29994FF400F4BB29 /* ModelCreator.hpp */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -630,12 +539,19 @@
 		7117FD6029994FFD00F4BB29 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7117FD4729994FF400F4BB29 /* Mesh.hpp */,
 				7117FD6129994FFD00F4BB29 /* Render.cpp */,
-				7117FD6229994FFD00F4BB29 /* Window.cpp */,
-				7117FD6329994FFD00F4BB29 /* VAO.cpp */,
-				7117FD6429994FFD00F4BB29 /* EBO.cpp */,
+				7117FD4629994FF400F4BB29 /* Render.hpp */,
 				7117FD6529994FFD00F4BB29 /* Shader.cpp */,
+				7117FD4529994FF400F4BB29 /* Shader.hpp */,
+				7117FD6229994FFD00F4BB29 /* Window.cpp */,
+				7117FD4229994FF400F4BB29 /* Window.hpp */,
+				7117FD6329994FFD00F4BB29 /* VAO.cpp */,
+				7117FD4329994FF400F4BB29 /* VAO.hpp */,
 				7117FD6629994FFD00F4BB29 /* VBO.cpp */,
+				7117FD4129994FF400F4BB29 /* VBO.hpp */,
+				7117FD6429994FFD00F4BB29 /* EBO.cpp */,
+				7117FD4429994FF400F4BB29 /* EBO.hpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -644,8 +560,11 @@
 			isa = PBXGroup;
 			children = (
 				7117FD6829994FFD00F4BB29 /* Camera.cpp */,
+				7117FD5029994FF400F4BB29 /* Camera.hpp */,
 				7117FD6929994FFD00F4BB29 /* Entity.cpp */,
+				7117FD4F29994FF400F4BB29 /* Entity.hpp */,
 				7117FD6A29994FFD00F4BB29 /* Projection.cpp */,
+				7117FD4B29994FF400F4BB29 /* Projection.hpp */,
 				7117FD6B29994FFD00F4BB29 /* Cameras */,
 				7117FD6D29994FFD00F4BB29 /* Entities */,
 			);
@@ -656,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				7117FD6C29994FFD00F4BB29 /* DebugCamera.cpp */,
+				7117FD4A29994FF400F4BB29 /* DebugCamera.hpp */,
 			);
 			path = Cameras;
 			sourceTree = "<group>";
@@ -663,8 +583,10 @@
 		7117FD6D29994FFD00F4BB29 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				7117FD6E29994FFD00F4BB29 /* Text.cpp */,
 				7117FD6F29994FFD00F4BB29 /* Light.cpp */,
+				7117FD4D29994FF400F4BB29 /* Light.hpp */,
+				7117FD6E29994FFD00F4BB29 /* Text.cpp */,
+				7117FD4E29994FF400F4BB29 /* Text.hpp */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -673,10 +595,14 @@
 			isa = PBXGroup;
 			children = (
 				7117FD7129994FFD00F4BB29 /* ModelReaders */,
-				7117FD7429994FFD00F4BB29 /* TextureLoader.cpp */,
-				7117FD7529994FFD00F4BB29 /* ModelLoader.cpp */,
-				7117FD7629994FFD00F4BB29 /* ShaderLoader.cpp */,
 				7117FD7729994FFD00F4BB29 /* FileLoader.cpp */,
+				7117FD5729994FF400F4BB29 /* FileLoader.hpp */,
+				7117FD7529994FFD00F4BB29 /* ModelLoader.cpp */,
+				7117FD5929994FF400F4BB29 /* ModelLoader.hpp */,
+				7117FD7629994FFD00F4BB29 /* ShaderLoader.cpp */,
+				7117FD5629994FF400F4BB29 /* ShaderLoader.hpp */,
+				7117FD7429994FFD00F4BB29 /* TextureLoader.cpp */,
+				7117FD5829994FF400F4BB29 /* TextureLoader.hpp */,
 			);
 			path = Loaders;
 			sourceTree = "<group>";
@@ -684,8 +610,11 @@
 		7117FD7129994FFD00F4BB29 /* ModelReaders */ = {
 			isa = PBXGroup;
 			children = (
-				7117FD7229994FFD00F4BB29 /* WavefrontObject.cpp */,
+				7117FD5329994FF400F4BB29 /* ModelData.hpp */,
 				7117FD7329994FFD00F4BB29 /* StanfordObject.cpp */,
+				7117FD5429994FF400F4BB29 /* StanfordObject.hpp */,
+				7117FD7229994FFD00F4BB29 /* WavefrontObject.cpp */,
+				7117FD5529994FF400F4BB29 /* WavefrontObject.hpp */,
 			);
 			path = ModelReaders;
 			sourceTree = "<group>";
@@ -694,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				7117FD7929994FFD00F4BB29 /* Inputs.cpp */,
+				7117FD5C29994FF400F4BB29 /* Inputs.hpp */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -712,7 +642,7 @@
 		71743D2429881759006A7C6C /* include */ = {
 			isa = PBXGroup;
 			children = (
-				7117FD3D29994FF400F4BB29 /* Icosphere */,
+				710AF999299AF0930090323C /* Icosphere.hpp */,
 			);
 			path = include;
 			sourceTree = "<group>";

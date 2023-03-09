@@ -1,6 +1,6 @@
 //
 //  WavefrontObject.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -11,7 +11,7 @@
 #pragma once
 
 #include "../../Core.hpp"
-#include "../../Loaders/ModelReaders/ModelData.hpp"
+#include "./ModelData.hpp"
 
 namespace WavefrontObj {
 

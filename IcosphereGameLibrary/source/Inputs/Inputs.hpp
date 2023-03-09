@@ -1,6 +1,6 @@
 //
 //  Inputs.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -19,9 +19,15 @@ namespace Input {
     void setMouseUpCallbackFunction(void (*callback)(int button, int x, int y));
     void setMouseScrollCallbackFunction(void (*callback)(double, double));
 
+    void setWindowEventResizeCallbackFunction(void (*callback)(int newWidth, int newHeight));
+
     void receiveInputFromSdl();
     uint8_t shouldExitProgram();
 }
+
+struct WindowInput {
+    void (*respondWindowResize)(int, int);
+};
 
 struct Keyboard {
     void (*respondKeyUp)(int keyPressed);

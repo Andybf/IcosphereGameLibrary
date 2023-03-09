@@ -5,8 +5,8 @@
 //  Created by Anderson Bucchianico on 27/01/23.
 //
 
-#include <Icosphere/Core/Window.hpp>
-#include <Icosphere/Inputs/Inputs.hpp>
+#include "./Window.hpp"
+#include "../Inputs/Inputs.hpp"
 
 struct ProgramTime {
     int current = 0;
@@ -58,7 +58,7 @@ void Window::initialize(ushort width, ushort height, char* title) {
         SDL_WINDOWPOS_CENTERED,
         window->width,
         window->height,
-        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI
+        SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE
     );
 }
 

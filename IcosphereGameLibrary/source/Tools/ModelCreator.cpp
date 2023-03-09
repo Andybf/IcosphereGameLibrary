@@ -5,37 +5,70 @@
 //  Created by Anderson Bucchianico on 09/02/23.
 //
 
-#include <Icosphere/Tools/ModelCreator.hpp>
+#include "./ModelCreator.hpp"
 
 ModelData* ModelCreator::grid(uint width, uint height, float squareSize) {
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData), 1);
-
+    
+    // Generate Vertices =================================================
+    
     modelData->vertices.dimensions = 3;
-    for (float x=0; x<=width; x++) {
-        for (float z=0; z<=height; z++){
+    int counterStart = 0;
+    int counterLimit = width;
+    for (int z=0; z<height; z++) {
+        for (int x=counterStart; x<=counterLimit; x++) {
             modelData->vertices.data.insert(modelData->vertices.data.end(),{
-                x*squareSize, 0.0f, z*squareSize,
+                abs((float)x), 0.0f, (float)z,
+                abs((float)x), 0.0f, (float)z+1
             });
         }
-    }
-    for (int j=0; j<width; j++) {
-        for (int i=0; i<height; i++) {
-            uint row1 = j * (height + 1);
-            uint row2 = (j + 1) * (height + 1);
-            modelData->indices.data.insert(modelData->indices.data.end(), {
-                row1+i, row1+i+1, row2+i,
-                row1+i, row2+i+1, row2+i
+        if (z != height-1) {
+            modelData->vertices.data.insert(modelData->vertices.data.end(),{
+                abs((float)counterLimit), 0.0f, (float)z+2
             });
         }
+        counterLimit = (counterLimit==0) ? width : 0;
+        counterStart = (counterStart==0 || counterStart==1) ? -(width-1) : 1;
     }
-    modelData->indices.data.insert(modelData->indices.data.end(), {
-        height, (uint)(modelData->vertices.data.size()-3)/3, height,
-    });
+    
+    // Generate Indices ==================================================
+    
+    for (int verticeIndex=0; verticeIndex<modelData->vertices.data.size(); verticeIndex+=3) {
+        int faceIndex = 0;
+        for (int verticeToCompareIndex=0; verticeToCompareIndex<verticeIndex; verticeToCompareIndex+=3) {
+            if (modelData->vertices.data.at(verticeIndex) == modelData->vertices.data.at(verticeToCompareIndex) &&
+                modelData->vertices.data.at(verticeIndex+2) == modelData->vertices.data.at(verticeToCompareIndex+2))
+            {
+                break;
+            }
+            faceIndex++;
+        }
+        modelData->indices.data.push_back(faceIndex);
+    }
+    
     return modelData;
 }
 
-ModelData* ModelCreator::surface(float width, float height) {
+ModelData* ModelCreator::quad(float width, float height) {
     ModelData* modelData = (ModelData*) calloc(sizeof(ModelData), 1);
+    modelData->vertices.dimensions = 3;
+    modelData->vertices.data.insert(modelData->vertices.data.end(), {
+        0.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+        1.0f, 1.0f, 0.0f,
+        0.0f, 1.0f, 0.0f
+    });
+    modelData->texCoords.dimensions = 2;
+    modelData->texCoords.data.insert(modelData->texCoords.data.end(), {
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f
+    });
+    modelData->indices.data.insert(modelData->indices.data.end(), {
+        0, 1, 2,
+        0, 2, 3
+    });
     return modelData;
 }
 

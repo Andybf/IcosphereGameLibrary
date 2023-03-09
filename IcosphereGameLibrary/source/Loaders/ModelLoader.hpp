@@ -1,11 +1,12 @@
 //
 //  ModelLoader.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#pragma once
+#ifndef ModelLoader_hpp
+#define ModelLoader_hpp
 
 #include "FileLoader.hpp"
 #include "../World/Entity.hpp"
@@ -20,7 +21,7 @@
 namespace ModelLoader {
 
     Mesh* loadFromFile(cchar* modelFileName, uint shaderId);
-
     Mesh* loadFromModelData(ModelData* modelData, uint shaderId);
 };
 
+#endif /* ModelLoader_hpp */

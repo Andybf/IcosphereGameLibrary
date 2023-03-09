@@ -1,6 +1,6 @@
 //
 //  FileLoader.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //

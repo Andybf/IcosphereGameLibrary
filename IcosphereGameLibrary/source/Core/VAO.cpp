@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/Core/VAO.hpp>
+#include "./VAO.hpp"
 
 void VAO::bind(GLuint id) {
     IC_TEST(glBindVertexArray(id));

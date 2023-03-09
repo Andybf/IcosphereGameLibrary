@@ -1,11 +1,11 @@
 //
 //  FileLoader.cpp
-//  Icosphere
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/Loaders/FileLoader.hpp>
+#include "./FileLoader.hpp"
 
 char* programPath;
 void removeExecutableNameFrom(std::string* path);

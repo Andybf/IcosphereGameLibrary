@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/World/Entity.hpp>
+#include "./Entity.hpp"
 
 Entity::Entity() {
     this->matrix = glm::mat4(1.0f);

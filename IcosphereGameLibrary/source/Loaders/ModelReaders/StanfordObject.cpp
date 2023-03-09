@@ -1,6 +1,6 @@
 //
 //  StanfordObject.cpp
-//  Icosphere
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -10,7 +10,7 @@
 //  three-dimensional data from 3D scanners.
 //
 
-#include <Icosphere/Loaders/ModelReaders/StanfordObject.hpp>
+#include "./StanfordObject.hpp"
 
 void readFaces(FILE* file, uint64_t faces, std::vector<uint>* indices);
 void checkFileType(FILE* file);

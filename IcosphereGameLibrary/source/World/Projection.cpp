@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/World/Projection.hpp>
+#include "./Projection.hpp"
 
 Projection::Projection() {
     this->perspectiveMatrix = glm::mat4(1.0f);

@@ -5,26 +5,26 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/World/Entities/Text.hpp>
+#include "./Text.hpp"
 
 Text::Text(uint fontMapTextureId, uint textShaderId) {
     
-    ModelData* modelData = (ModelData*) calloc(sizeof(ModelData), 1);
-    modelData->vertices.dimensions = 3;
-    modelData->vertices.data = std::vector<GLfloat> {
+    ModelData* caracterQuad = (ModelData*) calloc(sizeof(ModelData), 1);
+    caracterQuad->vertices.dimensions = 3;
+    caracterQuad->vertices.data = std::vector<GLfloat> {
         0.0f, 0.0f, 0.0f,
         1.0f, 0.0f, 0.0f,
         1.0f, 1.0f, 0.0f,
         0.0f, 1.0f, 0.0f
     };
-    modelData->texCoords.dimensions = 3;
-    modelData->texCoords.data = std::vector<GLfloat> {
+    caracterQuad->texCoords.dimensions = 3;
+    caracterQuad->texCoords.data = std::vector<GLfloat> {
         0.0000f, 0.0000f, 0.0f,
         0.0625f, 0.0000f, 0.0f,
         0.0625f, 0.0625f, 0.0f,
         0.0000f, 0.0625f, 0.0f
     };
-    modelData->indices.data = std::vector<uint> {
+    caracterQuad->indices.data = std::vector<uint> {
         0, 1, 2,
         0, 2, 3
     };
@@ -35,7 +35,7 @@ Text::Text(uint fontMapTextureId, uint textShaderId) {
     this->setScale(glm::vec3(characterScale));
     this->relatedTextureId = fontMapTextureId;
     this->relatedShaderId = textShaderId;
-    this->mesh = ModelLoader::loadFromModelData(modelData, this->relatedShaderId);
+    this->mesh = ModelLoader::loadFromModelData(caracterQuad, this->relatedShaderId);
     this->string32bit = (int*) calloc(sizeof(int), 1);
     this->content = (char*) calloc(sizeof(char), 256);
 }

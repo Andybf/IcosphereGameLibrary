@@ -1,6 +1,6 @@
 //
 //  WavefrontObject.cpp
-//  Icosphere
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -8,7 +8,7 @@
 //  OBJ (or .OBJ) is a geometry definition file format first developed by
 //  Wavefront Technologies for its Advanced Visualizer animation package.
 
-#include <Icosphere/Loaders/ModelReaders/WavefrontObject.hpp>
+#include "./WavefrontObject.hpp"
 
 void readFaceValue(char* buffer, std::vector<uint>* indices, FILE* file);
 void moveFilePointerToBefore(FILE* file, cchar* substring);

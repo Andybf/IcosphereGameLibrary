@@ -1,6 +1,6 @@
 //
 //  TextureLoader.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -14,10 +14,18 @@
 #define MI_MIPMAP_0 0
 #define MI_BORDER_WIDTH 0
 
+struct Image{
+    uchar* data;
+    int width;
+    int height;
+    int colorChannels;
+};
+
 namespace TextureLoader {
 
-    GLuint load2d(cchar* textureFileName);
-    GLuint loadCubemap(std::vector<cchar*> textureFaces);
+    struct Image* loadFromFile(cchar* textureFileName);
+    GLuint load2d(struct Image* imageData);
+    GLuint loadCubemap(std::vector<struct Image*> imageDataVector);
     
 };
 

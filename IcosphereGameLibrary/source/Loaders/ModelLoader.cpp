@@ -1,11 +1,11 @@
 //
 //  ModelLoader.cpp
-//  Icosphere
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/Loaders/ModelLoader.hpp>
+#include "./ModelLoader.hpp"
 
 void checkModelData(ModelData* modelData, cchar* modelName);
 
@@ -33,10 +33,12 @@ Mesh* ModelLoader::loadFromFile(cchar* modelFileName, uint shaderId) {
 
 Mesh* ModelLoader::loadFromModelData(ModelData* modelData, uint relatedShaderId) {
     ulong modelsSize = modelData->vertices.data.size()*sizeof(GLfloat);
-    ulong normalsSize = modelsSize + modelData->normals.data.size()*sizeof(GLfloat);
+    ulong colorsSize = modelsSize + modelData->colors.data.size()*sizeof(GLfloat);
+    ulong normalsSize = colorsSize + modelData->normals.data.size()*sizeof(GLfloat);
     
     Mesh* mesh = (Mesh*)calloc(sizeof(Mesh), 1);
     mesh->vboId = VBO::generateNewVBO(modelData->vertices.data,
+                                      modelData->colors.data,
                                       modelData->normals.data,
                                       modelData->texCoords.data);
     mesh->vaoId = VAO::generateNewVAO();
@@ -46,11 +48,17 @@ Mesh* ModelLoader::loadFromModelData(ModelData* modelData, uint relatedShaderId)
                        glGetAttribLocation(relatedShaderId,"positionVec"),
                        modelData->vertices.dimensions,
                        0);
+    if (glGetAttribLocation(relatedShaderId, "colors") != -1) {
+        VAO::linkAttribute(mesh->vaoId,
+                           glGetAttribLocation(relatedShaderId, "colors"),
+                           modelData->colors.dimensions,
+                           modelsSize);
+    }
     if (glGetAttribLocation(relatedShaderId, "normals") != -1) {
         VAO::linkAttribute(mesh->vaoId,
                            glGetAttribLocation(relatedShaderId, "normals"),
                            modelData->normals.dimensions,
-                           modelsSize);
+                           colorsSize);
     }
     if (glGetAttribLocation(relatedShaderId, "texCoord") != -1) {
         VAO::linkAttribute(mesh->vaoId,

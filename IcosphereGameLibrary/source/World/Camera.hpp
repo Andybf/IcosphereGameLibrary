@@ -18,11 +18,11 @@ private:
     glm::vec3 position;
     glm::vec3 upAxis;
     glm::vec3 orientation;
-    glm::vec3 rotationCenter;
     
 public:
     Camera();
     
+    glm::vec3 rotationCenter;
     glm::mat4 getMatrix();
     
     void setPosition(glm::vec3 position);

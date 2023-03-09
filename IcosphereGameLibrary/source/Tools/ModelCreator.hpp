@@ -15,7 +15,7 @@ namespace ModelCreator {
 
     ModelData* grid(uint width, uint height, float squareSize);
 
-    ModelData* surface(float width, float height);
+    ModelData* quad(float width, float height);
 
     ModelData* sphere(float radius);
 

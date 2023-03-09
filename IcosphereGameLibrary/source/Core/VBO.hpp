@@ -14,9 +14,10 @@ namespace VBO {
     void bind(GLuint id);
     void unbind();
     void deleteObject(GLuint id);
-    GLuint generateNewVBO(std::vector<float> vertices,
-                          std::vector<float> normals,
-                          std::vector<float> texCoords);
+    GLuint generateNewVBO(std::vector<GLfloat> vertices,
+                          std::vector<GLfloat> colors,
+                          std::vector<GLfloat> normals,
+                          std::vector<GLfloat> texCoords);
 }
 
 #endif /* VBO_hpp */

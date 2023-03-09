@@ -5,7 +5,7 @@
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/World/Cameras/DebugCamera.hpp>
+#include "./DebugCamera.hpp"
 
 DebugCamera::DebugCamera(Camera* camera) {
     this->camera = camera;
@@ -57,8 +57,13 @@ void DebugCamera::handleMouseMovement(float x, float y) {
 
 void DebugCamera::handleMouseScroll(float x, float y) {
     if (y > 0) {
-        this->camera->setPosition(this->camera->getPosition() + this->camera->getOrientation());
+        this->camera->setPosition(glm::vec3(this->camera->getPosition().x,
+                                            this->camera->getPosition().y,
+                                            this->camera->getPosition().z +0.25f));
     } else {
-        this->camera->setPosition(this->camera->getPosition() - this->camera->getOrientation());
+        this->camera->setPosition(glm::vec3(this->camera->getPosition().x,
+                                            this->camera->getPosition().y,
+                                            this->camera->getPosition().z -0.25f));
+        //this->camera->setPosition(this->camera->getPosition() - this->camera->getOrientation());
     }
 }

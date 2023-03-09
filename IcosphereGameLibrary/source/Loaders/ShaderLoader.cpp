@@ -1,11 +1,11 @@
 //
 //  ShaderLoader.cpp
-//  Icosphere
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
 
-#include <Icosphere/Loaders/ShaderLoader.hpp>
+#include "./ShaderLoader.hpp"
 
 GLuint compile(int shaderType, char* sourceContents);
 GLuint link(int vextexId, int fragmentId);

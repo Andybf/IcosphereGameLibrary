@@ -1,15 +1,17 @@
 //
 //  Inputs.cpp
-//  Icosphere
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 31/01/23.
 //
 
-#include <Icosphere/Inputs/Inputs.hpp>
+#include "./Inputs.hpp"
 
 SDL_Event sdlEvent;
 uint8_t isQuitSignalEmitted;
 struct Keyboard keyboard;
+struct Mouse mouse;
+struct WindowInput windowInput;
 
 void Input::setKeyUpCallbackFunction(void (*callback)(int)) {
     keyboard.respondKeyUp = callback;
@@ -17,8 +19,6 @@ void Input::setKeyUpCallbackFunction(void (*callback)(int)) {
 void Input::setKeyDownCallbackFunction(void (*callback)(int)) {
     keyboard.respondKeyDown = callback;
 }
-
-struct Mouse mouse;
 
 void Input::setMouseMovementCallbackFunction(void (*callback)(double, double)) {
     mouse.respondMovement = callback;
@@ -31,6 +31,10 @@ void Input::setMouseUpCallbackFunction(void (*callback)(int button, int x, int y
 }
 void Input::setMouseScrollCallbackFunction(void (*callback)(double, double)) {
     mouse.respondScroll = callback;
+}
+
+void Input::setWindowEventResizeCallbackFunction(void (*callback)(int newWidth, int newHeight)) {
+    windowInput.respondWindowResize = callback;
 }
 
 void Input::receiveInputFromSdl() {
@@ -64,6 +68,11 @@ void Input::receiveInputFromSdl() {
             case SDL_MOUSEWHEEL:
                 if(IC_IS_FUNCTION_DEFINED(mouse.respondScroll)) {
                     mouse.respondScroll(sdlEvent.wheel.preciseX, sdlEvent.wheel.preciseY);
+                }
+                break;
+            case SDL_WINDOWEVENT:
+                if (sdlEvent.window.event == SDL_WINDOWEVENT_RESIZED && IC_IS_FUNCTION_DEFINED(windowInput.respondWindowResize)) {
+                    windowInput.respondWindowResize(sdlEvent.window.data1, sdlEvent.window.data2);
                 }
                 break;
             case SDL_QUIT:

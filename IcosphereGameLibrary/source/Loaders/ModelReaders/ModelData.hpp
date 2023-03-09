@@ -1,6 +1,6 @@
 //
 //  ModelData.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -14,6 +14,11 @@ struct ModelData {
         std::vector<float> data;
         unsigned int dimensions;
     } vertices;
+    
+    struct Colors {
+        std::vector<float> data;
+        unsigned int dimensions;
+    } colors;
     
     struct Normals {
         std::vector<float> data;

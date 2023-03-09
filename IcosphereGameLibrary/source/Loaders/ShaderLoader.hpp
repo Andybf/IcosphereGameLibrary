@@ -1,6 +1,6 @@
 //
 //  ShaderLoader.hpp
-//  ApoloGameLibrary
+//  IcosphereGameLibrary
 //
 //  Created by Anderson Bucchianico on 30/01/23.
 //
@@ -9,7 +9,7 @@
 #define ShaderLoader_hpp
 
 #include "../Core.hpp"
-#include "FileLoader.hpp"
+#include "./FileLoader.hpp"
 
 namespace ShaderLoader {
     

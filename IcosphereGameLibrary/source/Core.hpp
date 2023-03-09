@@ -22,6 +22,7 @@
 #include "../dependencies/glm/gtx/matrix_decompose.hpp"
 #include "../dependencies/glm/gtc/random.hpp"
 #include "../dependencies/glm/gtx/rotate_vector.hpp"
+#include "../dependencies/glm/gtc/noise.hpp"
 
 #ifdef __APPLE__
     #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
